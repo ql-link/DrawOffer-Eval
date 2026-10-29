@@ -4,7 +4,7 @@ DrawOffer 长期求职记忆引擎的独立测评。引擎根据一位求职者�
 
 本仓库只放测评代码、方法、剧本与结果；引擎本身在 DrawOffer 主仓库（`drawoffer.memory`，私有），以可编辑依赖引入。没有主仓库时可以阅读方法、剧本与结果，但不能重跑。
 
-结果见 [reports/RESULTS.md](reports/RESULTS.md)。
+结果见 [reports/RESULTS.md](reports/RESULTS.md)，原始结果 JSON 在 [results/](results)。
 
 ## 测了什么
 

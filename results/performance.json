@@ -1,0 +1,152 @@
+{
+ "default_engine": "1",
+ "catalog_version": "2026.10.7",
+ "machine": {
+  "python": "3.13.13",
+  "system": "Darwin arm64",
+  "processor": "arm",
+  "numpy": "2.5.4"
+ },
+ "rows": [
+  {
+   "sessions": 10,
+   "questions_per_session": 6,
+   "answers": 60,
+   "observations_mean": 120,
+   "leaves_mean": 69,
+   "learners": 5,
+   "repeats": 3,
+   "engine1_full_seconds": {
+    "p50": 0.0052,
+    "p95": 0.0058,
+    "max": 0.0058,
+    "n": 15
+   },
+   "engine2_full_seconds": {
+    "p50": 0.0273,
+    "p95": 0.0363,
+    "max": 0.0363,
+    "n": 15
+   },
+   "engine2_incremental_seconds": {
+    "p50": 0.0096,
+    "p95": 0.0137,
+    "max": 0.0137,
+    "n": 15
+   },
+   "incremental_equals_full": "5/5"
+  },
+  {
+   "sessions": 50,
+   "questions_per_session": 6,
+   "answers": 300,
+   "observations_mean": 600,
+   "leaves_mean": 69,
+   "learners": 5,
+   "repeats": 3,
+   "engine1_full_seconds": {
+    "p50": 0.022,
+    "p95": 0.0288,
+    "max": 0.0288,
+    "n": 15
+   },
+   "engine2_full_seconds": {
+    "p50": 0.1288,
+    "p95": 0.1931,
+    "max": 0.1931,
+    "n": 15
+   },
+   "engine2_incremental_seconds": {
+    "p50": 0.0098,
+    "p95": 0.0129,
+    "max": 0.0129,
+    "n": 15
+   },
+   "incremental_equals_full": "5/5"
+  },
+  {
+   "sessions": 100,
+   "questions_per_session": 6,
+   "answers": 600,
+   "observations_mean": 1200,
+   "leaves_mean": 69,
+   "learners": 5,
+   "repeats": 3,
+   "engine1_full_seconds": {
+    "p50": 0.0441,
+    "p95": 0.0535,
+    "max": 0.0535,
+    "n": 15
+   },
+   "engine2_full_seconds": {
+    "p50": 0.2664,
+    "p95": 0.3829,
+    "max": 0.3829,
+    "n": 15
+   },
+   "engine2_incremental_seconds": {
+    "p50": 0.0124,
+    "p95": 0.0891,
+    "max": 0.0891,
+    "n": 15
+   },
+   "incremental_equals_full": "5/5"
+  },
+  {
+   "sessions": 200,
+   "questions_per_session": 6,
+   "answers": 1200,
+   "observations_mean": 2400,
+   "leaves_mean": 69,
+   "learners": 5,
+   "repeats": 3,
+   "engine1_full_seconds": {
+    "p50": 0.0933,
+    "p95": 0.2067,
+    "max": 0.2067,
+    "n": 15
+   },
+   "engine2_full_seconds": {
+    "p50": 0.5625,
+    "p95": 1.8049,
+    "max": 1.8049,
+    "n": 15
+   },
+   "engine2_incremental_seconds": {
+    "p50": 0.0174,
+    "p95": 0.0267,
+    "max": 0.0267,
+    "n": 15
+   },
+   "incremental_equals_full": "5/5"
+  },
+  {
+   "sessions": 500,
+   "questions_per_session": 6,
+   "answers": 3000,
+   "observations_mean": 6000,
+   "leaves_mean": 69,
+   "learners": 5,
+   "repeats": 3,
+   "engine1_full_seconds": {
+    "p50": 0.2767,
+    "p95": 0.7985,
+    "max": 0.7985,
+    "n": 15
+   },
+   "engine2_full_seconds": {
+    "p50": 1.6033,
+    "p95": 2.2542,
+    "max": 2.2542,
+    "n": 15
+   },
+   "engine2_incremental_seconds": {
+    "p50": 0.0384,
+    "p95": 0.208,
+    "max": 0.208,
+    "n": 15
+   },
+   "incremental_equals_full": "5/5"
+  }
+ ]
+}
