@@ -1,0 +1,305 @@
+{
+  "id": "p27",
+  "version": 1,
+  "status": "draft",
+  "direction": "ai",
+  "level": "campus",
+  "situation": "简历写“精通 RAG”，两场面试五个 RAG 知识点都停在 L2（含新加的文档解析）",
+  "truth": {
+    "knowledge": [
+      {
+        "node": "kp:llm_app.rag.chunking",
+        "trajectory": [
+          {
+            "date": "2026-06-01",
+            "level": "L2"
+          }
+        ]
+      },
+      {
+        "node": "kp:llm_app.rag.retrieval",
+        "trajectory": [
+          {
+            "date": "2026-06-01",
+            "level": "L2"
+          }
+        ]
+      },
+      {
+        "node": "kp:llm_app.rag.ingestion",
+        "trajectory": [
+          {
+            "date": "2026-06-01",
+            "level": "L2"
+          }
+        ]
+      },
+      {
+        "node": "kp:llm_app.rag.rerank",
+        "trajectory": [
+          {
+            "date": "2026-06-01",
+            "level": "L2"
+          }
+        ]
+      },
+      {
+        "node": "kp:llm_app.rag.evaluation",
+        "trajectory": [
+          {
+            "date": "2026-06-01",
+            "level": "L2"
+          }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "key": "rag_expert",
+        "text": "精通 RAG 检索增强",
+        "node": "tp:llm_app.rag",
+        "truth": "overstated",
+        "dimension": "proficiency"
+      }
+    ],
+    "baseline": 2,
+    "manner": "语速快，喜欢用英文术语。"
+  },
+  "timeline": [
+    {
+      "date": "2026-06-02",
+      "event": "resume_saved",
+      "ref": "resume_v1",
+      "note": "写“精通 RAG 检索增强”",
+      "resume": {
+        "title": "AI 应用开发",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例邮电大学",
+                "major": "人工智能",
+                "degree": "本科",
+                "start": "2022.09",
+                "end": "2026.06"
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "精通 RAG 检索增强",
+              "熟悉 Python、LangChain",
+              "了解提示词工程"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-06-10",
+      "event": "mock_interview",
+      "ref": "mock_1",
+      "note": "三个 RAG 知识点都停在 L2",
+      "interview": {
+        "type": "technical",
+        "difficulty": "junior",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "文档切分",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:llm_app.rag.chunking"
+            ],
+            "question": "文档切分的块大小和重叠是怎么定的？",
+            "signals": [
+              {
+                "text": "块大小与召回的关系",
+                "core": true
+              },
+              {
+                "text": "重叠避免截断语义",
+                "core": false
+              }
+            ],
+            "skill": "RAG"
+          },
+          {
+            "topic": "召回",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:llm_app.rag.retrieval"
+            ],
+            "question": "向量召回不准的时候你会从哪些方面排查？",
+            "signals": [
+              {
+                "text": "嵌入模型与查询改写",
+                "core": true
+              },
+              {
+                "text": "TopK 与阈值",
+                "core": false
+              }
+            ],
+            "skill": "RAG"
+          },
+          {
+            "topic": "文档解析",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:llm_app.rag.ingestion"
+            ],
+            "question": "PDF 里的表格和多栏排版，入库前你是怎么解析的？文档更新后索引怎么同步？",
+            "signals": [
+              {
+                "text": "版面解析与表格处理",
+                "core": true
+              },
+              {
+                "text": "增量更新与版本",
+                "core": false
+              }
+            ],
+            "skill": "RAG"
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-06-24",
+      "event": "mock_interview",
+      "ref": "mock_2",
+      "note": "另外两个也停在 L2，切分再次 L2",
+      "interview": {
+        "type": "technical",
+        "difficulty": "junior",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "重排",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:llm_app.rag.rerank"
+            ],
+            "question": "为什么召回之后还要重排？重排模型和向量模型有什么不同？",
+            "signals": [
+              {
+                "text": "交叉编码与双塔",
+                "core": true
+              },
+              {
+                "text": "精度与延迟的取舍",
+                "core": false
+              }
+            ],
+            "skill": "RAG"
+          },
+          {
+            "topic": "RAG 评估",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:llm_app.rag.evaluation"
+            ],
+            "question": "你怎么评估一个 RAG 系统的效果？",
+            "signals": [
+              {
+                "text": "召回与生成分开评",
+                "core": true
+              },
+              {
+                "text": "离线集与线上反馈",
+                "core": false
+              }
+            ],
+            "skill": "RAG"
+          },
+          {
+            "topic": "文档切分",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:llm_app.rag.chunking"
+            ],
+            "question": "按固定长度切和按语义切各有什么问题？",
+            "signals": [
+              {
+                "text": "固定长度截断语义",
+                "core": true
+              },
+              {
+                "text": "语义切分成本",
+                "core": false
+              }
+            ],
+            "skill": "RAG"
+          }
+        ]
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "c1",
+      "at": "2026-06-03",
+      "assert": "issue_absent",
+      "kind": "overstated",
+      "note": "只有简历，不判夸大"
+    },
+    {
+      "id": "c2",
+      "at": "2026-06-25",
+      "assert": "issue_present",
+      "kind": "overstated",
+      "about": "claim:rag_expert"
+    },
+    {
+      "id": "c3",
+      "at": "2026-06-25",
+      "assert": "ability_level",
+      "node": "kp:llm_app.rag.chunking",
+      "expected": "familiar"
+    },
+    {
+      "id": "c4",
+      "at": "2026-06-25",
+      "assert": "ability_level",
+      "node": "kp:llm_app.rag.ingestion",
+      "expected": "familiar",
+      "note": "只问过一次，停在原理层"
+    },
+    {
+      "id": "c5",
+      "at": "2026-06-25",
+      "assert": "ability_level",
+      "node": "kp:llm_app.rag.degradation",
+      "expected": "insufficient",
+      "note": "从没被问过"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "at": "2026-06-25",
+      "scenario": "resume.section_focus",
+      "task": "对技能栏“精通 RAG 检索增强”发起段落聚焦",
+      "target": "resume_v1:skills",
+      "must_include": [
+        "针对“精通 RAG 检索增强”建议降低措辞或补充能支撑的实例"
+      ],
+      "must_exclude": [
+        "保留“精通”或改成更强说法的改写"
+      ]
+    }
+  ]
+}

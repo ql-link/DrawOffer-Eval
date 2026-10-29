@@ -1,0 +1,303 @@
+{
+  "id": "p14",
+  "version": 3,
+  "status": "draft",
+  "direction": "frontend",
+  "level": "campus",
+  "situation": "用户更正：拆开被错误合并的经历；选定数字“以哪个为准”；忽略一个问题",
+  "truth": {
+    "knowledge": [
+      {
+        "node": "kp:css.layout.flex",
+        "trajectory": [
+          {
+            "date": "2026-04-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:browser.runtime.event_loop",
+        "trajectory": [
+          {
+            "date": "2026-04-01",
+            "level": "L1"
+          }
+        ]
+      }
+    ],
+    "experiences": [
+      {
+        "key": "shop_mini",
+        "title": "社区团购小程序（实习）",
+        "kind": "internship",
+        "role": "own",
+        "weight": "W2",
+        "role_text": "负责",
+        "story": "实习时负责社区团购小程序的商品列表和下单页；被问到首屏时间时说“首屏大概 1.2 秒”。",
+        "facts": [
+          "商品列表做了分页加载和图片懒加载"
+        ],
+        "facets": {
+          "background": "clear",
+          "task": "clear",
+          "action": "clear",
+          "tradeoff": "partial",
+          "result": "partial",
+          "boundary": "clear"
+        },
+        "behaviours": [
+          "被问到首屏时间时说“首屏大概 1.2 秒”"
+        ]
+      },
+      {
+        "key": "shop_course",
+        "title": "团购小程序（课程设计）",
+        "kind": "project",
+        "role": "own",
+        "weight": "W1",
+        "role_text": "负责",
+        "story": "课程设计里做的团购小程序原型，只有静态页面。"
+      }
+    ],
+    "baseline": 2,
+    "manner": "语速快，喜欢边说边举例。"
+  },
+  "timeline": [
+    {
+      "date": "2026-04-02",
+      "event": "resume_saved",
+      "ref": "resume_v1",
+      "note": "两段标题相近的团购经历",
+      "resume": {
+        "title": "前端-校招",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例理工大学",
+                "major": "数字媒体技术",
+                "degree": "本科",
+                "start": "2022.09",
+                "end": "2026.06"
+              }
+            ]
+          },
+          {
+            "kind": "work",
+            "title": "实习经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "experience": "shop_mini",
+                "name": "社区团购小程序（实习）",
+                "organization": "示例邻里科技",
+                "role": "前端实习生",
+                "start": "2025.07",
+                "end": "2025.10",
+                "lines": [
+                  "负责商品列表与下单页开发",
+                  "首屏时间优化到 0.8 秒"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "project",
+            "title": "项目经历",
+            "entries": [
+              {
+                "node": "exp2",
+                "experience": "shop_course",
+                "name": "团购小程序（课程设计）",
+                "organization": "示例理工大学",
+                "role": "前端开发",
+                "start": "2024.03",
+                "end": "2024.06",
+                "lines": [
+                  "完成团购小程序原型的页面开发"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "熟悉 CSS 布局",
+              "熟悉 JavaScript",
+              "了解小程序开发"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-04-10",
+      "event": "mock_interview",
+      "ref": "mock_1",
+      "note": "口述首屏 1.2 秒，简历写 0.8 秒",
+      "interview": {
+        "type": "technical",
+        "difficulty": "junior",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "CSS Flex 布局",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:css.layout.flex"
+            ],
+            "skill": "CSS",
+            "question": "flex: 1 是什么意思？flex-basis 和 width 谁优先？",
+            "signals": [
+              {
+                "text": "flex-grow/shrink/basis",
+                "core": true
+              },
+              {
+                "text": "basis 与 width 的优先级",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "事件循环",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:browser.runtime.event_loop"
+            ],
+            "skill": "JavaScript",
+            "question": "说说浏览器的事件循环，宏任务和微任务的执行顺序？",
+            "signals": [
+              {
+                "text": "宏任务与微任务",
+                "core": true
+              },
+              {
+                "text": "执行顺序示例",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "社区团购小程序",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "shop_mini",
+            "question": "讲讲团购小程序，首屏时间是多少，怎么优化的？",
+            "signals": [
+              {
+                "text": "讲清优化手段",
+                "core": true
+              },
+              {
+                "text": "讲清首屏指标与测量",
+                "core": false
+              }
+            ],
+            "directions": [
+              "首屏时间怎么测的",
+              "哪些是你做的"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-04-12",
+      "event": "correction",
+      "ref": "fix_1",
+      "note": "拆开两段团购经历",
+      "correction": {
+        "kind": "cannot_link",
+        "mentions": [
+          "resume_v1:exp1",
+          "resume_v1:exp2"
+        ]
+      }
+    },
+    {
+      "date": "2026-04-12",
+      "event": "correction",
+      "ref": "fix_2",
+      "note": "首屏时间以 1.2 秒为准",
+      "correction": {
+        "kind": "fix_value",
+        "experience": "resume_v1:exp1",
+        "value": "1.2 秒"
+      }
+    },
+    {
+      "date": "2026-04-13",
+      "event": "correction",
+      "ref": "fix_3",
+      "note": "忽略“事件循环”知识缺口",
+      "correction": {
+        "kind": "ignore",
+        "issue": "knowledge_gap",
+        "about": "kp:browser.runtime.event_loop"
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "c1",
+      "at": "2026-04-11",
+      "assert": "issue_present",
+      "kind": "inconsistent",
+      "about": "exp:shop_mini"
+    },
+    {
+      "id": "c2",
+      "at": "2026-04-13",
+      "assert": "experience_merged",
+      "mentions": [
+        "resume_v1:exp1"
+      ],
+      "separate_from": [
+        "resume_v1:exp2"
+      ]
+    },
+    {
+      "id": "c3",
+      "at": "2026-04-13",
+      "assert": "issue_absent",
+      "kind": "inconsistent",
+      "about": "exp:shop_mini"
+    },
+    {
+      "id": "c4",
+      "at": "2026-04-14",
+      "assert": "issue_present",
+      "kind": "knowledge_gap",
+      "about": "kp:browser.runtime.event_loop",
+      "note": "忽略只影响是否进入 AI 上下文，问题本身仍在"
+    },
+    {
+      "id": "c5",
+      "at": "2026-04-11",
+      "assert": "ability_level",
+      "node": "kp:css.layout.flex",
+      "expected": "proficient"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "at": "2026-04-14",
+      "scenario": "interview.brief",
+      "task": "渲染面试前速览",
+      "must_exclude": [
+        "事件循环"
+      ]
+    }
+  ]
+}

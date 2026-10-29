@@ -1,0 +1,234 @@
+{
+  "id": "p22",
+  "version": 1,
+  "status": "draft",
+  "direction": "backend",
+  "level": "senior",
+  "situation": "真实面试复盘：ES 写入答到 L3；岗位要求的 K8s 调度先答对用法、问到原理明确说不会",
+  "truth": {
+    "knowledge": [
+      {
+        "node": "kp:elasticsearch.write",
+        "trajectory": [
+          {
+            "date": "2026-05-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:k8s.scheduling",
+        "trajectory": [
+          {
+            "date": "2026-05-01",
+            "level": "L1"
+          }
+        ]
+      }
+    ],
+    "baseline": 3,
+    "manner": "实事求是，不会的直接说不会。"
+  },
+  "timeline": [
+    {
+      "date": "2026-05-02",
+      "event": "resume_saved",
+      "ref": "resume_v1",
+      "note": "",
+      "resume": {
+        "title": "Java 高级工程师",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例交通大学",
+                "major": "软件工程",
+                "degree": "本科",
+                "start": "2012.09",
+                "end": "2016.06"
+              }
+            ]
+          },
+          {
+            "kind": "work",
+            "title": "工作经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "name": "订单搜索平台",
+                "organization": "示例北岸电商",
+                "role": "高级工程师",
+                "start": "2019.03",
+                "end": "2026.04",
+                "lines": [
+                  "负责订单搜索平台的索引写入与查询优化",
+                  "订单数据经 binlog 同步到 Elasticsearch"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "熟悉 Java、Elasticsearch",
+              "了解 Kubernetes"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-05-05",
+      "event": "job_saved",
+      "ref": "job_a",
+      "note": "要求熟悉 K8s 调度与资源限制",
+      "job": {
+        "company": "示例东湖云",
+        "title": "高级后端工程师",
+        "employment_type": "社招",
+        "city": "武汉",
+        "skills": [
+          "Java",
+          "Kubernetes",
+          "Elasticsearch"
+        ],
+        "description": "负责搜索平台容器化。要求：熟悉 Kubernetes 调度机制与资源 requests/limits 配置；熟悉 Elasticsearch 写入与调优。",
+        "experience_requirement": "5年以上"
+      }
+    },
+    {
+      "date": "2026-05-15",
+      "event": "real_interview_review",
+      "ref": "review_1",
+      "note": "已区分说话人；ES 写入答到 L3；K8s 先答对 requests/limits 是什么（L1），问到调度器怎么打分时说不会",
+      "review": {
+        "company": "示例东湖云",
+        "job_title": "高级后端工程师",
+        "stage": "一面",
+        "diarized": true,
+        "resume": "resume_v1",
+        "experience_requirement": "5年以上",
+        "questions": [
+          {
+            "question": "ES 写入一条文档后为什么不能马上搜到？refresh 和 flush 有什么区别？",
+            "nodes": [
+              "kp:elasticsearch.write"
+            ],
+            "follow_ups": [
+              "写入量很大时你会怎么调 refresh_interval？代价是什么？"
+            ],
+            "depths": [
+              2,
+              3
+            ]
+          },
+          {
+            "question": "Pod 的 requests 和 limits 分别是什么意思？",
+            "nodes": [
+              "kp:k8s.scheduling"
+            ],
+            "depths": [
+              1
+            ]
+          },
+          {
+            "question": "调度器是怎么给节点打分、选出节点的？资源不够时 Pod 会怎样？",
+            "nodes": [
+              "kp:k8s.scheduling"
+            ],
+            "depths": [
+              3
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-05-29",
+      "event": "real_interview_review",
+      "ref": "review_2",
+      "note": "已区分说话人；ES 写入再次答到 L3",
+      "review": {
+        "company": "示例南湖科技",
+        "job_title": "Java 高级工程师",
+        "stage": "二面",
+        "diarized": true,
+        "resume": "resume_v1",
+        "experience_requirement": "5年以上",
+        "questions": [
+          {
+            "question": "ES 的 translog 是做什么的？宕机后数据怎么恢复？",
+            "nodes": [
+              "kp:elasticsearch.write"
+            ],
+            "follow_ups": [
+              "translog 刷盘策略怎么选？"
+            ],
+            "depths": [
+              2,
+              3
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "c1",
+      "at": "2026-05-06",
+      "assert": "issue_absent",
+      "kind": "knowledge_gap",
+      "note": "只有简历和岗位，没有面试证据"
+    },
+    {
+      "id": "c2",
+      "at": "2026-05-06",
+      "assert": "readiness",
+      "goal": "goal:job.job_a",
+      "level": "insufficient",
+      "note": "还没有任何面试证据"
+    },
+    {
+      "id": "c3",
+      "at": "2026-05-16",
+      "assert": "issue_present",
+      "kind": "knowledge_gap",
+      "about": "kp:k8s.scheduling",
+      "note": "岗位要求熟悉调度机制，复盘里原理题明确不会"
+    },
+    {
+      "id": "c4",
+      "at": "2026-05-30",
+      "assert": "ability_level",
+      "node": "kp:elasticsearch.write",
+      "expected": "proficient"
+    },
+    {
+      "id": "c5",
+      "at": "2026-05-30",
+      "assert": "issue_absent",
+      "kind": "knowledge_gap",
+      "about": "kp:elasticsearch.write"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "at": "2026-05-30",
+      "scenario": "chat.opening",
+      "task": "下次面试前我该补哪块？",
+      "must_include": [
+        "提到 Kubernetes 调度或资源限制需要补"
+      ],
+      "must_exclude": [
+        "说 Elasticsearch 写入是薄弱点"
+      ]
+    }
+  ]
+}

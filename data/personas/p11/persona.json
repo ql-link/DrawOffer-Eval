@@ -1,0 +1,348 @@
+{
+  "id": "p11",
+  "version": 4,
+  "status": "draft",
+  "direction": "operations",
+  "level": "campus",
+  "situation": "业务岗：自我介绍把面试官引到弱点",
+  "truth": {
+    "knowledge": [
+      {
+        "node": "cmp:communication",
+        "trajectory": [
+          {
+            "date": "2026-07-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "cmp:problem_solving",
+        "trajectory": [
+          {
+            "date": "2026-07-01",
+            "level": "L2"
+          }
+        ]
+      }
+    ],
+    "experiences": [
+      {
+        "key": "community_ops",
+        "title": "社团公众号运营",
+        "kind": "campus",
+        "role": "lead",
+        "weight": "W2",
+        "biz_depth": "L2",
+        "role_text": "主导",
+        "story": "社团公众号由我负责选题和排期，一年里把阅读量做到每篇平均 800。",
+        "facts": [
+          "推文平均阅读量从 200 涨到 800",
+          "固定每周二、周五两次推送"
+        ],
+        "facets": {
+          "background": "clear",
+          "task": "clear",
+          "action": "clear",
+          "tradeoff": "partial",
+          "result": "clear",
+          "boundary": "clear"
+        }
+      },
+      {
+        "key": "data_report",
+        "title": "电商实习数据周报",
+        "kind": "internship",
+        "role": "participate",
+        "weight": "W1",
+        "biz_depth": "L1",
+        "role_text": "参与",
+        "story": "实习时按模板从后台导数据、贴进周报表格，指标口径和分析结论都是导师写的；被追问分析方法时答不上来。",
+        "facts": [
+          "每周一导出上周销售数据"
+        ],
+        "facets": {
+          "background": "partial",
+          "task": "unclear",
+          "action": "partial",
+          "tradeoff": "unclear",
+          "result": "unclear",
+          "boundary": "clear"
+        },
+        "behaviours": [
+          "被问到周报的指标口径和分析方法时答不上来，承认口径和结论是导师定的"
+        ]
+      }
+    ],
+    "baseline": 2,
+    "manner": "说话热情；做自我介绍时总把电商实习的数据周报当作主线。",
+    "intro": "重点讲在电商公司实习时做的数据周报，说自己擅长数据分析；社团公众号只一句带过。"
+  },
+  "timeline": [
+    {
+      "date": "2026-07-02",
+      "event": "resume_saved",
+      "ref": "resume_v1",
+      "resume": {
+        "title": "运营-校招",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例理工大学",
+                "major": "市场营销",
+                "degree": "本科",
+                "start": "2022.09",
+                "end": "2026.06"
+              }
+            ]
+          },
+          {
+            "kind": "work",
+            "title": "实习经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "experience": "data_report",
+                "name": "电商实习数据周报",
+                "organization": "示例优选电商",
+                "role": "运营实习生",
+                "start": "2025.07",
+                "end": "2025.09",
+                "lines": [
+                  "负责店铺数据周报，跟踪销售与流量指标",
+                  "通过数据分析提出运营建议"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "activity",
+            "title": "校园经历",
+            "entries": [
+              {
+                "node": "exp2",
+                "experience": "community_ops",
+                "name": "社团公众号运营",
+                "organization": "示例理工大学摄影社",
+                "role": "宣传部长",
+                "start": "2024.09",
+                "end": "2025.06",
+                "lines": [
+                  "负责公众号选题与排期",
+                  "推文平均阅读量从 200 提升到 800"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "熟练使用 Excel",
+              "了解 SQL"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-07-10",
+      "event": "mock_interview",
+      "ref": "mock_1",
+      "note": "自我介绍重点讲数据周报，随后被追问数据分析，答不上",
+      "interview": {
+        "type": "comprehensive",
+        "difficulty": "junior",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "intro": true,
+            "topic": "自我介绍",
+            "nodes": []
+          },
+          {
+            "topic": "电商实习数据周报",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "data_report",
+            "question": "你提到擅长数据分析，周报里你是怎么分析的？",
+            "signals": [
+              {
+                "text": "讲清指标口径",
+                "core": true,
+                "competency": "problem_solving"
+              },
+              {
+                "text": "讲清分析方法",
+                "core": false,
+                "competency": "ownership"
+              },
+              {
+                "text": "讲清提出的建议",
+                "core": false,
+                "competency": "communication"
+              }
+            ],
+            "directions": [
+              "这份周报要解决什么问题、给谁看",
+              "你提的建议后来效果怎么样，怎么衡量的"
+            ]
+          },
+          {
+            "topic": "社团公众号运营",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "community_ops",
+            "question": "说说公众号运营，阅读量是怎么涨起来的？",
+            "signals": [
+              {
+                "text": "讲清选题方法",
+                "core": true,
+                "competency": "ownership"
+              },
+              {
+                "text": "讲清增长动作",
+                "core": false,
+                "competency": "problem_solving"
+              }
+            ],
+            "directions": [
+              "选题和排期具体是你一个人做还是有人一起",
+              "阅读量怎么统计"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-07-24",
+      "event": "mock_interview",
+      "ref": "mock_2",
+      "note": "同样的介绍，同样被追问",
+      "interview": {
+        "type": "comprehensive",
+        "difficulty": "junior",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "intro": true,
+            "topic": "自我介绍",
+            "nodes": []
+          },
+          {
+            "topic": "电商实习数据周报",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "data_report",
+            "question": "你提到擅长数据分析，周报里你是怎么分析的？",
+            "signals": [
+              {
+                "text": "讲清指标口径",
+                "core": true,
+                "competency": "problem_solving"
+              },
+              {
+                "text": "讲清分析方法",
+                "core": false,
+                "competency": "ownership"
+              },
+              {
+                "text": "讲清提出的建议",
+                "core": false,
+                "competency": "communication"
+              }
+            ],
+            "directions": [
+              "这份周报要解决什么问题、给谁看",
+              "你提的建议后来效果怎么样，怎么衡量的"
+            ]
+          },
+          {
+            "topic": "社团公众号运营",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "community_ops",
+            "question": "说说公众号运营，阅读量是怎么涨起来的？",
+            "signals": [
+              {
+                "text": "讲清选题方法",
+                "core": true,
+                "competency": "ownership"
+              },
+              {
+                "text": "讲清增长动作",
+                "core": false,
+                "competency": "problem_solving"
+              }
+            ],
+            "directions": [
+              "选题和排期具体是你一个人做还是有人一起",
+              "阅读量怎么统计"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "c1",
+      "at": "2026-07-25",
+      "assert": "issue_present",
+      "kind": "unclear_telling",
+      "about": "exp:data_report"
+    },
+    {
+      "id": "c2",
+      "at": "2026-07-25",
+      "assert": "experience_assessment",
+      "experience": "exp:data_report",
+      "weight": "W1",
+      "biz_depth": "L1"
+    },
+    {
+      "id": "c3",
+      "at": "2026-07-25",
+      "assert": "ability_level",
+      "node": "cmp:problem_solving",
+      "expected": "insufficient",
+      "note": "通用能力一场面试只有少量信号，达不到已评估的方差上限，应显示证据不足（2026-10-16 修订）"
+    },
+    {
+      "id": "c4",
+      "at": "2026-07-25",
+      "assert": "experience_assessment",
+      "experience": "exp:community_ops",
+      "weight": "W2"
+    },
+    {
+      "id": "c5",
+      "at": "2026-07-03",
+      "assert": "issue_absent",
+      "kind": "unclear_telling"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "at": "2026-07-25",
+      "scenario": "self_intro.assist",
+      "task": "打磨自我介绍",
+      "must_include": [
+        "指出引向弱点的说法"
+      ],
+      "must_exclude": [
+        "以数据周报为主线"
+      ]
+    }
+  ]
+}

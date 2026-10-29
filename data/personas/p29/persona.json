@@ -1,0 +1,326 @@
+{
+  "id": "p29",
+  "version": 1,
+  "status": "draft",
+  "direction": "backend",
+  "level": "mid",
+  "situation": "两份简历写同一段经历（同一公司、时间重叠、措辞不同）；面试说出一条简历没写的做法",
+  "truth": {
+    "knowledge": [
+      {
+        "node": "kp:sd.mq.idempotency",
+        "trajectory": [
+          {
+            "date": "2026-03-01",
+            "level": "L3"
+          }
+        ]
+      }
+    ],
+    "experiences": [
+      {
+        "key": "coupon",
+        "title": "优惠券发放系统",
+        "kind": "work",
+        "role": "own",
+        "weight": "W3",
+        "tech_depth": "L3",
+        "biz_depth": "L2",
+        "role_text": "负责",
+        "story": "在示例朝阳零售负责优惠券发放服务：活动开始时集中发券，用消息队列削峰。",
+        "facts": [
+          "用券模板 ID 加用户 ID 做唯一键防止重复发券"
+        ],
+        "facets": {
+          "background": "clear",
+          "task": "clear",
+          "action": "clear",
+          "tradeoff": "clear",
+          "result": "partial",
+          "boundary": "clear"
+        },
+        "behaviours": [
+          "被问到怎么防重复发券时，说出用券模板 ID 加用户 ID 做唯一键"
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "key": "coupon_own",
+        "text": "负责优惠券发放服务",
+        "experience": "coupon",
+        "truth": "accurate",
+        "dimension": "role"
+      }
+    ],
+    "supplement_facts": [
+      {
+        "experience": "coupon",
+        "text": "用券模板 ID 加用户 ID 做唯一键防止重复发券"
+      }
+    ],
+    "baseline": 3,
+    "manner": "条理清楚，喜欢分点说。"
+  },
+  "timeline": [
+    {
+      "date": "2026-03-02",
+      "event": "resume_saved",
+      "ref": "resume_a",
+      "note": "“优惠券发放系统”",
+      "resume": {
+        "title": "Java 后端",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例科技大学",
+                "major": "计算机科学与技术",
+                "degree": "本科",
+                "start": "2017.09",
+                "end": "2021.06"
+              }
+            ]
+          },
+          {
+            "kind": "work",
+            "title": "工作经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "experience": "coupon",
+                "name": "优惠券发放系统",
+                "organization": "示例朝阳零售",
+                "role": "后端开发工程师",
+                "start": "2021.07",
+                "end": "2026.02",
+                "lines": [
+                  "负责优惠券发放服务",
+                  "活动高峰用消息队列削峰"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "熟悉 Java、Spring Boot",
+              "熟悉 Kafka、MySQL"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-03-04",
+      "event": "resume_saved",
+      "ref": "resume_b",
+      "note": "“营销发券链路”，同一公司、时间重叠",
+      "resume": {
+        "title": "Java 后端（营销方向）",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例科技大学",
+                "major": "计算机科学与技术",
+                "degree": "本科",
+                "start": "2017.09",
+                "end": "2021.06"
+              }
+            ]
+          },
+          {
+            "kind": "work",
+            "title": "工作经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "experience": "coupon",
+                "name": "营销发券链路",
+                "organization": "示例朝阳零售",
+                "role": "后端开发工程师",
+                "start": "2021.07",
+                "end": "2026.02",
+                "lines": [
+                  "负责营销活动的发券链路",
+                  "大促期间通过消息队列平滑发券流量"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "熟悉 Java、Spring Boot",
+              "熟悉 Kafka"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-03-12",
+      "event": "mock_interview",
+      "ref": "mock_1",
+      "note": "经历题说出唯一键做法；消息幂等答到 L3",
+      "interview": {
+        "type": "project_deep_dive",
+        "difficulty": "intermediate",
+        "resume": "resume_a",
+        "topics": [
+          {
+            "topic": "优惠券发放系统",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "coupon",
+            "question": "讲讲优惠券发放服务，你负责哪些？怎么保证不重复发券？",
+            "signals": [
+              {
+                "text": "讲清发放链路",
+                "core": true
+              },
+              {
+                "text": "本人负责的部分",
+                "core": false
+              },
+              {
+                "text": "讲清防重方案",
+                "core": false
+              }
+            ],
+            "directions": [
+              "哪些是你做的，方案是谁定的",
+              "怎么防止同一用户重复领券"
+            ]
+          },
+          {
+            "topic": "消息幂等",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:sd.mq.idempotency"
+            ],
+            "question": "消费者收到重复消息怎么处理？幂等有哪些做法？",
+            "signals": [
+              {
+                "text": "唯一键或状态机",
+                "core": true
+              },
+              {
+                "text": "去重表的取舍",
+                "core": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-03-26",
+      "event": "mock_interview",
+      "ref": "mock_2",
+      "note": "再次追问经历和幂等，都答到 L3",
+      "interview": {
+        "type": "technical",
+        "difficulty": "intermediate",
+        "resume": "resume_b",
+        "topics": [
+          {
+            "topic": "营销发券链路",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "coupon",
+            "question": "发券高峰时消息积压怎么处理？你在里面做了什么？",
+            "signals": [
+              {
+                "text": "讲清削峰方案",
+                "core": true
+              },
+              {
+                "text": "说清取舍",
+                "core": false
+              }
+            ],
+            "directions": [
+              "为什么用消息队列而不是直接写库",
+              "哪些是你做的"
+            ]
+          },
+          {
+            "topic": "幂等与重试",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:sd.mq.idempotency"
+            ],
+            "question": "消息消费失败重试时，怎么保证业务只执行一次？",
+            "signals": [
+              {
+                "text": "幂等键",
+                "core": true
+              },
+              {
+                "text": "重试与死信",
+                "core": false
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "c1",
+      "at": "2026-03-05",
+      "assert": "experience_merged",
+      "mentions": [
+        "resume_a:exp1",
+        "resume_b:exp1"
+      ]
+    },
+    {
+      "id": "c2",
+      "at": "2026-03-27",
+      "assert": "supplement_fact",
+      "experience": "exp:coupon",
+      "text": "用券模板 ID 加用户 ID 做唯一键防止重复发券"
+    },
+    {
+      "id": "c3",
+      "at": "2026-03-27",
+      "assert": "experience_assessment",
+      "experience": "exp:coupon",
+      "weight": "W3",
+      "tech_depth": "L3"
+    },
+    {
+      "id": "c4",
+      "at": "2026-03-27",
+      "assert": "issue_absent",
+      "kind": "overstated",
+      "about": "claim:coupon_own"
+    },
+    {
+      "id": "c5",
+      "at": "2026-03-27",
+      "assert": "ability_level",
+      "node": "kp:sd.mq.idempotency",
+      "expected": "proficient"
+    }
+  ],
+  "scenarios": []
+}

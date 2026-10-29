@@ -1,0 +1,787 @@
+{
+  "id": "p02",
+  "version": 4,
+  "status": "draft",
+  "split": "dev",
+  "split_note": "2026-10-16 起转入开发集：按编号哈希原属测试集，但调参期间结果已被看过，不能再作为最终评测。",
+  "direction": "backend",
+  "level": "campus",
+  "situation": "简历写“精通 Kafka”，面试一直停在 L2；练习后解决，之后因遗忘需要复测",
+  "truth": {
+    "knowledge": [
+      {
+        "node": "kp:kafka.reliability.ack",
+        "trajectory": [
+          {
+            "date": "2026-03-01",
+            "level": "L2"
+          },
+          {
+            "date": "2026-07-10",
+            "level": "L4"
+          },
+          {
+            "date": "2026-10-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:kafka.reliability.isr",
+        "trajectory": [
+          {
+            "date": "2026-03-01",
+            "level": "L2"
+          },
+          {
+            "date": "2026-07-10",
+            "level": "L4"
+          }
+        ]
+      },
+      {
+        "node": "kp:kafka.consumer.offset",
+        "trajectory": [
+          {
+            "date": "2026-03-01",
+            "level": "L2"
+          },
+          {
+            "date": "2026-07-10",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:kafka.consumer.group",
+        "trajectory": [
+          {
+            "date": "2026-03-01",
+            "level": "L2"
+          },
+          {
+            "date": "2026-07-10",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:kafka.storage.throughput",
+        "trajectory": [
+          {
+            "date": "2026-03-01",
+            "level": "L2"
+          },
+          {
+            "date": "2026-07-10",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:mysql.index.innodb_btree",
+        "trajectory": [
+          {
+            "date": "2026-03-01",
+            "level": "L3"
+          }
+        ]
+      }
+    ],
+    "experiences": [
+      {
+        "key": "order_refactor",
+        "title": "订单系统重构（课程项目）",
+        "kind": "project",
+        "role": "own",
+        "weight": "W3",
+        "tech_depth": "L3",
+        "biz_depth": "L2",
+        "facets": {
+          "background": "clear",
+          "task": "clear",
+          "action": "clear",
+          "tradeoff": "partial",
+          "result": "unclear",
+          "boundary": "clear"
+        },
+        "role_text": "负责",
+        "story": "课程项目，三人小组。我负责下单链路：把下单和库存拆成两个服务，下单后发 Kafka 消息异步扣库存；组员负责前端和支付模拟。",
+        "facts": [
+          "下单接口 P99 从 800ms 降到 200ms，用 JMeter 压测 200 并发得到",
+          "库存扣减失败时写本地消息表，定时任务补偿"
+        ],
+        "notes": "被问到 P99 怎么测的、样本多少时说不清，只记得是压测工具跑出来的。",
+        "behaviours": [
+          "被问到 P99 是怎么测出来的、样本和口径是什么时说不清，只记得是压测工具跑出来的"
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "key": "kafka_expert",
+        "text": "精通 Kafka",
+        "node": "tech:kafka",
+        "truth": "overstated",
+        "note": "3–5 月 Kafka 各知识点都停在 L2，明显过强；7 月练习后可靠性部分答到 L4，但整项 Kafka 仍没有达到精通，所以保持 overstated（见 c9）"
+      },
+      {
+        "key": "order_own",
+        "text": "负责订单系统重构",
+        "experience": "order_refactor",
+        "truth": "accurate",
+        "dimension": "role"
+      }
+    ],
+    "baseline": 2,
+    "manner": "回答偏简短，先说结论。"
+  },
+  "timeline": [
+    {
+      "date": "2026-03-02",
+      "event": "resume_saved",
+      "ref": "resume_v1",
+      "note": "写“精通 Kafka”",
+      "resume": {
+        "title": "后端开发-校招",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例理工大学",
+                "major": "计算机科学与技术",
+                "degree": "本科",
+                "start": "2022.09",
+                "end": "2026.06"
+              }
+            ]
+          },
+          {
+            "kind": "project",
+            "title": "项目经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "experience": "order_refactor",
+                "name": "订单系统重构（课程项目）",
+                "organization": "示例理工大学",
+                "role": "后端开发",
+                "start": "2025.09",
+                "end": "2026.01",
+                "lines": [
+                  "负责订单系统重构，将下单与库存拆分为独立服务，通过 Kafka 异步扣减库存",
+                  "下单接口 P99 从 800ms 降至 200ms"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "精通 Kafka",
+              "熟悉 MySQL、Redis",
+              "熟悉 Java、Spring Boot"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-03-10",
+      "event": "mock_interview",
+      "ref": "mock_1",
+      "note": "后端技术面 8 题，Kafka 两题都停在 L2",
+      "interview": {
+        "type": "technical",
+        "difficulty": "junior",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "Kafka 消息可靠性",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:kafka.reliability.ack"
+            ],
+            "skill": "Kafka",
+            "question": "Kafka 生产者的 acks 参数有哪些取值？分别意味着什么？",
+            "signals": [
+              {
+                "text": "说清 acks=0/1/all 的含义",
+                "core": true
+              },
+              {
+                "text": "说明 all 与 ISR 的关系",
+                "core": false
+              },
+              {
+                "text": "能讲取舍：吞吐与可靠性",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "Kafka 副本与 ISR",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:kafka.reliability.isr"
+            ],
+            "skill": "Kafka",
+            "question": "Kafka 的 ISR 是什么？副本什么时候会被踢出 ISR？",
+            "signals": [
+              {
+                "text": "ISR 的定义",
+                "core": true
+              },
+              {
+                "text": "replica.lag.time.max.ms 的作用",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "Kafka 消费位点",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:kafka.consumer.offset"
+            ],
+            "skill": "Kafka",
+            "question": "Kafka 消费者的 offset 是怎么提交的？自动提交有什么问题？",
+            "signals": [
+              {
+                "text": "区分自动提交与手动提交",
+                "core": true
+              },
+              {
+                "text": "说明重复消费或丢消息的场景",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "Kafka 高吞吐",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:kafka.storage.throughput"
+            ],
+            "skill": "Kafka",
+            "question": "Kafka 为什么吞吐量高？",
+            "signals": [
+              {
+                "text": "顺序写与页缓存",
+                "core": true
+              },
+              {
+                "text": "零拷贝与批量",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "订单系统重构",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "order_refactor",
+            "question": "讲讲你做的订单系统重构，你具体负责哪些部分？",
+            "signals": [
+              {
+                "text": "讲清拆分动机",
+                "core": true
+              },
+              {
+                "text": "说清本人负责的部分",
+                "core": false
+              },
+              {
+                "text": "讲清 P99 的测量方法",
+                "core": false
+              }
+            ],
+            "directions": [
+              "哪些是你自己做的",
+              "P99 是怎么测出来的"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-05-12",
+      "event": "mock_interview",
+      "ref": "mock_2",
+      "note": "Kafka 仍停在 L2",
+      "interview": {
+        "type": "technical",
+        "difficulty": "junior",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "Kafka 消息可靠性",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:kafka.reliability.ack"
+            ],
+            "skill": "Kafka",
+            "question": "Kafka 生产者的 acks 参数有哪些取值？分别意味着什么？",
+            "signals": [
+              {
+                "text": "说清 acks=0/1/all 的含义",
+                "core": true
+              },
+              {
+                "text": "说明 all 与 ISR 的关系",
+                "core": false
+              },
+              {
+                "text": "能讲取舍：吞吐与可靠性",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "Kafka 副本与 ISR",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:kafka.reliability.isr"
+            ],
+            "skill": "Kafka",
+            "question": "Kafka 的 ISR 是什么？副本什么时候会被踢出 ISR？",
+            "signals": [
+              {
+                "text": "ISR 的定义",
+                "core": true
+              },
+              {
+                "text": "replica.lag.time.max.ms 的作用",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "Kafka 消费者组",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:kafka.consumer.group"
+            ],
+            "skill": "Kafka",
+            "question": "消费者组里分区是怎么分配的？消费者数量比分区多会怎样？",
+            "signals": [
+              {
+                "text": "分区分配策略",
+                "core": true
+              },
+              {
+                "text": "多出的消费者空闲",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "Kafka 消费位点",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:kafka.consumer.offset"
+            ],
+            "skill": "Kafka",
+            "question": "Kafka 消费者的 offset 是怎么提交的？自动提交有什么问题？",
+            "signals": [
+              {
+                "text": "区分自动提交与手动提交",
+                "core": true
+              },
+              {
+                "text": "说明重复消费或丢消息的场景",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "订单系统重构",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "order_refactor",
+            "question": "讲讲你做的订单系统重构，你具体负责哪些部分？",
+            "signals": [
+              {
+                "text": "讲清拆分动机",
+                "core": true
+              },
+              {
+                "text": "说清本人负责的部分",
+                "core": false
+              },
+              {
+                "text": "讲清 P99 的测量方法",
+                "core": false
+              }
+            ],
+            "directions": [
+              "哪些是你自己做的",
+              "P99 是怎么测出来的"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-06-01",
+      "event": "job_saved",
+      "ref": "job_b",
+      "note": "蓝鲸演示网络 后端实习，要求熟练 Kafka",
+      "job": {
+        "company": "蓝鲸演示网络",
+        "title": "后端开发实习生",
+        "employment_type": "实习",
+        "experience_requirement": "在校生",
+        "city": "杭州",
+        "skills": [
+          "Kafka",
+          "MySQL",
+          "Java"
+        ],
+        "description": "负责消息推送平台后端开发。要求：熟练使用 Kafka，理解消息可靠性与消费位点管理；熟悉 MySQL 索引与事务；Java 基础扎实。"
+      }
+    },
+    {
+      "date": "2026-06-20",
+      "event": "prep_checked",
+      "ref": "prep_1",
+      "note": "勾选 Kafka 可靠性练习",
+      "prep": {
+        "job": "job_b",
+        "items": [
+          {
+            "title": "Kafka 可靠性与消费机制系统复习（acks、ISR、消费位点）",
+            "category": "knowledge",
+            "reason": "模拟面试两次停在原理层"
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-07-15",
+      "event": "mock_interview",
+      "ref": "mock_3",
+      "note": "Kafka acks 答到 L4",
+      "interview": {
+        "type": "technical",
+        "difficulty": "intermediate",
+        "resume": "resume_v1",
+        "job": "job_b",
+        "topics": [
+          {
+            "topic": "Kafka 消息可靠性",
+            "start_depth": 3,
+            "style": "principle",
+            "nodes": [
+              "kp:kafka.reliability.ack"
+            ],
+            "skill": "Kafka",
+            "question": "Kafka 生产者的 acks 参数有哪些取值？分别意味着什么？",
+            "signals": [
+              {
+                "text": "说清 acks=0/1/all 的含义",
+                "core": true
+              },
+              {
+                "text": "说明 all 与 ISR 的关系",
+                "core": false
+              },
+              {
+                "text": "能讲取舍：吞吐与可靠性",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "Kafka 副本与 ISR",
+            "start_depth": 3,
+            "style": "principle",
+            "nodes": [
+              "kp:kafka.reliability.isr"
+            ],
+            "skill": "Kafka",
+            "question": "Kafka 的 ISR 是什么？副本什么时候会被踢出 ISR？",
+            "signals": [
+              {
+                "text": "ISR 的定义",
+                "core": true
+              },
+              {
+                "text": "replica.lag.time.max.ms 的作用",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "Kafka 消费位点",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:kafka.consumer.offset"
+            ],
+            "skill": "Kafka",
+            "question": "Kafka 消费者的 offset 是怎么提交的？自动提交有什么问题？",
+            "signals": [
+              {
+                "text": "区分自动提交与手动提交",
+                "core": true
+              },
+              {
+                "text": "说明重复消费或丢消息的场景",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "Kafka 消费者组",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:kafka.consumer.group"
+            ],
+            "skill": "Kafka",
+            "question": "消费者组里分区是怎么分配的？消费者数量比分区多会怎样？",
+            "signals": [
+              {
+                "text": "分区分配策略",
+                "core": true
+              },
+              {
+                "text": "多出的消费者空闲",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "Kafka 高吞吐",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:kafka.storage.throughput"
+            ],
+            "skill": "Kafka",
+            "question": "Kafka 为什么吞吐量高？",
+            "signals": [
+              {
+                "text": "顺序写与页缓存",
+                "core": true
+              },
+              {
+                "text": "零拷贝与批量",
+                "core": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-07-20",
+      "event": "mock_interview",
+      "ref": "mock_4",
+      "note": "Kafka 再次答到 L4",
+      "interview": {
+        "type": "technical",
+        "difficulty": "intermediate",
+        "resume": "resume_v1",
+        "job": "job_b",
+        "topics": [
+          {
+            "topic": "Kafka 消息可靠性",
+            "start_depth": 3,
+            "style": "principle",
+            "nodes": [
+              "kp:kafka.reliability.ack"
+            ],
+            "skill": "Kafka",
+            "question": "Kafka 生产者的 acks 参数有哪些取值？分别意味着什么？",
+            "signals": [
+              {
+                "text": "说清 acks=0/1/all 的含义",
+                "core": true
+              },
+              {
+                "text": "说明 all 与 ISR 的关系",
+                "core": false
+              },
+              {
+                "text": "能讲取舍：吞吐与可靠性",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "Kafka 副本与 ISR",
+            "start_depth": 3,
+            "style": "principle",
+            "nodes": [
+              "kp:kafka.reliability.isr"
+            ],
+            "skill": "Kafka",
+            "question": "Kafka 的 ISR 是什么？副本什么时候会被踢出 ISR？",
+            "signals": [
+              {
+                "text": "ISR 的定义",
+                "core": true
+              },
+              {
+                "text": "replica.lag.time.max.ms 的作用",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "Kafka 消费者组",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:kafka.consumer.group"
+            ],
+            "skill": "Kafka",
+            "question": "消费者组里分区是怎么分配的？消费者数量比分区多会怎样？",
+            "signals": [
+              {
+                "text": "分区分配策略",
+                "core": true
+              },
+              {
+                "text": "多出的消费者空闲",
+                "core": false
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "c1",
+      "at": "2026-03-09",
+      "assert": "issue_absent",
+      "kind": "overstated",
+      "note": "只有简历，没有面试证据"
+    },
+    {
+      "id": "c2",
+      "at": "2026-05-13",
+      "assert": "ability_level",
+      "node": "kp:kafka.reliability.ack",
+      "expected": "familiar"
+    },
+    {
+      "id": "c3",
+      "at": "2026-05-13",
+      "assert": "issue_present",
+      "kind": "overstated",
+      "about": "claim:kafka_expert",
+      "states": [
+        "appeared",
+        "disclosed"
+      ]
+    },
+    {
+      "id": "c4",
+      "at": "2026-06-21",
+      "assert": "issue_state",
+      "kind": "overstated",
+      "about": "claim:kafka_expert",
+      "state": "practicing"
+    },
+    {
+      "id": "c5",
+      "at": "2026-07-21",
+      "assert": "ability_level",
+      "node": "kp:kafka.reliability.ack",
+      "expected": "expert"
+    },
+    {
+      "id": "c6",
+      "at": "2026-07-21",
+      "assert": "issue_state",
+      "kind": "knowledge_gap",
+      "about": "tp:kafka.reliability",
+      "state": "resolved",
+      "dated": true,
+      "note": "岗位要求的 Kafka 可靠性缺口，练习并两次答到 L4 后解除"
+    },
+    {
+      "id": "c7",
+      "at": "2026-10-15",
+      "assert": "issue_present",
+      "kind": "review_due",
+      "about": "kp:kafka.reliability.ack"
+    },
+    {
+      "id": "c8",
+      "at": "2026-07-21",
+      "assert": "readiness",
+      "goal": "goal:job.job_b",
+      "level": "medium",
+      "min_coverage": 0.3
+    },
+    {
+      "id": "c9",
+      "at": "2026-07-21",
+      "assert": "issue_present",
+      "kind": "overstated",
+      "about": "claim:kafka_expert",
+      "states": [
+        "practicing"
+      ],
+      "note": "只验证了部分 Kafka 知识点，“精通 Kafka”整体仍未达到，保持练习中"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "at": "2026-05-13",
+      "scenario": "resume.section_focus",
+      "task": "对技能栏“精通 Kafka”发起段落聚焦",
+      "must_include": [
+        "针对“精通 Kafka”给出一致性建议：降低措辞，或先补充能支撑的实例"
+      ],
+      "must_exclude": [
+        "保留“精通 Kafka”或改成更强说法的改写"
+      ],
+      "target": "resume_v1:skills"
+    },
+    {
+      "id": "s2",
+      "at": "2026-06-15",
+      "scenario": "prep.checklist",
+      "task": "为蓝鲸演示网络后端实习的面试生成准备清单",
+      "job": "job_b",
+      "must_include": [
+        "Kafka 消息可靠性相关的准备项"
+      ]
+    },
+    {
+      "id": "s3",
+      "at": "2026-10-15",
+      "scenario": "interview.plan",
+      "task": "规划下一场后端技术模拟面试"
+    },
+    {
+      "id": "s4",
+      "at": "2026-07-21",
+      "scenario": "interview.evaluate",
+      "task": "同一道题在有无弱项记录时评分提示词一致"
+    }
+  ]
+}

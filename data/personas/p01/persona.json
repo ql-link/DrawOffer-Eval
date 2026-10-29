@@ -1,0 +1,337 @@
+{
+  "id": "p01",
+  "version": 3,
+  "status": "draft",
+  "split": "dev",
+  "split_note": "2026-10-16 起转入开发集：按编号哈希原属测试集，但调参期间结果已被看过，不能再作为最终评测。",
+  "direction": "backend",
+  "level": "campus",
+  "situation": "新用户：只有一份简历，第一场模拟面试前后的对比",
+  "truth": {
+    "knowledge": [
+      {
+        "node": "kp:mysql.index.innodb_btree",
+        "trajectory": [
+          {
+            "date": "2026-03-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:redis.persistence.aof_rewrite",
+        "trajectory": [
+          {
+            "date": "2026-03-01",
+            "level": "L2"
+          }
+        ]
+      },
+      {
+        "node": "kp:java.collections.hashmap",
+        "trajectory": [
+          {
+            "date": "2026-03-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:java.concurrency.thread_pool.params",
+        "trajectory": [
+          {
+            "date": "2026-03-01",
+            "level": "L1"
+          }
+        ]
+      }
+    ],
+    "experiences": [
+      {
+        "key": "library_app",
+        "title": "校园图书借阅小程序后端",
+        "kind": "project",
+        "role": "own",
+        "weight": "W2",
+        "tech_depth": "L2",
+        "biz_depth": "L2",
+        "role_text": "负责",
+        "story": "两人课程项目，我负责后端：借阅、归还、逾期提醒接口，MySQL 建表和索引；同学负责小程序前端。",
+        "facts": [
+          "逾期提醒用定时任务每天扫描一次",
+          "借阅记录表按用户 ID 和借阅时间建了联合索引"
+        ],
+        "facets": {
+          "background": "clear",
+          "task": "clear",
+          "action": "clear",
+          "tradeoff": "partial",
+          "result": "partial",
+          "boundary": "clear"
+        }
+      }
+    ],
+    "claims": [
+      {
+        "key": "java_collections",
+        "text": "熟练掌握 Java 集合",
+        "node": "tp:java.collections",
+        "truth": "accurate",
+        "dimension": "proficiency"
+      }
+    ],
+    "baseline": 2,
+    "manner": "条理清楚，回答适中；不会的地方会坦白说没深入研究过。"
+  },
+  "timeline": [
+    {
+      "date": "2026-03-02",
+      "event": "resume_saved",
+      "ref": "resume_v1",
+      "note": "唯一一份简历",
+      "resume": {
+        "title": "Java 后端-校招",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例理工大学",
+                "major": "计算机科学与技术",
+                "degree": "本科",
+                "start": "2022.09",
+                "end": "2026.06"
+              }
+            ]
+          },
+          {
+            "kind": "project",
+            "title": "项目经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "experience": "library_app",
+                "name": "校园图书借阅小程序后端",
+                "organization": "示例理工大学",
+                "role": "后端开发",
+                "start": "2025.03",
+                "end": "2025.07",
+                "lines": [
+                  "负责借阅、归还与逾期提醒接口开发",
+                  "设计借阅记录表及索引，支撑全校约 3000 名学生使用"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "熟练掌握 Java 集合",
+              "了解 Java 并发编程",
+              "熟悉 MySQL、Redis",
+              "了解 Spring Boot"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-03-10",
+      "event": "mock_interview",
+      "ref": "mock_1",
+      "note": "后端技术面，用户自己选了中级难度，5 题：HashMap、线程池、AOF、InnoDB 索引各一题，再加一道经历题；线程池只答到 L1",
+      "interview": {
+        "type": "technical",
+        "difficulty": "intermediate",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "Java HashMap",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:java.collections.hashmap"
+            ],
+            "skill": "Java",
+            "question": "HashMap 的 put 流程是怎样的？为什么容量是 2 的幂？",
+            "signals": [
+              {
+                "text": "哈希扰动与下标计算",
+                "core": true
+              },
+              {
+                "text": "扩容与链表转红黑树",
+                "core": false
+              },
+              {
+                "text": "线程不安全的原因",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "Java 线程池",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:java.concurrency.thread_pool.params"
+            ],
+            "skill": "Java",
+            "question": "线程池的核心参数有哪些？任务提交后是怎么调度的？",
+            "signals": [
+              {
+                "text": "七个参数的含义",
+                "core": true
+              },
+              {
+                "text": "核心线程、队列、最大线程的先后顺序",
+                "core": false
+              },
+              {
+                "text": "拒绝策略",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "Redis 持久化",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:redis.persistence.aof_rewrite"
+            ],
+            "skill": "Redis",
+            "question": "Redis 的 AOF 重写是做什么的？",
+            "signals": [
+              {
+                "text": "重写的目的",
+                "core": true
+              },
+              {
+                "text": "fork 子进程与重写缓冲区",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "MySQL 索引",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:mysql.index.innodb_btree"
+            ],
+            "skill": "MySQL",
+            "question": "你在借阅记录表上建了联合索引，说说 InnoDB 索引的结构。",
+            "signals": [
+              {
+                "text": "B+ 树结构",
+                "core": true
+              },
+              {
+                "text": "最左前缀",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "图书借阅小程序后端",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "library_app",
+            "question": "介绍一下借阅小程序后端，你负责了哪些部分？",
+            "signals": [
+              {
+                "text": "讲清业务场景",
+                "core": true
+              },
+              {
+                "text": "本人负责的接口",
+                "core": false
+              },
+              {
+                "text": "逾期提醒的实现",
+                "core": false
+              }
+            ],
+            "directions": [
+              "哪些是你做的",
+              "逾期提醒怎么实现"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "c1",
+      "at": "2026-03-03",
+      "assert": "ability_level",
+      "node": "kp:mysql.index.innodb_btree",
+      "expected": "insufficient"
+    },
+    {
+      "id": "c2",
+      "at": "2026-03-03",
+      "assert": "issue_absent",
+      "kind": "overstated",
+      "note": "还没有面试证据，不判夸大"
+    },
+    {
+      "id": "c3",
+      "at": "2026-03-03",
+      "assert": "readiness",
+      "goal": "goal:profile.backend",
+      "level": "insufficient"
+    },
+    {
+      "id": "c4",
+      "at": "2026-03-11",
+      "assert": "ability_level",
+      "node": "kp:java.collections.hashmap",
+      "expected": "proficient"
+    },
+    {
+      "id": "c5",
+      "at": "2026-03-11",
+      "assert": "issue_present",
+      "kind": "knowledge_gap",
+      "about": "kp:java.concurrency.thread_pool.params",
+      "states": [
+        "appeared"
+      ]
+    },
+    {
+      "id": "c6",
+      "at": "2026-03-11",
+      "assert": "ability_level",
+      "node": "kp:redis.persistence.aof_rewrite",
+      "expected": "familiar"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "at": "2026-03-11",
+      "scenario": "chat.opening",
+      "task": "我该准备什么？",
+      "must_include": [
+        "提到线程池参数这一块还需要加强"
+      ],
+      "must_exclude": [
+        "说用户精通或熟练掌握线程池"
+      ]
+    },
+    {
+      "id": "s2",
+      "at": "2026-03-11",
+      "scenario": "interview.evaluate",
+      "task": "同一道题在有无弱项记录时评分提示词一致"
+    }
+  ]
+}

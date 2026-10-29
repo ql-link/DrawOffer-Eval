@@ -1,0 +1,221 @@
+{
+  "id": "p20",
+  "version": 1,
+  "status": "draft",
+  "direction": "product",
+  "level": "mid",
+  "situation": "产品：同一项目的结果两次讲不清；简历写日活 2 万，面试说同一时期日活 8 千",
+  "truth": {
+    "knowledge": [],
+    "experiences": [
+      {
+        "key": "checkin",
+        "title": "社区打卡小程序",
+        "kind": "work",
+        "role": "own",
+        "weight": "W3",
+        "tech_depth": null,
+        "biz_depth": "L2",
+        "role_text": "负责",
+        "story": "在示例青柠互动负责社区打卡小程序的产品设计，从需求到上线都跟。",
+        "facets": {
+          "background": "clear",
+          "task": "clear",
+          "action": "clear",
+          "tradeoff": "partial",
+          "result": "unclear",
+          "boundary": "clear"
+        },
+        "behaviours": [
+          "被问到上线后的效果和怎么衡量时说不清，只说“数据挺好的”，说不出对比口径",
+          "被问到日活时说“2025 年 12 月小程序的日活大概 8 千”，不解释简历上的 2 万"
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "key": "dau_resume",
+        "text": "2025 年 12 月日活 2 万",
+        "experience": "checkin",
+        "truth": "unknown"
+      }
+    ],
+    "baseline": 3,
+    "manner": "热情，讲需求和用户故事很细。"
+  },
+  "timeline": [
+    {
+      "date": "2026-06-02",
+      "event": "resume_saved",
+      "ref": "resume_v1",
+      "note": "写 2025 年 12 月日活 2 万",
+      "resume": {
+        "title": "产品经理",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例财经大学",
+                "major": "信息管理",
+                "degree": "本科",
+                "start": "2016.09",
+                "end": "2020.06"
+              }
+            ]
+          },
+          {
+            "kind": "work",
+            "title": "工作经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "experience": "checkin",
+                "name": "社区打卡小程序",
+                "organization": "示例青柠互动",
+                "role": "产品经理",
+                "start": "2023.03",
+                "end": "2026.04",
+                "lines": [
+                  "负责社区打卡小程序从 0 到上线的产品设计",
+                  "2025 年 12 月小程序日活 2 万"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "熟悉需求分析与原型设计",
+              "会用 SQL 做基础数据分析"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-06-10",
+      "event": "mock_interview",
+      "ref": "mock_1",
+      "note": "效果讲不清；日活说 8 千",
+      "interview": {
+        "type": "comprehensive",
+        "difficulty": "intermediate",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "社区打卡小程序",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "checkin",
+            "question": "讲讲社区打卡小程序，上线后效果怎么样？2025 年 12 月的日活是多少？",
+            "signals": [
+              {
+                "text": "讲清产品目标",
+                "core": true
+              },
+              {
+                "text": "讲清效果与衡量口径",
+                "core": false
+              }
+            ],
+            "directions": [
+              "效果是怎么衡量的，和什么比",
+              "2025 年 12 月的日活具体是多少"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-06-24",
+      "event": "mock_interview",
+      "ref": "mock_2",
+      "note": "再被追问效果，仍讲不清",
+      "interview": {
+        "type": "project_deep_dive",
+        "difficulty": "intermediate",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "社区打卡小程序",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "checkin",
+            "question": "打卡功能上线后，你怎么判断它是成功的？",
+            "signals": [
+              {
+                "text": "讲清成功标准",
+                "core": true
+              },
+              {
+                "text": "讲清数据对比",
+                "core": false
+              }
+            ],
+            "directions": [
+              "用的是什么指标，和上线前比变化多少",
+              "这个结论是谁得出的"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "c1",
+      "at": "2026-06-03",
+      "assert": "issue_absent",
+      "kind": "unclear_telling",
+      "note": "还没有面试"
+    },
+    {
+      "id": "c2",
+      "at": "2026-06-03",
+      "assert": "issue_absent",
+      "kind": "inconsistent",
+      "note": "只有简历一个数字，还没有可比的说法"
+    },
+    {
+      "id": "c3",
+      "at": "2026-06-25",
+      "assert": "issue_present",
+      "kind": "unclear_telling",
+      "about": "exp:checkin"
+    },
+    {
+      "id": "c4",
+      "at": "2026-06-11",
+      "assert": "issue_present",
+      "kind": "inconsistent",
+      "about": "exp:checkin",
+      "note": "简历与面试都是 2025 年 12 月、同一个小程序的日活"
+    },
+    {
+      "id": "c5",
+      "at": "2026-06-25",
+      "assert": "experience_assessment",
+      "experience": "exp:checkin",
+      "biz_depth": "L2"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "at": "2026-06-25",
+      "scenario": "chat.opening",
+      "task": "社区打卡这个项目面试时怎么讲比较好？",
+      "must_include": [
+        "提醒讲清效果和衡量口径",
+        "提醒日活数字要和简历一致或说明口径"
+      ]
+    }
+  ]
+}

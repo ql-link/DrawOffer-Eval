@@ -1,0 +1,294 @@
+{
+  "id": "p04",
+  "version": 4,
+  "status": "draft",
+  "direction": "backend",
+  "level": "mid",
+  "situation": "角色夸大（写“主导”，追问后是“负责”）；分量高（交易链路）",
+  "truth": {
+    "knowledge": [
+      {
+        "node": "kp:mysql.log.binlog",
+        "trajectory": [
+          {
+            "date": "2026-04-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:sd.consistency.transaction",
+        "trajectory": [
+          {
+            "date": "2026-04-01",
+            "level": "L3"
+          }
+        ]
+      }
+    ],
+    "experiences": [
+      {
+        "key": "trade_link",
+        "title": "交易链路下单服务",
+        "kind": "work",
+        "role": "own",
+        "weight": "W4",
+        "tech_depth": "L3",
+        "biz_depth": "L3",
+        "role_text": "负责",
+        "story": "在某电商公司交易组，重构由组长主导定方案，我负责下单服务的落地：库存预占、订单落库和 binlog 同步到搜索，处于交易主链路。",
+        "facts": [
+          "库存预占用 Redis Lua 脚本保证原子性",
+          "订单数据通过 binlog 同步到 ES"
+        ],
+        "facets": {
+          "background": "clear",
+          "task": "clear",
+          "action": "clear",
+          "tradeoff": "clear",
+          "result": "partial",
+          "boundary": "clear"
+        },
+        "behaviours": [
+          "被问到“哪些是你做的、方案是谁定的”时，明确说方案由组长定，自己负责下单服务的落地"
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "key": "trade_lead",
+        "text": "主导交易链路下单服务重构",
+        "experience": "trade_link",
+        "truth": "overstated",
+        "dimension": "role"
+      }
+    ],
+    "baseline": 3,
+    "manner": "技术细节扎实，原理题按自己的理解讲清楚；只有被问到“哪些是你做的、方案是谁定的”时，才如实说明方案是组长定的。"
+  },
+  "timeline": [
+    {
+      "date": "2026-04-02",
+      "event": "resume_saved",
+      "ref": "resume_v1",
+      "note": "写“主导”",
+      "resume": {
+        "title": "Java 后端",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例理工大学",
+                "major": "计算机科学与技术",
+                "degree": "本科",
+                "start": "2019.09",
+                "end": "2023.06"
+              }
+            ]
+          },
+          {
+            "kind": "work",
+            "title": "工作经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "experience": "trade_link",
+                "name": "交易链路下单服务重构",
+                "organization": "云杉示例商城",
+                "role": "后端工程师",
+                "start": "2023.07",
+                "end": "2026.03",
+                "lines": [
+                  "主导交易链路下单服务重构，支撑大促下单",
+                  "库存预占与订单落库拆分，binlog 同步订单到搜索"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "熟悉 Java、Spring Boot",
+              "熟悉 MySQL、Redis、Elasticsearch"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-04-15",
+      "event": "mock_interview",
+      "ref": "mock_1",
+      "note": "追问“哪些是你做的”，描述的是下单接口的执行工作",
+      "interview": {
+        "type": "project_deep_dive",
+        "difficulty": "intermediate",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "交易链路下单服务重构",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "trade_link",
+            "question": "下单服务重构你具体负责哪些？方案是谁定的？",
+            "signals": [
+              {
+                "text": "讲清下单链路",
+                "core": true
+              },
+              {
+                "text": "说清本人负责的部分与决策人",
+                "core": false
+              },
+              {
+                "text": "讲清库存预占的取舍",
+                "core": false
+              }
+            ],
+            "directions": [
+              "哪些是你做的",
+              "方案为什么这样定"
+            ]
+          },
+          {
+            "topic": "MySQL binlog",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:mysql.log.binlog"
+            ],
+            "skill": "MySQL",
+            "question": "订单同步用到了 binlog，binlog 有哪几种格式？",
+            "signals": [
+              {
+                "text": "statement/row/mixed",
+                "core": true
+              },
+              {
+                "text": "row 格式适合同步的原因",
+                "core": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-05-06",
+      "event": "mock_interview",
+      "ref": "mock_2",
+      "note": "再次追问，角色仍为“负责”",
+      "interview": {
+        "type": "technical",
+        "difficulty": "intermediate",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "交易链路下单服务重构",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "trade_link",
+            "question": "下单服务重构你具体负责哪些？方案是谁定的？",
+            "signals": [
+              {
+                "text": "讲清下单链路",
+                "core": true
+              },
+              {
+                "text": "说清本人负责的部分与决策人",
+                "core": false
+              },
+              {
+                "text": "讲清库存预占的取舍",
+                "core": false
+              }
+            ],
+            "directions": [
+              "哪些是你做的",
+              "方案为什么这样定"
+            ]
+          },
+          {
+            "topic": "分布式事务",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:sd.consistency.transaction"
+            ],
+            "question": "库存预占和订单落库不在一个库，怎么保证一致？",
+            "signals": [
+              {
+                "text": "本地消息表或事务消息",
+                "core": true
+              },
+              {
+                "text": "补偿与幂等",
+                "core": false
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "c1",
+      "at": "2026-04-03",
+      "assert": "issue_absent",
+      "kind": "overstated"
+    },
+    {
+      "id": "c2",
+      "at": "2026-05-07",
+      "assert": "issue_present",
+      "kind": "overstated",
+      "about": "claim:trade_lead"
+    },
+    {
+      "id": "c3",
+      "at": "2026-05-07",
+      "assert": "experience_assessment",
+      "experience": "exp:trade_link",
+      "weight": "W4",
+      "tech_depth": "L3",
+      "note": "两场面试都没有追问业务，业务深度应为待评估，不作断言"
+    },
+    {
+      "id": "c4",
+      "at": "2026-05-07",
+      "assert": "ability_level",
+      "node": "kp:mysql.log.binlog",
+      "expected": "proficient"
+    },
+    {
+      "id": "c5",
+      "at": "2026-05-07",
+      "assert": "ability_level",
+      "node": "kp:sd.consistency.transaction",
+      "expected": "proficient"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "at": "2026-05-07",
+      "scenario": "resume.section_focus",
+      "task": "优化这段工作经历",
+      "target": "resume_v1:exp1",
+      "must_include": [
+        "建议把“主导”调整为与实际分工一致的措辞，或补充能支撑“主导”的事实"
+      ],
+      "must_exclude": [
+        "保留或加强“主导”的改写"
+      ]
+    }
+  ]
+}

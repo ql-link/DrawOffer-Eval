@@ -1,0 +1,312 @@
+{
+  "id": "p12",
+  "version": 3,
+  "status": "draft",
+  "split": "dev",
+  "split_note": "2026-10-16 起转入开发集：按编号哈希原属测试集，但调参期间结果已被看过，不能再作为最终评测。",
+  "direction": "backend",
+  "level": "campus",
+  "situation": "多目标：A 公司结束（沉睡），B 公司进行中；同一问题在 A 时出现、在 B 时重新排序",
+  "truth": {
+    "knowledge": [
+      {
+        "node": "kp:redis.lock.distributed",
+        "trajectory": [
+          {
+            "date": "2026-03-01",
+            "level": "L2"
+          }
+        ]
+      },
+      {
+        "node": "kp:mysql.mvcc.read_view",
+        "trajectory": [
+          {
+            "date": "2026-03-01",
+            "level": "L2"
+          }
+        ]
+      }
+    ],
+    "baseline": 2,
+    "manner": "回答比较规矩，先背定义再展开。"
+  },
+  "timeline": [
+    {
+      "date": "2026-03-02",
+      "event": "resume_saved",
+      "ref": "resume_v1",
+      "resume": {
+        "title": "Java 后端-校招",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例理工大学",
+                "major": "计算机科学与技术",
+                "degree": "本科",
+                "start": "2022.09",
+                "end": "2026.06"
+              }
+            ]
+          },
+          {
+            "kind": "project",
+            "title": "项目经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "name": "秒杀系统练习项目",
+                "organization": "示例理工大学",
+                "role": "后端开发",
+                "start": "2025.06",
+                "end": "2025.09",
+                "lines": [
+                  "使用 Redis 实现库存预扣与分布式锁",
+                  "MySQL 存储订单"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "熟悉 Java、Spring Boot",
+              "熟悉 Redis、MySQL"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-03-05",
+      "event": "job_saved",
+      "ref": "job_a",
+      "note": "A 公司后端，强调分布式锁",
+      "job": {
+        "company": "示例甲方科技",
+        "title": "后端开发工程师（校招）",
+        "employment_type": "校招",
+        "city": "上海",
+        "skills": [
+          "Java",
+          "Redis"
+        ],
+        "description": "负责交易中台开发。要求：深入理解 Redis 分布式锁的实现与失效场景；熟悉 Java 并发。"
+      }
+    },
+    {
+      "date": "2026-03-06",
+      "event": "application_stage",
+      "ref": "app_a",
+      "note": "投递 A",
+      "application": {
+        "ref": "app_a",
+        "job": "job_a",
+        "company": "示例甲方科技",
+        "title": "后端开发工程师（校招）",
+        "resume": "resume_v1",
+        "stage": {
+          "label": "投递",
+          "type": "applied",
+          "status": "completed",
+          "result": "passed"
+        }
+      }
+    },
+    {
+      "date": "2026-03-20",
+      "event": "mock_interview",
+      "ref": "mock_1",
+      "note": "分布式锁、MVCC 都停在 L2",
+      "interview": {
+        "type": "technical",
+        "difficulty": "junior",
+        "resume": "resume_v1",
+        "job": "job_a",
+        "application": "app_a",
+        "topics": [
+          {
+            "topic": "Redis 分布式锁",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:redis.lock.distributed"
+            ],
+            "skill": "Redis",
+            "question": "你用 Redis 做分布式锁，怎么实现的？锁过期了业务还没执行完怎么办？",
+            "signals": [
+              {
+                "text": "SET NX PX",
+                "core": true
+              },
+              {
+                "text": "过期与续期",
+                "core": false
+              },
+              {
+                "text": "误删他人锁",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "MySQL MVCC",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:mysql.mvcc.read_view"
+            ],
+            "skill": "MySQL",
+            "question": "可重复读下，MVCC 是怎么保证读一致的？",
+            "signals": [
+              {
+                "text": "undo 版本链",
+                "core": true
+              },
+              {
+                "text": "Read View 的可见性判断",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "秒杀系统练习项目",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "question": "讲讲秒杀项目里库存是怎么扣的。",
+            "signals": [
+              {
+                "text": "预扣与回补",
+                "core": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-04-10",
+      "event": "application_stage",
+      "ref": "app_a_end",
+      "note": "A 公司二面未通过，进程结束",
+      "application": {
+        "ref": "app_a",
+        "stage": {
+          "label": "二面",
+          "type": "interview",
+          "round": 2,
+          "status": "completed",
+          "result": "rejected"
+        },
+        "status": "rejected",
+        "reason": "二面未通过"
+      }
+    },
+    {
+      "date": "2026-04-12",
+      "event": "job_saved",
+      "ref": "job_b",
+      "note": "B 公司后端，强调 MySQL",
+      "job": {
+        "company": "示例乙方网络",
+        "title": "后端开发工程师（校招）",
+        "employment_type": "校招",
+        "city": "杭州",
+        "skills": [
+          "Java",
+          "MySQL"
+        ],
+        "description": "负责订单系统开发。要求：深入理解 MySQL 事务隔离级别与 MVCC；熟悉索引优化。"
+      }
+    },
+    {
+      "date": "2026-04-13",
+      "event": "application_stage",
+      "ref": "app_b",
+      "note": "投递 B",
+      "application": {
+        "ref": "app_b",
+        "job": "job_b",
+        "company": "示例乙方网络",
+        "title": "后端开发工程师（校招）",
+        "resume": "resume_v1",
+        "stage": {
+          "label": "投递",
+          "type": "applied",
+          "status": "completed",
+          "result": "passed"
+        }
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "c1",
+      "at": "2026-03-21",
+      "assert": "issue_present",
+      "kind": "knowledge_gap",
+      "about": "kp:redis.lock.distributed"
+    },
+    {
+      "id": "c2",
+      "at": "2026-04-11",
+      "assert": "issue_state",
+      "kind": "knowledge_gap",
+      "about": "kp:redis.lock.distributed",
+      "state": "dormant"
+    },
+    {
+      "id": "c3",
+      "at": "2026-04-14",
+      "assert": "issue_present",
+      "kind": "knowledge_gap",
+      "about": "kp:mysql.mvcc.read_view"
+    },
+    {
+      "id": "c4",
+      "at": "2026-04-14",
+      "assert": "readiness",
+      "goal": "goal:app.app_b",
+      "level": "insufficient",
+      "note": "B 目标只有 MVCC 一个叶子有证据，覆盖不到门槛，准备度应显示证据不足（2026-10-16 修订）"
+    },
+    {
+      "id": "c5",
+      "at": "2026-03-21",
+      "assert": "ability_level",
+      "node": "kp:mysql.mvcc.read_view",
+      "expected": "familiar"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "at": "2026-04-14",
+      "scenario": "prep.checklist",
+      "task": "为示例乙方网络的面试生成准备清单",
+      "job": "job_b",
+      "must_include": [
+        "MySQL MVCC 相关的准备项"
+      ],
+      "must_exclude": [
+        "把 Redis 分布式锁列为推荐项"
+      ]
+    },
+    {
+      "id": "s2",
+      "at": "2026-04-14",
+      "scenario": "interview.brief",
+      "task": "渲染面试前速览",
+      "must_exclude": [
+        "基于 Redis 的分布式锁"
+      ]
+    }
+  ]
+}

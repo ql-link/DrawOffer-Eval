@@ -1,0 +1,196 @@
+{
+  "id": "p16",
+  "version": 3,
+  "status": "draft",
+  "direction": "backend",
+  "level": "campus",
+  "situation": "删除：删除一场模拟面试后，相关结论消失",
+  "truth": {
+    "knowledge": [
+      {
+        "node": "kp:spring.tx.failure",
+        "trajectory": [
+          {
+            "date": "2026-05-01",
+            "level": "L1"
+          }
+        ]
+      },
+      {
+        "node": "kp:spring.core.ioc",
+        "trajectory": [
+          {
+            "date": "2026-05-01",
+            "level": "L3"
+          }
+        ]
+      }
+    ],
+    "baseline": 2,
+    "manner": "语速平稳，喜欢举项目里的例子。"
+  },
+  "timeline": [
+    {
+      "date": "2026-05-02",
+      "event": "resume_saved",
+      "ref": "resume_v1",
+      "resume": {
+        "title": "Java 后端-校招",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例理工大学",
+                "major": "计算机科学与技术",
+                "degree": "本科",
+                "start": "2022.09",
+                "end": "2026.06"
+              }
+            ]
+          },
+          {
+            "kind": "project",
+            "title": "项目经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "name": "选课系统",
+                "organization": "示例理工大学",
+                "role": "后端开发",
+                "start": "2025.03",
+                "end": "2025.06",
+                "lines": [
+                  "基于 Spring Boot 实现选课与退课接口"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "熟悉 Spring、Spring Boot",
+              "熟悉 MySQL"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-05-10",
+      "event": "mock_interview",
+      "ref": "mock_1",
+      "note": "事务失效只答到 L1",
+      "interview": {
+        "type": "technical",
+        "difficulty": "intermediate",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "Spring 事务失效",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:spring.tx.failure"
+            ],
+            "skill": "Spring",
+            "question": "@Transactional 在哪些情况下会失效？",
+            "signals": [
+              {
+                "text": "自调用",
+                "core": true
+              },
+              {
+                "text": "非 public 方法",
+                "core": false
+              },
+              {
+                "text": "异常被捕获",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "Spring IoC",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:spring.core.ioc"
+            ],
+            "skill": "Spring",
+            "question": "说说你对 Spring IoC 的理解：控制反转反转了什么，容器帮你做了哪些事？",
+            "signals": [
+              {
+                "text": "控制反转与依赖注入的关系",
+                "core": true
+              },
+              {
+                "text": "容器负责 Bean 的创建与装配",
+                "core": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-05-20",
+      "event": "source_deleted",
+      "ref": "delete_1",
+      "note": "用户删除这场模拟面试",
+      "source": "mock_1"
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "c1",
+      "at": "2026-05-11",
+      "assert": "issue_present",
+      "kind": "knowledge_gap",
+      "about": "kp:spring.tx.failure"
+    },
+    {
+      "id": "c2",
+      "at": "2026-05-11",
+      "assert": "ability_level",
+      "node": "kp:spring.core.ioc",
+      "expected": "proficient"
+    },
+    {
+      "id": "c3",
+      "at": "2026-05-21",
+      "assert": "issue_absent",
+      "kind": "knowledge_gap",
+      "about": "kp:spring.tx.failure"
+    },
+    {
+      "id": "c4",
+      "at": "2026-05-21",
+      "assert": "ability_level",
+      "node": "kp:spring.tx.failure",
+      "expected": "insufficient"
+    },
+    {
+      "id": "c5",
+      "at": "2026-05-21",
+      "assert": "ability_level",
+      "node": "kp:spring.core.ioc",
+      "expected": "insufficient"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "at": "2026-05-21",
+      "scenario": "chat.opening",
+      "task": "我该准备什么？",
+      "must_exclude": [
+        "提到 Spring 事务失效是薄弱点或上次没答好"
+      ]
+    }
+  ]
+}

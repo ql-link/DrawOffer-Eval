@@ -1,0 +1,341 @@
+{
+  "id": "p17",
+  "version": 1,
+  "status": "draft",
+  "direction": "backend",
+  "level": "campus",
+  "situation": "Go 校招：岗位明确要求 context 取消与超时控制，两场面试都答不上；channel 扎实",
+  "truth": {
+    "knowledge": [
+      {
+        "node": "kp:go.concurrency.channel",
+        "trajectory": [
+          {
+            "date": "2026-03-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:go.concurrency.context",
+        "trajectory": [
+          {
+            "date": "2026-03-01",
+            "level": "L1"
+          }
+        ]
+      },
+      {
+        "node": "kp:go.lang.slice",
+        "trajectory": [
+          {
+            "date": "2026-03-01",
+            "level": "L2"
+          }
+        ]
+      }
+    ],
+    "experiences": [
+      {
+        "key": "url_short",
+        "title": "短链服务（课程项目）",
+        "kind": "project",
+        "role": "solo",
+        "weight": "W2",
+        "tech_depth": "L2",
+        "biz_depth": "L1",
+        "role_text": "独立完成",
+        "story": "课程大作业，一个人用 Go 写了短链生成和跳转服务，用 Redis 存映射。",
+        "facts": [
+          "短码用自增 ID 转 62 进制生成"
+        ],
+        "facets": {
+          "background": "clear",
+          "task": "clear",
+          "action": "clear",
+          "tradeoff": "partial",
+          "result": "partial",
+          "boundary": "clear"
+        }
+      }
+    ],
+    "baseline": 2,
+    "manner": "回答简短，先给结论再补一两句原因。"
+  },
+  "timeline": [
+    {
+      "date": "2026-03-02",
+      "event": "resume_saved",
+      "ref": "resume_v1",
+      "note": "唯一一份简历",
+      "resume": {
+        "title": "Go 后端校招",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例工业大学",
+                "major": "计算机科学与技术",
+                "degree": "本科",
+                "start": "2022.09",
+                "end": "2026.06"
+              }
+            ]
+          },
+          {
+            "kind": "work",
+            "title": "工作经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "experience": "url_short",
+                "name": "短链服务（课程项目）",
+                "organization": "示例工业大学",
+                "role": "课程项目",
+                "start": "2025.03",
+                "end": "2025.06",
+                "lines": [
+                  "独立完成短链生成与跳转服务",
+                  "使用 Redis 存储短码映射"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "熟悉 Go 语言与并发编程",
+              "熟悉 Redis、MySQL"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-03-05",
+      "event": "job_saved",
+      "ref": "job_a",
+      "note": "岗位写明要理解 context 的取消与超时控制",
+      "job": {
+        "company": "示例星桥科技",
+        "title": "Go 后端开发工程师（校招）",
+        "employment_type": "校招",
+        "city": "深圳",
+        "skills": [
+          "Go",
+          "Redis"
+        ],
+        "description": "负责网关与消息服务开发。要求：熟练掌握 Go 并发编程，深入理解 context 的取消传递与超时控制；熟悉 Redis。"
+      }
+    },
+    {
+      "date": "2026-03-12",
+      "event": "mock_interview",
+      "ref": "mock_1",
+      "note": "channel 答到 L3；context 只说得出用来传值，问到取消传递答不上",
+      "interview": {
+        "type": "technical",
+        "difficulty": "junior",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "Go channel",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:go.concurrency.channel"
+            ],
+            "question": "无缓冲和有缓冲的 channel 有什么区别？什么时候会阻塞？",
+            "signals": [
+              {
+                "text": "发送接收的阻塞条件",
+                "core": true
+              },
+              {
+                "text": "关闭后的读写行为",
+                "core": false
+              }
+            ],
+            "skill": "Go"
+          },
+          {
+            "topic": "Go context",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:go.concurrency.context"
+            ],
+            "question": "context 是怎么把取消信号传给下游 goroutine 的？",
+            "signals": [
+              {
+                "text": "父 context 取消会传播到子 context",
+                "core": true
+              },
+              {
+                "text": "Done channel 与超时",
+                "core": false
+              }
+            ],
+            "skill": "Go"
+          },
+          {
+            "topic": "Go slice",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:go.lang.slice"
+            ],
+            "question": "slice 扩容的规则是什么？",
+            "signals": [
+              {
+                "text": "容量翻倍与阈值后的增长",
+                "core": true
+              },
+              {
+                "text": "底层数组共享",
+                "core": false
+              }
+            ],
+            "skill": "Go"
+          }
+        ],
+        "job": "job_a"
+      }
+    },
+    {
+      "date": "2026-03-26",
+      "event": "mock_interview",
+      "ref": "mock_2",
+      "note": "context 仍然答不上；channel 再次答到 L3",
+      "interview": {
+        "type": "technical",
+        "difficulty": "junior",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "Go context 超时",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:go.concurrency.context"
+            ],
+            "question": "调用下游服务时怎么用 context 做超时控制？超时后 goroutine 会自己退出吗？",
+            "signals": [
+              {
+                "text": "WithTimeout 与 Done",
+                "core": true
+              },
+              {
+                "text": "需要在代码里监听取消",
+                "core": false
+              }
+            ],
+            "skill": "Go"
+          },
+          {
+            "topic": "Go channel 关闭",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:go.concurrency.channel"
+            ],
+            "question": "怎么安全地关闭一个有多个发送方的 channel？",
+            "signals": [
+              {
+                "text": "由唯一一方关闭或用额外信号",
+                "core": true
+              },
+              {
+                "text": "向已关闭 channel 发送会 panic",
+                "core": false
+              }
+            ],
+            "skill": "Go"
+          },
+          {
+            "topic": "短链服务",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "url_short",
+            "question": "讲讲你的短链服务，短码是怎么生成的？",
+            "signals": [
+              {
+                "text": "讲清生成方案",
+                "core": true
+              },
+              {
+                "text": "说清碰撞与性能考虑",
+                "core": false
+              }
+            ],
+            "directions": [
+              "为什么选这种生成方式",
+              "哪些是你自己做的"
+            ]
+          }
+        ],
+        "job": "job_a"
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "c1",
+      "at": "2026-03-06",
+      "assert": "readiness",
+      "goal": "goal:job.job_a",
+      "level": "insufficient",
+      "note": "只有简历和岗位，没有面试证据"
+    },
+    {
+      "id": "c2",
+      "at": "2026-03-06",
+      "assert": "issue_absent",
+      "kind": "knowledge_gap",
+      "note": "还没有面试证据，不判缺口"
+    },
+    {
+      "id": "c3",
+      "at": "2026-03-27",
+      "assert": "issue_present",
+      "kind": "knowledge_gap",
+      "about": "kp:go.concurrency.context",
+      "note": "岗位要求深入理解（高于 L1），两场都在原理层答不上"
+    },
+    {
+      "id": "c4",
+      "at": "2026-03-27",
+      "assert": "ability_level",
+      "node": "kp:go.concurrency.channel",
+      "expected": "proficient"
+    },
+    {
+      "id": "c5",
+      "at": "2026-03-27",
+      "assert": "issue_absent",
+      "kind": "knowledge_gap",
+      "about": "kp:go.concurrency.channel"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "at": "2026-03-27",
+      "scenario": "prep.checklist",
+      "task": "为示例星桥科技的面试生成准备清单",
+      "job": "job_a",
+      "must_include": [
+        "context 取消传递或超时控制相关的准备项"
+      ],
+      "must_exclude": [
+        "把 channel 列为需要补的薄弱项"
+      ]
+    }
+  ]
+}

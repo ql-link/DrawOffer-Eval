@@ -1,0 +1,440 @@
+{
+  "id": "p18",
+  "version": 1,
+  "status": "draft",
+  "direction": "frontend",
+  "level": "mid",
+  "situation": "低估：简历写“了解 TypeScript”，两场面试六个 TypeScript 知识点都答到 L3；面试说出一条简历没写的成果",
+  "truth": {
+    "knowledge": [
+      {
+        "node": "kp:typescript.generics",
+        "trajectory": [
+          {
+            "date": "2026-04-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:typescript.narrowing",
+        "trajectory": [
+          {
+            "date": "2026-04-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:typescript.utility",
+        "trajectory": [
+          {
+            "date": "2026-04-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:typescript.conditional",
+        "trajectory": [
+          {
+            "date": "2026-04-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:typescript.interface_type",
+        "trajectory": [
+          {
+            "date": "2026-04-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:typescript.any_unknown",
+        "trajectory": [
+          {
+            "date": "2026-04-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:vue.reactivity.computed_watch",
+        "trajectory": [
+          {
+            "date": "2026-04-01",
+            "level": "L3"
+          }
+        ]
+      }
+    ],
+    "experiences": [
+      {
+        "key": "form_engine",
+        "title": "表单配置引擎",
+        "kind": "work",
+        "role": "own",
+        "weight": "W3",
+        "tech_depth": "L3",
+        "biz_depth": "L2",
+        "role_text": "负责",
+        "story": "在示例云杉软件负责表单配置引擎：业务方用 JSON 配置表单，引擎渲染并校验。组长定整体架构，我负责引擎的渲染和校验模块。",
+        "facts": [
+          "配置化后新表单的开发时间从 2 天缩短到半天"
+        ],
+        "facets": {
+          "background": "clear",
+          "task": "clear",
+          "action": "clear",
+          "tradeoff": "clear",
+          "result": "clear",
+          "boundary": "clear"
+        },
+        "behaviours": [
+          "被问到效果时说出新表单开发时间从 2 天缩短到半天",
+          "被问到哪些是自己做的时，说架构是组长定的，自己负责渲染和校验模块"
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "key": "ts_aware",
+        "text": "了解 TypeScript",
+        "node": "tech:typescript",
+        "truth": "understated",
+        "dimension": "proficiency"
+      }
+    ],
+    "supplement_facts": [
+      {
+        "experience": "form_engine",
+        "text": "新表单开发时间从 2 天缩短到半天"
+      }
+    ],
+    "baseline": 3,
+    "manner": "语气平和，喜欢结合项目代码举例。"
+  },
+  "timeline": [
+    {
+      "date": "2026-04-02",
+      "event": "resume_saved",
+      "ref": "resume_v1",
+      "note": "写“了解 TypeScript”",
+      "resume": {
+        "title": "前端开发",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例师范大学",
+                "major": "软件工程",
+                "degree": "本科",
+                "start": "2018.09",
+                "end": "2022.06"
+              }
+            ]
+          },
+          {
+            "kind": "work",
+            "title": "工作经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "experience": "form_engine",
+                "name": "表单配置引擎",
+                "organization": "示例云杉软件",
+                "role": "前端开发工程师",
+                "start": "2022.07",
+                "end": "2026.03",
+                "lines": [
+                  "负责表单配置引擎的渲染与校验模块",
+                  "支持 40 余种业务表单的配置化"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "熟悉 Vue 3 及其生态",
+              "了解 TypeScript",
+              "熟悉前端工程化"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-04-10",
+      "event": "mock_interview",
+      "ref": "mock_1",
+      "note": "三个 TypeScript 知识点都答到 L3；经历题说出开发时间缩短",
+      "interview": {
+        "type": "technical",
+        "difficulty": "intermediate",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "TS 泛型",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:typescript.generics"
+            ],
+            "question": "泛型约束 extends 和默认类型参数分别解决什么问题？举个你项目里的例子。",
+            "signals": [
+              {
+                "text": "约束与默认值",
+                "core": true
+              },
+              {
+                "text": "实际用例",
+                "core": false
+              }
+            ],
+            "skill": "TypeScript"
+          },
+          {
+            "topic": "TS 类型收窄",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:typescript.narrowing"
+            ],
+            "question": "类型收窄有哪些方式？自定义类型守卫怎么写？",
+            "signals": [
+              {
+                "text": "typeof、in、判别联合",
+                "core": true
+              },
+              {
+                "text": "is 谓词",
+                "core": false
+              }
+            ],
+            "skill": "TypeScript"
+          },
+          {
+            "topic": "TS 工具类型",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:typescript.utility"
+            ],
+            "question": "Partial、Pick、Omit 是怎么实现的？",
+            "signals": [
+              {
+                "text": "映射类型与 keyof",
+                "core": true
+              },
+              {
+                "text": "Omit 基于 Pick 与 Exclude",
+                "core": false
+              }
+            ],
+            "skill": "TypeScript"
+          },
+          {
+            "topic": "表单配置引擎",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "form_engine",
+            "question": "讲讲表单配置引擎，你负责哪些部分？效果怎么样？",
+            "signals": [
+              {
+                "text": "讲清引擎做什么",
+                "core": true
+              },
+              {
+                "text": "本人负责的部分",
+                "core": false
+              },
+              {
+                "text": "效果与衡量",
+                "core": false
+              }
+            ],
+            "directions": [
+              "哪些是你做的",
+              "效果怎么衡量的"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-04-24",
+      "event": "mock_interview",
+      "ref": "mock_2",
+      "note": "另外三个 TypeScript 知识点也答到 L3",
+      "interview": {
+        "type": "technical",
+        "difficulty": "intermediate",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "TS 条件类型",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:typescript.conditional"
+            ],
+            "question": "条件类型里的 infer 是做什么的？ReturnType 怎么实现？",
+            "signals": [
+              {
+                "text": "在条件类型中推断",
+                "core": true
+              },
+              {
+                "text": "分布式条件类型",
+                "core": false
+              }
+            ],
+            "skill": "TypeScript"
+          },
+          {
+            "topic": "interface 与 type",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:typescript.interface_type"
+            ],
+            "question": "interface 和 type 在什么场景下该选哪个？",
+            "signals": [
+              {
+                "text": "声明合并",
+                "core": true
+              },
+              {
+                "text": "联合与映射只能用 type",
+                "core": false
+              }
+            ],
+            "skill": "TypeScript"
+          },
+          {
+            "topic": "any 与 unknown",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:typescript.any_unknown"
+            ],
+            "question": "any、unknown、never 分别该在什么时候用？",
+            "signals": [
+              {
+                "text": "unknown 必须先收窄",
+                "core": true
+              },
+              {
+                "text": "never 用于穷尽检查",
+                "core": false
+              }
+            ],
+            "skill": "TypeScript"
+          },
+          {
+            "topic": "computed 与 watch",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:vue.reactivity.computed_watch"
+            ],
+            "question": "computed 和 watch 有什么区别？各自适合什么场景？",
+            "signals": [
+              {
+                "text": "缓存与依赖追踪",
+                "core": true
+              },
+              {
+                "text": "副作用用 watch",
+                "core": false
+              }
+            ],
+            "skill": "Vue"
+          },
+          {
+            "topic": "表单配置引擎",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "form_engine",
+            "question": "表单校验是怎么设计的？为什么这样设计？",
+            "signals": [
+              {
+                "text": "讲清校验方案",
+                "core": true
+              },
+              {
+                "text": "说清取舍",
+                "core": false
+              }
+            ],
+            "directions": [
+              "为什么不用现成的校验库",
+              "哪些是你做的"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "c1",
+      "at": "2026-04-03",
+      "assert": "issue_absent",
+      "kind": "understated",
+      "note": "只有简历，不判低估"
+    },
+    {
+      "id": "c2",
+      "at": "2026-04-25",
+      "assert": "issue_present",
+      "kind": "understated",
+      "about": "claim:ts_aware"
+    },
+    {
+      "id": "c3",
+      "at": "2026-04-25",
+      "assert": "ability_level",
+      "node": "kp:typescript.generics",
+      "expected": "proficient"
+    },
+    {
+      "id": "c4",
+      "at": "2026-04-25",
+      "assert": "supplement_fact",
+      "experience": "exp:form_engine",
+      "text": "新表单开发时间从 2 天缩短到半天"
+    },
+    {
+      "id": "c5",
+      "at": "2026-04-25",
+      "assert": "experience_assessment",
+      "experience": "exp:form_engine",
+      "weight": "W3",
+      "tech_depth": "L3"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "at": "2026-04-25",
+      "scenario": "resume.section_focus",
+      "task": "优化技能栏",
+      "target": "resume_v1:skills",
+      "must_include": [
+        "建议把“了解 TypeScript”上调为更高的措辞"
+      ]
+    }
+  ]
+}

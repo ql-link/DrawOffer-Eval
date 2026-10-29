@@ -1,0 +1,316 @@
+{
+  "id": "p05",
+  "version": 4,
+  "status": "draft",
+  "split": "dev",
+  "split_note": "2026-10-16 起转入开发集：按编号哈希原属测试集，但调参期间结果已被看过，不能再作为最终评测。",
+  "direction": "backend",
+  "level": "senior",
+  "situation": "深度足够但业务讲不清；准确性风险（方案不自洽）",
+  "truth": {
+    "knowledge": [
+      {
+        "node": "kp:kafka.ha.leader_election",
+        "trajectory": [
+          {
+            "date": "2026-05-01",
+            "level": "L4"
+          }
+        ]
+      },
+      {
+        "node": "kp:sd.consistency.raft",
+        "trajectory": [
+          {
+            "date": "2026-05-01",
+            "level": "L4"
+          }
+        ]
+      }
+    ],
+    "experiences": [
+      {
+        "key": "msg_platform",
+        "title": "消息平台多机房改造",
+        "kind": "work",
+        "role": "lead",
+        "weight": "W4",
+        "tech_depth": "L4",
+        "biz_depth": "L2",
+        "facets": {
+          "background": "unclear",
+          "task": "partial",
+          "action": "clear",
+          "tradeoff": "clear",
+          "result": "partial",
+          "boundary": "clear"
+        },
+        "role_text": "主导",
+        "story": "主导消息平台多机房改造：跨机房复制、选主、故障切换。说不清业务背景和业务方需求；谈复制方案时先说跨机房同步复制，后面又说是异步复制，同时坚持“不会丢消息”。",
+        "facts": [
+          "机房间复制延迟控制在 200ms 以内",
+          "故障切换演练每季度一次"
+        ],
+        "contradiction": "前面说同步复制，后面说异步复制，并声称零丢失",
+        "behaviours": [
+          "介绍项目时只讲技术实现；被追问业务方是谁、为什么要做多机房时说不清，只说“业务那边要求的”",
+          "讲同一条跨机房复制链路时，先说主备机房之间是同步复制，后面被问到同一条链路的延迟时又说是异步复制，同时坚持机房故障切换时不会丢消息"
+        ]
+      }
+    ],
+    "claims": [],
+    "baseline": 4,
+    "manner": "技术上讲得深，但先讲实现细节、后讲结论。"
+  },
+  "timeline": [
+    {
+      "date": "2026-05-02",
+      "event": "resume_saved",
+      "ref": "resume_v1",
+      "resume": {
+        "title": "资深后端",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例理工大学",
+                "major": "计算机科学与技术",
+                "degree": "本科",
+                "start": "2014.09",
+                "end": "2018.06"
+              }
+            ]
+          },
+          {
+            "kind": "work",
+            "title": "工作经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "experience": "msg_platform",
+                "name": "消息平台多机房改造",
+                "organization": "远山示例科技",
+                "role": "技术负责人",
+                "start": "2022.03",
+                "end": "2026.04",
+                "lines": [
+                  "主导消息平台多机房改造，实现跨机房复制与自动故障切换",
+                  "设计基于 Raft 的元数据选主方案"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "精通 Kafka",
+              "熟悉分布式一致性协议"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-05-10",
+      "event": "mock_interview",
+      "ref": "mock_1",
+      "note": "综合面，业务背景两次讲不清；方案前说同步复制、后说异步复制，且声称零丢失",
+      "interview": {
+        "type": "comprehensive",
+        "difficulty": "senior",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "消息平台多机房改造",
+            "start_depth": 3,
+            "style": "experience",
+            "nodes": [],
+            "experience": "msg_platform",
+            "question": "介绍一下你主导的消息平台多机房改造。",
+            "signals": [
+              {
+                "text": "讲清业务背景与需求方",
+                "core": true
+              },
+              {
+                "text": "讲清复制方案与一致性取舍",
+                "core": false
+              },
+              {
+                "text": "讲清结果",
+                "core": false
+              }
+            ],
+            "directions": [
+              "业务方是谁，为什么需要多机房",
+              "跨机房复制是同步还是异步，会不会丢消息"
+            ]
+          },
+          {
+            "topic": "Kafka 选主",
+            "start_depth": 3,
+            "style": "principle",
+            "nodes": [
+              "kp:kafka.ha.leader_election"
+            ],
+            "skill": "Kafka",
+            "question": "Kafka 分区 leader 宕机后是怎么选主的？",
+            "signals": [
+              {
+                "text": "controller 从 ISR 选主",
+                "core": true
+              },
+              {
+                "text": "unclean 选主的取舍",
+                "core": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-05-25",
+      "event": "mock_interview",
+      "ref": "mock_2",
+      "note": "技术深挖答到 L4",
+      "interview": {
+        "type": "project_deep_dive",
+        "difficulty": "senior",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "消息平台多机房改造",
+            "start_depth": 3,
+            "style": "experience",
+            "nodes": [],
+            "experience": "msg_platform",
+            "question": "介绍一下你主导的消息平台多机房改造。",
+            "signals": [
+              {
+                "text": "讲清业务背景与需求方",
+                "core": true
+              },
+              {
+                "text": "讲清复制方案与一致性取舍",
+                "core": false
+              },
+              {
+                "text": "讲清结果",
+                "core": false
+              }
+            ],
+            "directions": [
+              "业务方是谁，为什么需要多机房",
+              "跨机房复制是同步还是异步，会不会丢消息"
+            ]
+          },
+          {
+            "topic": "Raft 选主",
+            "start_depth": 3,
+            "style": "principle",
+            "nodes": [
+              "kp:sd.consistency.raft"
+            ],
+            "question": "你们元数据用 Raft 选主，网络分区时会发生什么？",
+            "signals": [
+              {
+                "text": "任期与多数派",
+                "core": true
+              },
+              {
+                "text": "脑裂如何避免",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "Kafka 选主边界",
+            "start_depth": 3,
+            "style": "principle",
+            "nodes": [
+              "kp:kafka.ha.leader_election"
+            ],
+            "skill": "Kafka",
+            "question": "ISR 全部挂掉时怎么办？",
+            "signals": [
+              {
+                "text": "unclean.leader.election 的取舍",
+                "core": true
+              },
+              {
+                "text": "数据丢失边界",
+                "core": false
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "c1",
+      "at": "2026-05-26",
+      "assert": "experience_assessment",
+      "experience": "exp:msg_platform",
+      "tech_depth": "L4",
+      "biz_depth": "L2"
+    },
+    {
+      "id": "c2",
+      "at": "2026-05-26",
+      "assert": "issue_present",
+      "kind": "unclear_telling",
+      "about": "exp:msg_platform"
+    },
+    {
+      "id": "c3",
+      "at": "2026-05-11",
+      "assert": "issue_present",
+      "kind": "accuracy_risk",
+      "about": "exp:msg_platform"
+    },
+    {
+      "id": "c4",
+      "at": "2026-05-26",
+      "assert": "ability_level",
+      "node": "kp:kafka.ha.leader_election",
+      "expected": "expert"
+    },
+    {
+      "id": "c5",
+      "at": "2026-05-26",
+      "assert": "ability_level",
+      "node": "cmp:communication",
+      "expected": "insufficient",
+      "note": "通用能力一场面试只有少量信号，达不到已评估的方差上限，应显示证据不足（2026-10-16 修订）"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "at": "2026-05-26",
+      "scenario": "chat.opening",
+      "task": "我那个消息平台多机房的项目，面试时怎么讲比较好？",
+      "must_include": [
+        "提醒讲清业务背景：业务方是谁、为什么要做",
+        "提醒复制方案的说法要前后一致"
+      ]
+    },
+    {
+      "id": "s2",
+      "at": "2026-05-26",
+      "scenario": "self_intro.assist",
+      "task": "帮我写一段面试自我介绍并打磨",
+      "must_include": [
+        "指出要补上项目的业务背景"
+      ]
+    }
+  ]
+}

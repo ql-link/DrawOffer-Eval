@@ -1,0 +1,286 @@
+{
+  "id": "p09",
+  "version": 3,
+  "status": "draft",
+  "split": "dev",
+  "split_note": "2026-10-16 起转入开发集：按编号哈希原属测试集，但调参期间结果已被看过，不能再作为最终评测。",
+  "direction": "product",
+  "level": "campus",
+  "situation": "业务岗：业务深度为主；讲述要素“量化结果”讲不清",
+  "truth": {
+    "knowledge": [
+      {
+        "node": "cmp:problem_solving",
+        "trajectory": [
+          {
+            "date": "2026-05-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "cmp:communication",
+        "trajectory": [
+          {
+            "date": "2026-05-01",
+            "level": "L3"
+          }
+        ]
+      }
+    ],
+    "experiences": [
+      {
+        "key": "campus_app",
+        "title": "校园二手交易平台（产品负责人）",
+        "kind": "campus",
+        "role": "lead",
+        "weight": "W2",
+        "biz_depth": "L3",
+        "facets": {
+          "background": "clear",
+          "task": "clear",
+          "action": "clear",
+          "tradeoff": "partial",
+          "result": "unclear",
+          "boundary": "clear"
+        },
+        "role_text": "主导",
+        "story": "大三时和几个同学做校园二手交易平台，我做产品负责人：调研、需求、上线节奏都是我定的；DAU 提升 40% 是看后台大概估的，说不清口径和时间段。",
+        "facts": [
+          "上线一个月有 1200 名注册用户",
+          "通过宿舍楼长地推获客"
+        ],
+        "behaviours": [
+          "被问到 DAU 提升 40% 怎么算的、统计口径和时间段时含糊其辞，说是看后台大概估的"
+        ]
+      }
+    ],
+    "baseline": 2,
+    "manner": "表达有条理、结论先行。"
+  },
+  "timeline": [
+    {
+      "date": "2026-05-02",
+      "event": "resume_saved",
+      "ref": "resume_v1",
+      "note": "写“DAU 提升 40%”",
+      "resume": {
+        "title": "产品经理-校招",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例理工大学",
+                "major": "信息管理与信息系统",
+                "degree": "本科",
+                "start": "2022.09",
+                "end": "2026.06"
+              }
+            ]
+          },
+          {
+            "kind": "activity",
+            "title": "校园经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "experience": "campus_app",
+                "name": "校园二手交易平台",
+                "organization": "示例理工大学创业社",
+                "role": "产品负责人",
+                "start": "2024.09",
+                "end": "2025.06",
+                "lines": [
+                  "主导校园二手交易平台从 0 到 1 的产品设计",
+                  "上线后 DAU 提升 40%"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "熟练使用 Axure、Figma",
+              "掌握 SQL 基础查询"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-05-14",
+      "event": "mock_interview",
+      "ref": "mock_1",
+      "note": "产品经理综合面；问数据怎么来的答不出",
+      "interview": {
+        "type": "comprehensive",
+        "difficulty": "junior",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "校园二手交易平台",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "campus_app",
+            "question": "讲讲这个二手交易平台：为什么做、你怎么做的、效果怎么样？",
+            "signals": [
+              {
+                "text": "讲清用户痛点",
+                "core": true,
+                "competency": "problem_solving"
+              },
+              {
+                "text": "讲清关键决策",
+                "core": false,
+                "competency": "ownership"
+              },
+              {
+                "text": "讲清数据口径",
+                "core": false,
+                "competency": "communication"
+              }
+            ],
+            "directions": [
+              "DAU 提升 40% 是怎么算的",
+              "哪些是你做的"
+            ]
+          },
+          {
+            "topic": "需求优先级",
+            "start_depth": 2,
+            "style": "scenario",
+            "nodes": [],
+            "question": "同时来了三个需求，你会怎么排优先级？",
+            "signals": [
+              {
+                "text": "按价值和成本评估",
+                "core": true,
+                "competency": "problem_solving"
+              },
+              {
+                "text": "讲清取舍依据",
+                "core": false,
+                "competency": "communication"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-05-28",
+      "event": "mock_interview",
+      "ref": "mock_2",
+      "note": "再次追问量化结果，仍讲不清口径",
+      "interview": {
+        "type": "comprehensive",
+        "difficulty": "junior",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "校园二手交易平台",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "campus_app",
+            "question": "讲讲这个二手交易平台：为什么做、你怎么做的、效果怎么样？",
+            "signals": [
+              {
+                "text": "讲清用户痛点",
+                "core": true,
+                "competency": "problem_solving"
+              },
+              {
+                "text": "讲清关键决策",
+                "core": false,
+                "competency": "ownership"
+              },
+              {
+                "text": "讲清数据口径",
+                "core": false,
+                "competency": "communication"
+              }
+            ],
+            "directions": [
+              "DAU 提升 40% 是怎么算的",
+              "哪些是你做的"
+            ]
+          },
+          {
+            "topic": "用户调研",
+            "start_depth": 2,
+            "style": "scenario",
+            "nodes": [],
+            "question": "如果要验证一个新功能有没有用，你会怎么做？",
+            "signals": [
+              {
+                "text": "定义指标",
+                "core": true,
+                "competency": "problem_solving"
+              },
+              {
+                "text": "设计对照",
+                "core": false,
+                "competency": "communication"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "c1",
+      "at": "2026-05-29",
+      "assert": "issue_present",
+      "kind": "unclear_telling",
+      "about": "exp:campus_app"
+    },
+    {
+      "id": "c2",
+      "at": "2026-05-29",
+      "assert": "experience_assessment",
+      "experience": "exp:campus_app",
+      "biz_depth": "L3"
+    },
+    {
+      "id": "c3",
+      "at": "2026-05-29",
+      "assert": "ability_level",
+      "node": "cmp:communication",
+      "expected": "insufficient",
+      "note": "通用能力一场面试只有少量信号，达不到已评估的方差上限，应显示证据不足（2026-10-16 修订）"
+    },
+    {
+      "id": "c4",
+      "at": "2026-05-29",
+      "assert": "issue_absent",
+      "kind": "knowledge_gap",
+      "note": "业务岗不出技术知识缺口"
+    },
+    {
+      "id": "c5",
+      "at": "2026-05-03",
+      "assert": "issue_absent",
+      "kind": "unclear_telling"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "at": "2026-05-29",
+      "scenario": "chat.opening",
+      "task": "二手交易平台这个项目面试时怎么讲比较好？",
+      "must_include": [
+        "提醒讲清 DAU 提升 40% 的统计口径和来源"
+      ]
+    }
+  ]
+}

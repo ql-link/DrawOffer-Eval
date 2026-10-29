@@ -1,0 +1,240 @@
+{
+  "id": "p30",
+  "version": 2,
+  "status": "draft",
+  "direction": "backend",
+  "level": "mid",
+  "situation": "复测：3 月 Docker 隔离两次答到 L3；一个月后还不该提示复测，一年多后应提示复测",
+  "truth": {
+    "knowledge": [
+      {
+        "node": "kp:docker.isolation",
+        "trajectory": [
+          {
+            "date": "2026-03-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:docker.image",
+        "trajectory": [
+          {
+            "date": "2026-03-01",
+            "level": "L3"
+          }
+        ]
+      }
+    ],
+    "baseline": 3,
+    "manner": "沉稳，习惯先讲原理再讲实践。"
+  },
+  "timeline": [
+    {
+      "date": "2026-03-02",
+      "event": "resume_saved",
+      "ref": "resume_v1",
+      "note": "",
+      "resume": {
+        "title": "后端开发（偏运维）",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例航空大学",
+                "major": "网络工程",
+                "degree": "本科",
+                "start": "2016.09",
+                "end": "2020.06"
+              }
+            ]
+          },
+          {
+            "kind": "work",
+            "title": "工作经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "name": "发布平台容器化",
+                "organization": "示例西山数据",
+                "role": "后端开发工程师",
+                "start": "2020.07",
+                "end": "2026.02",
+                "lines": [
+                  "负责发布平台的容器化改造",
+                  "编写基础镜像与 CI 构建流程"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "熟悉 Docker、Linux",
+              "了解 Kubernetes"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-03-10",
+      "event": "mock_interview",
+      "ref": "mock_1",
+      "note": "Docker 隔离和镜像都答到 L3",
+      "interview": {
+        "type": "technical",
+        "difficulty": "intermediate",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "容器隔离",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:docker.isolation"
+            ],
+            "question": "Docker 的隔离是靠什么实现的？Namespace 和 Cgroups 各管什么？",
+            "signals": [
+              {
+                "text": "Namespace 管视图",
+                "core": true
+              },
+              {
+                "text": "Cgroups 管资源",
+                "core": false
+              }
+            ],
+            "skill": "Docker"
+          },
+          {
+            "topic": "镜像分层",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:docker.image"
+            ],
+            "question": "镜像为什么要分层？怎么让镜像更小？",
+            "signals": [
+              {
+                "text": "层共享与缓存",
+                "core": true
+              },
+              {
+                "text": "多阶段构建",
+                "core": false
+              }
+            ],
+            "skill": "Docker"
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-03-24",
+      "event": "mock_interview",
+      "ref": "mock_2",
+      "note": "再次答到 L3",
+      "interview": {
+        "type": "technical",
+        "difficulty": "intermediate",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "Cgroups 限制",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:docker.isolation"
+            ],
+            "question": "容器内存超过 limit 会发生什么？怎么排查？",
+            "signals": [
+              {
+                "text": "OOM Kill",
+                "core": true
+              },
+              {
+                "text": "看 cgroup 统计",
+                "core": false
+              }
+            ],
+            "skill": "Docker"
+          },
+          {
+            "topic": "镜像缓存",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:docker.image"
+            ],
+            "question": "Dockerfile 里指令的顺序怎么影响构建缓存？",
+            "signals": [
+              {
+                "text": "变化少的放前面",
+                "core": true
+              },
+              {
+                "text": "缓存失效会连带后续层",
+                "core": false
+              }
+            ],
+            "skill": "Docker"
+          }
+        ]
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "c1",
+      "at": "2026-03-25",
+      "assert": "ability_level",
+      "node": "kp:docker.isolation",
+      "expected": "proficient"
+    },
+    {
+      "id": "c2",
+      "at": "2026-03-25",
+      "assert": "ability_level",
+      "node": "kp:docker.image",
+      "expected": "proficient"
+    },
+    {
+      "id": "c3",
+      "at": "2026-03-03",
+      "assert": "ability_level",
+      "node": "kp:docker.isolation",
+      "expected": "insufficient",
+      "note": "只有简历"
+    },
+    {
+      "id": "c4",
+      "at": "2026-03-27",
+      "assert": "issue_absent",
+      "kind": "review_due",
+      "about": "kp:docker.isolation",
+      "note": "最后一次答题后 3 天。前提：03-24 的直接题通过开题档位 L2 并答到 L3。按 2026.10 参数（κ=0.65、复测门槛 P=0.6、提前 7 天、mu_base=-0.5，目标档位 L3）用两次直接题实算：两次都答到 L3、没追问 L4 时 2026-05-07 跌破门槛；追问 L4 答不出时 2026-04-07 跌破；L3 没答出则不算“掌握过”，不产生复测。两种答到 L3 的情况下 03-27 都还没到 7 天提前量，不应有复测。"
+    },
+    {
+      "id": "c5",
+      "at": "2027-05-01",
+      "assert": "issue_present",
+      "kind": "review_due",
+      "about": "kp:docker.isolation",
+      "note": "最后一次答题在 2026-03-24，之后一年多没有任何证据。前提同 c4：03-24 的直接题答到 L3，当时已评估（方差 ≤ κ×先验）且 P(≥L3) ≥ 0.6。按 2026.10 参数（κ=0.65、复测门槛 P=0.6、提前 7 天、mu_base=-0.5，目标档位 L3）用两次直接题实算：两次都答到 L3、没追问 L4 时 2026-05-07 跌破门槛；追问 L4 答不出时 2026-04-07 跌破；L3 没答出则不算“掌握过”，不产生复测。两种答到 L3 的情况下 2027-05-01 都已逾期。若模拟回答没答到 L3，属于模拟不符合剧本，按忠实度检查处理，不算本检查点失败。"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "at": "2027-05-01",
+      "scenario": "interview.plan",
+      "task": "规划下一场后端技术模拟面试"
+    }
+  ]
+}

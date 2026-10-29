@@ -1,0 +1,248 @@
+{
+  "id": "p08",
+  "version": 3,
+  "status": "draft",
+  "split": "dev",
+  "split_note": "2026-10-16 起转入开发集：按编号哈希原属测试集，但调参期间结果已被看过，不能再作为最终评测。",
+  "direction": "ai",
+  "level": "campus",
+  "situation": "目录覆盖薄的方向；名词部分已映射（LoRA → 微调与提示的取舍），部分仍不在目录（DPO、Dify、HNSW）",
+  "truth": {
+    "knowledge": [
+      {
+        "node": "kp:llm_app.rag.retrieval",
+        "trajectory": [
+          {
+            "date": "2026-06-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:llm_app.prompt.structure",
+        "trajectory": [
+          {
+            "date": "2026-06-01",
+            "level": "L2"
+          }
+        ]
+      }
+    ],
+    "experiences": [
+      {
+        "key": "kb_bot",
+        "title": "课程知识库问答机器人",
+        "kind": "project",
+        "role": "solo",
+        "weight": "W2",
+        "tech_depth": "L3",
+        "biz_depth": "L1",
+        "role_text": "独立完成",
+        "story": "一个人做的课程知识库问答机器人：文档切块、向量检索、拼提示词调用大模型；没有真实用户，只在课程群里用过。",
+        "facts": [
+          "切块按 500 字加 50 字重叠",
+          "召回用余弦相似度取前 5 段"
+        ],
+        "facets": {
+          "background": "partial",
+          "task": "clear",
+          "action": "clear",
+          "tradeoff": "partial",
+          "result": "unclear",
+          "boundary": "clear"
+        }
+      }
+    ],
+    "concepts": [
+      "向量检索加速 HNSW",
+      "DPO",
+      "Dify"
+    ],
+    "baseline": 2,
+    "manner": "喜欢用新名词，回答节奏快。",
+    "mapped_terms": [
+      {
+        "term": "LoRA 微调",
+        "node": "kp:ai.finetune"
+      }
+    ]
+  },
+  "timeline": [
+    {
+      "date": "2026-06-02",
+      "event": "resume_saved",
+      "ref": "resume_v1",
+      "note": "技能栏有多个目录外的名词",
+      "resume": {
+        "title": "AI 应用开发-校招",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例理工大学",
+                "major": "人工智能",
+                "degree": "本科",
+                "start": "2022.09",
+                "end": "2026.06"
+              }
+            ]
+          },
+          {
+            "kind": "project",
+            "title": "项目经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "experience": "kb_bot",
+                "name": "课程知识库问答机器人",
+                "organization": "示例理工大学",
+                "role": "独立开发",
+                "start": "2025.10",
+                "end": "2026.01",
+                "lines": [
+                  "独立完成知识库问答机器人，基于 RAG 回答课程问题",
+                  "实现文档切块、向量检索与提示词拼装"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "熟悉 Python、LangChain",
+              "了解 LoRA 微调、DPO、HNSW 向量检索",
+              "使用过 Dify 搭建应用"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-06-12",
+      "event": "mock_interview",
+      "ref": "mock_1",
+      "note": "RAG 召回答到 L3，提示词结构 L2",
+      "interview": {
+        "type": "technical",
+        "difficulty": "junior",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "RAG 召回",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:llm_app.rag.retrieval"
+            ],
+            "question": "你的知识库召回是怎么做的？召回不准怎么办？",
+            "signals": [
+              {
+                "text": "向量相似度检索",
+                "core": true
+              },
+              {
+                "text": "召回不准的原因与改进",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "提示词结构",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:llm_app.prompt.structure"
+            ],
+            "question": "你给模型的提示词是怎么组织的？",
+            "signals": [
+              {
+                "text": "角色、任务、上下文、格式",
+                "core": true
+              },
+              {
+                "text": "如何减少幻觉",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "知识库问答机器人",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "kb_bot",
+            "question": "讲讲这个问答机器人，你是怎么设计的？",
+            "signals": [
+              {
+                "text": "讲清整体流程",
+                "core": true
+              },
+              {
+                "text": "切块与检索的取舍",
+                "core": false
+              }
+            ],
+            "directions": [
+              "切块大小怎么定的",
+              "效果怎么评估"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "c1",
+      "at": "2026-06-13",
+      "assert": "ability_level",
+      "node": "kp:llm_app.rag.retrieval",
+      "expected": "proficient"
+    },
+    {
+      "id": "c2",
+      "at": "2026-06-13",
+      "assert": "ability_level",
+      "node": "tech:llm_app",
+      "expected": "insufficient"
+    },
+    {
+      "id": "c3",
+      "at": "2026-06-13",
+      "assert": "issue_absent",
+      "kind": "knowledge_gap",
+      "about": "tech:llm_app"
+    },
+    {
+      "id": "c4",
+      "at": "2026-06-13",
+      "assert": "ability_level",
+      "node": "kp:llm_app.prompt.structure",
+      "expected": "familiar"
+    },
+    {
+      "id": "c5",
+      "at": "2026-06-13",
+      "assert": "experience_assessment",
+      "experience": "exp:kb_bot",
+      "tech_depth": "L3"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "at": "2026-06-13",
+      "scenario": "chat.opening",
+      "task": "我想投 AI 应用开发，接下来该补什么？",
+      "must_exclude": [
+        "断言用户已经掌握或精通 LoRA、DPO 等简历上写的名词"
+      ]
+    }
+  ],
+  "catalog_version": "2026.10.0"
+}

@@ -1,0 +1,389 @@
+{
+  "id": "p03",
+  "version": 4,
+  "status": "draft",
+  "split": "dev",
+  "split_note": "2026-10-16 起转入开发集：按编号哈希原属测试集，但调参期间结果已被看过，不能再作为最终评测。",
+  "direction": "backend",
+  "level": "mid",
+  "situation": "同一段经历在三份简历中措辞不同；数字前后矛盾（3 万与 5 千）",
+  "truth": {
+    "knowledge": [
+      {
+        "node": "kp:redis.cache.penetration",
+        "trajectory": [
+          {
+            "date": "2026-03-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:sd.cache.consistency",
+        "trajectory": [
+          {
+            "date": "2026-03-01",
+            "level": "L3"
+          }
+        ]
+      }
+    ],
+    "experiences": [
+      {
+        "key": "pay_gateway",
+        "title": "支付网关改造（星河示例科技）",
+        "kind": "work",
+        "role": "own",
+        "weight": "W4",
+        "tech_depth": "L3",
+        "biz_depth": "L3",
+        "role_text": "负责",
+        "story": "在星河示例科技做了两年支付网关，负责网关的限流、路由和缓存层改造；被问到网关峰值 QPS 时说“峰值大概 5 千”，不解释简历上的 3 万。",
+        "facts": [
+          "用本地缓存加 Redis 两级缓存挡住商户配置查询",
+          "限流从固定窗口改成令牌桶"
+        ],
+        "facets": {
+          "background": "clear",
+          "task": "clear",
+          "action": "clear",
+          "tradeoff": "clear",
+          "result": "partial",
+          "boundary": "clear"
+        },
+        "numbers": {
+          "peak_qps_spoken": "峰值大概 5 千"
+        },
+        "behaviours": [
+          "被问到网关峰值 QPS 时说“整个网关集群大促峰值大概 5 千”（与简历的 3 万是同一时期、同一集群的峰值），不解释简历上的 3 万"
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "key": "qps_resume",
+        "text": "峰值 QPS 3 万",
+        "experience": "pay_gateway",
+        "truth": "unknown"
+      },
+      {
+        "key": "qps_spoken",
+        "text": "QPS 大概 5 千",
+        "experience": "pay_gateway",
+        "truth": "unknown"
+      }
+    ],
+    "baseline": 3,
+    "manner": "说话直接，数字张口就来，不太解释口径。"
+  },
+  "timeline": [
+    {
+      "date": "2026-04-01",
+      "event": "resume_saved",
+      "ref": "resume_a",
+      "note": "“支付网关改造”",
+      "resume": {
+        "title": "后端工程师",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例理工大学",
+                "major": "计算机科学与技术",
+                "degree": "本科",
+                "start": "2020.09",
+                "end": "2024.06"
+              }
+            ]
+          },
+          {
+            "kind": "work",
+            "title": "工作经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "experience": "pay_gateway",
+                "name": "支付网关改造",
+                "organization": "星河示例科技",
+                "role": "后端工程师",
+                "start": "2024.07",
+                "end": "2026.03",
+                "lines": [
+                  "负责支付网关限流与路由模块改造",
+                  "引入两级缓存降低商户配置查询延迟"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "熟悉 Java、Spring Cloud",
+              "熟悉 Redis、MySQL"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-04-03",
+      "event": "resume_saved",
+      "ref": "resume_b",
+      "note": "“星河示例科技 · 网关重构”",
+      "resume": {
+        "title": "后端工程师-网关方向",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例理工大学",
+                "major": "计算机科学与技术",
+                "degree": "本科",
+                "start": "2020.09",
+                "end": "2024.06"
+              }
+            ]
+          },
+          {
+            "kind": "work",
+            "title": "工作经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "experience": "pay_gateway",
+                "name": "网关重构",
+                "organization": "星河示例科技",
+                "role": "后端工程师",
+                "start": "2024.07",
+                "end": "2026.03",
+                "lines": [
+                  "负责网关重构中的限流、路由与缓存",
+                  "限流算法由固定窗口改为令牌桶"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "熟悉 Java、Spring Cloud Gateway",
+              "熟悉 Redis"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-04-05",
+      "event": "resume_saved",
+      "ref": "resume_c",
+      "note": "“负责公司支付入口的网关升级”，写峰值 QPS 3 万",
+      "resume": {
+        "title": "后端工程师-支付",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例理工大学",
+                "major": "计算机科学与技术",
+                "degree": "本科",
+                "start": "2020.09",
+                "end": "2024.06"
+              }
+            ]
+          },
+          {
+            "kind": "work",
+            "title": "工作经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "name": "内部运维看板",
+                "organization": "星河示例科技",
+                "role": "后端工程师",
+                "start": "2024.07",
+                "end": "2024.12",
+                "lines": [
+                  "开发机器与告警看板"
+                ]
+              },
+              {
+                "node": "exp2",
+                "experience": "pay_gateway",
+                "name": "支付入口网关升级",
+                "organization": "星河示例科技",
+                "role": "后端工程师",
+                "start": "2024.07",
+                "end": "2026.03",
+                "lines": [
+                  "负责公司支付入口的网关升级，峰值 QPS 3 万",
+                  "两级缓存使商户配置查询 P99 从 40ms 降至 5ms"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "熟悉 Java、Spring Cloud Gateway",
+              "熟悉 Redis、MySQL"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-04-12",
+      "event": "mock_interview",
+      "ref": "mock_1",
+      "note": "口述“QPS 大概 5 千”",
+      "interview": {
+        "type": "technical",
+        "difficulty": "intermediate",
+        "resume": "resume_c",
+        "topics": [
+          {
+            "topic": "支付入口网关升级",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "pay_gateway",
+            "question": "讲讲支付入口网关升级，网关的峰值 QPS 大概多少？你负责哪些部分？",
+            "signals": [
+              {
+                "text": "讲清网关在支付链路中的位置",
+                "core": true
+              },
+              {
+                "text": "本人负责的模块",
+                "core": false
+              },
+              {
+                "text": "讲清流量规模与测量口径",
+                "core": false
+              }
+            ],
+            "directions": [
+              "峰值 QPS 是怎么统计的，是整个集群还是单机",
+              "哪些是你做的",
+              "限流和路由是怎么设计的，为什么这样选"
+            ]
+          },
+          {
+            "topic": "缓存穿透",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:redis.cache.penetration"
+            ],
+            "skill": "Redis",
+            "question": "商户配置查询怎么防缓存穿透？",
+            "signals": [
+              {
+                "text": "空值缓存",
+                "core": true
+              },
+              {
+                "text": "布隆过滤器",
+                "core": false
+              },
+              {
+                "text": "两者取舍",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "缓存一致性",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:sd.cache.consistency"
+            ],
+            "question": "商户配置更新后，两级缓存怎么保证一致？",
+            "signals": [
+              {
+                "text": "先更新库再删缓存",
+                "core": true
+              },
+              {
+                "text": "延迟双删或消息通知本地缓存",
+                "core": false
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "c1",
+      "at": "2026-04-06",
+      "assert": "experience_merged",
+      "mentions": [
+        "resume_a:exp1",
+        "resume_b:exp1",
+        "resume_c:exp2"
+      ]
+    },
+    {
+      "id": "c2",
+      "at": "2026-04-06",
+      "assert": "issue_absent",
+      "kind": "inconsistent"
+    },
+    {
+      "id": "c3",
+      "at": "2026-04-13",
+      "assert": "issue_present",
+      "kind": "inconsistent",
+      "about": "exp:pay_gateway"
+    },
+    {
+      "id": "c4",
+      "at": "2026-04-13",
+      "assert": "experience_assessment",
+      "experience": "exp:pay_gateway",
+      "weight": "W4",
+      "tech_depth": "L3"
+    },
+    {
+      "id": "c5",
+      "at": "2026-04-13",
+      "assert": "ability_level",
+      "node": "kp:redis.cache.penetration",
+      "expected": "proficient"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "at": "2026-04-13",
+      "scenario": "resume.section_focus",
+      "task": "优化这段工作经历",
+      "target": "resume_c:exp2",
+      "must_include": [
+        "指出简历的峰值 QPS 3 万与面试中说的 5 千不一致，请用户确认以哪个为准"
+      ],
+      "must_exclude": [
+        "直接改动 3 万这个数字的改写"
+      ]
+    }
+  ]
+}

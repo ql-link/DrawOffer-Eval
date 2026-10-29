@@ -1,0 +1,261 @@
+{
+  "id": "p10",
+  "version": 3,
+  "status": "draft",
+  "direction": "product",
+  "level": "mid",
+  "situation": "业务岗：分量判断（W2 被写成 W4 的样子）；真实面试复盘",
+  "truth": {
+    "knowledge": [
+      {
+        "node": "cmp:problem_solving",
+        "trajectory": [
+          {
+            "date": "2026-06-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "cmp:ownership",
+        "trajectory": [
+          {
+            "date": "2026-06-01",
+            "level": "L2"
+          }
+        ]
+      }
+    ],
+    "experiences": [
+      {
+        "key": "member_growth",
+        "title": "会员增长体系",
+        "kind": "work",
+        "role": "participate",
+        "weight": "W2",
+        "biz_depth": "L2",
+        "role_text": "参与",
+        "story": "会员增长体系由增长组负责人主导；我只负责其中的续费提醒弹窗策略：文案和触发时机的 AB 实验。",
+        "facts": [
+          "续费弹窗 AB 实验让续费率提升 2 个百分点"
+        ],
+        "facets": {
+          "background": "clear",
+          "task": "partial",
+          "action": "clear",
+          "tradeoff": "partial",
+          "result": "partial",
+          "boundary": "clear"
+        },
+        "behaviours": [
+          "开场把会员增长体系讲得很大；被问到“哪些是你负责的”时，承认只负责续费提醒弹窗的策略和 AB 实验"
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "key": "member_lead",
+        "text": "主导会员增长体系，带动 GMV 增长",
+        "experience": "member_growth",
+        "truth": "overstated",
+        "dimension": "role"
+      }
+    ],
+    "baseline": 3,
+    "manner": "开场把项目说得很大，被追问细节时会退回到自己实际做的那一块。"
+  },
+  "timeline": [
+    {
+      "date": "2026-06-02",
+      "event": "resume_saved",
+      "ref": "resume_v1",
+      "resume": {
+        "title": "产品经理",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例理工大学",
+                "major": "计算机科学与技术",
+                "degree": "本科",
+                "start": "2017.09",
+                "end": "2021.06"
+              }
+            ]
+          },
+          {
+            "kind": "work",
+            "title": "工作经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "experience": "member_growth",
+                "name": "会员增长体系",
+                "organization": "示例云帆电商",
+                "role": "产品经理",
+                "start": "2022.03",
+                "end": "2026.05",
+                "lines": [
+                  "主导会员增长体系，带动 GMV 增长",
+                  "设计续费提醒与权益体系"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "熟练使用 SQL 做数据分析",
+              "熟悉 AB 实验设计"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-06-15",
+      "event": "real_interview_review",
+      "ref": "review_1",
+      "note": "复盘 v2，已区分说话人；追问后只负责一个弹窗策略",
+      "review": {
+        "company": "示例远航科技",
+        "job_title": "高级产品经理",
+        "stage": "一面",
+        "diarized": true,
+        "resume": "resume_v1",
+        "experience_requirement": "3-5年",
+        "questions": [
+          {
+            "question": "介绍一下你做的会员增长体系。",
+            "experience": "member_growth",
+            "follow_ups": [
+              "这里面哪些是你负责的？",
+              "带动 GMV 增长具体是多少？"
+            ]
+          },
+          {
+            "question": "如果续费率下降，你会怎么分析？",
+            "nodes": []
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-06-25",
+      "event": "mock_interview",
+      "ref": "mock_1",
+      "interview": {
+        "type": "comprehensive",
+        "difficulty": "intermediate",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "会员增长体系",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "member_growth",
+            "question": "会员增长体系里你负责什么？方案是谁定的？",
+            "signals": [
+              {
+                "text": "说清本人负责的部分",
+                "core": true,
+                "competency": "ownership"
+              },
+              {
+                "text": "讲清决策过程",
+                "core": false,
+                "competency": "problem_solving"
+              },
+              {
+                "text": "讲清结果口径",
+                "core": false,
+                "competency": "communication"
+              }
+            ],
+            "directions": [
+              "哪些是你做的",
+              "GMV 增长怎么归因到你"
+            ]
+          },
+          {
+            "topic": "增长分析",
+            "start_depth": 2,
+            "style": "scenario",
+            "nodes": [],
+            "question": "新会员的次月留存掉了 5 个点，你会怎么查？",
+            "signals": [
+              {
+                "text": "拆解指标",
+                "core": true,
+                "competency": "problem_solving"
+              },
+              {
+                "text": "提出假设并验证",
+                "core": false,
+                "competency": "communication"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "c1",
+      "at": "2026-06-16",
+      "assert": "experience_assessment",
+      "experience": "exp:member_growth",
+      "weight": "W2"
+    },
+    {
+      "id": "c2",
+      "at": "2026-06-26",
+      "assert": "issue_present",
+      "kind": "overstated",
+      "about": "claim:member_lead"
+    },
+    {
+      "id": "c3",
+      "at": "2026-06-26",
+      "assert": "ability_level",
+      "node": "cmp:ownership",
+      "expected": "insufficient",
+      "note": "通用能力一场面试只有少量信号，达不到已评估的方差上限，应显示证据不足（2026-10-16 修订）"
+    },
+    {
+      "id": "c4",
+      "at": "2026-06-03",
+      "assert": "issue_absent",
+      "kind": "overstated"
+    },
+    {
+      "id": "c5",
+      "at": "2026-06-26",
+      "assert": "experience_assessment",
+      "experience": "exp:member_growth",
+      "biz_depth": "L2"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "at": "2026-06-26",
+      "scenario": "resume.section_focus",
+      "task": "优化这段工作经历",
+      "target": "resume_v1:exp1",
+      "must_include": [
+        "建议把“主导会员增长体系”调整为与实际负责部分一致的措辞，或补充能支撑的事实"
+      ],
+      "must_exclude": [
+        "保留或加强“主导”的改写"
+      ]
+    }
+  ]
+}

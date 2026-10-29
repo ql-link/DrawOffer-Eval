@@ -1,0 +1,295 @@
+{
+  "id": "p19",
+  "version": 2,
+  "status": "draft",
+  "direction": "backend",
+  "level": "campus",
+  "situation": "Python 校招：FastAPI 生命周期答到 L3，异步路由停在 L2；流式响应从没问过",
+  "truth": {
+    "knowledge": [
+      {
+        "node": "kp:fastapi.lifecycle",
+        "trajectory": [
+          {
+            "date": "2026-05-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:fastapi.async_routes",
+        "trajectory": [
+          {
+            "date": "2026-05-01",
+            "level": "L2"
+          }
+        ]
+      },
+      {
+        "node": "kp:python.runtime.gil",
+        "trajectory": [
+          {
+            "date": "2026-05-01",
+            "level": "L2"
+          }
+        ]
+      }
+    ],
+    "experiences": [
+      {
+        "key": "lab_api",
+        "title": "实验室设备预约接口",
+        "kind": "project",
+        "role": "own",
+        "weight": "W2",
+        "tech_depth": "L2",
+        "biz_depth": "L2",
+        "role_text": "负责",
+        "story": "给实验室做的设备预约系统，我负责后端接口，用 FastAPI 和 PostgreSQL。",
+        "facets": {
+          "background": "clear",
+          "task": "clear",
+          "action": "clear",
+          "tradeoff": "partial",
+          "result": "partial",
+          "boundary": "clear"
+        }
+      }
+    ],
+    "claims": [
+      {
+        "key": "fastapi_familiar",
+        "text": "熟悉 FastAPI",
+        "node": "tech:fastapi",
+        "truth": "accurate",
+        "dimension": "proficiency"
+      }
+    ],
+    "baseline": 2,
+    "manner": "说话慢，会先复述自己理解的问题再回答。"
+  },
+  "timeline": [
+    {
+      "date": "2026-05-02",
+      "event": "resume_saved",
+      "ref": "resume_v1",
+      "note": "",
+      "resume": {
+        "title": "Python 后端",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例海洋大学",
+                "major": "计算机科学与技术",
+                "degree": "本科",
+                "start": "2022.09",
+                "end": "2026.06"
+              }
+            ]
+          },
+          {
+            "kind": "work",
+            "title": "工作经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "experience": "lab_api",
+                "name": "实验室设备预约系统",
+                "organization": "示例海洋大学",
+                "role": "后端开发",
+                "start": "2025.09",
+                "end": "2026.01",
+                "lines": [
+                  "负责设备预约与审批接口开发",
+                  "使用 FastAPI 与 PostgreSQL"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "熟悉 Python、FastAPI",
+              "了解 PostgreSQL"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-05-10",
+      "event": "mock_interview",
+      "ref": "mock_1",
+      "note": "依赖注入答到 L3；async def 路由里调用阻塞库的影响只说到 L2",
+      "interview": {
+        "type": "technical",
+        "difficulty": "junior",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "FastAPI 依赖注入",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:fastapi.lifecycle"
+            ],
+            "question": "FastAPI 的 Depends 是怎么工作的？带 yield 的依赖，yield 前后的代码分别在什么时候执行？",
+            "signals": [
+              {
+                "text": "依赖按请求解析与缓存",
+                "core": true
+              },
+              {
+                "text": "yield 后的清理由框架在请求处理结束时执行（在响应发送前还是后，随 FastAPI 版本和 Depends 的 scope 而不同，说清所用版本即可）",
+                "core": false
+              }
+            ],
+            "skill": "FastAPI"
+          },
+          {
+            "topic": "FastAPI 异步路由",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:fastapi.async_routes"
+            ],
+            "question": "async def 和普通 def 的路由在 FastAPI 里分别怎么执行？在 async 路由里调用阻塞的数据库驱动会怎样？",
+            "signals": [
+              {
+                "text": "def 路由放线程池",
+                "core": true
+              },
+              {
+                "text": "阻塞调用会卡住事件循环",
+                "core": false
+              }
+            ],
+            "skill": "FastAPI"
+          },
+          {
+            "topic": "GIL",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:python.runtime.gil"
+            ],
+            "question": "GIL 是什么？为什么 CPU 密集的任务多线程提速不明显？",
+            "signals": [
+              {
+                "text": "同一时刻一个线程执行字节码",
+                "core": true
+              },
+              {
+                "text": "I/O 时释放",
+                "core": false
+              }
+            ],
+            "skill": "Python"
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-05-24",
+      "event": "mock_interview",
+      "ref": "mock_2",
+      "note": "请求生命周期再次答到 L3",
+      "interview": {
+        "type": "technical",
+        "difficulty": "junior",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "FastAPI 请求生命周期",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:fastapi.lifecycle"
+            ],
+            "question": "一个请求进到 FastAPI，中间件、依赖和路由函数的执行顺序是怎样的？",
+            "signals": [
+              {
+                "text": "中间件包在外层",
+                "core": true
+              },
+              {
+                "text": "依赖先于路由函数解析",
+                "core": false
+              }
+            ],
+            "skill": "FastAPI"
+          },
+          {
+            "topic": "设备预约系统",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "lab_api",
+            "question": "讲讲设备预约系统，审批流程你是怎么实现的？",
+            "signals": [
+              {
+                "text": "讲清审批流程",
+                "core": true
+              },
+              {
+                "text": "本人负责的部分",
+                "core": false
+              }
+            ],
+            "directions": [
+              "哪些是你做的",
+              "同一时段重复预约怎么避免"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "c1",
+      "at": "2026-05-03",
+      "assert": "ability_level",
+      "node": "kp:fastapi.lifecycle",
+      "expected": "insufficient",
+      "note": "只有简历"
+    },
+    {
+      "id": "c2",
+      "at": "2026-05-25",
+      "assert": "ability_level",
+      "node": "kp:fastapi.lifecycle",
+      "expected": "proficient"
+    },
+    {
+      "id": "c3",
+      "at": "2026-05-25",
+      "assert": "ability_level",
+      "node": "kp:fastapi.streaming",
+      "expected": "insufficient",
+      "note": "从没被问过"
+    },
+    {
+      "id": "c4",
+      "at": "2026-05-25",
+      "assert": "issue_absent",
+      "kind": "overstated",
+      "about": "claim:fastapi_familiar"
+    },
+    {
+      "id": "c5",
+      "at": "2026-05-25",
+      "assert": "ability_level",
+      "node": "kp:fastapi.async_routes",
+      "expected": "familiar",
+      "note": "只问过一次，停在原理层"
+    }
+  ],
+  "scenarios": []
+}

@@ -1,0 +1,253 @@
+{
+  "id": "p07",
+  "version": 3,
+  "status": "draft",
+  "split": "dev",
+  "split_note": "2026-10-16 起转入开发集：按编号哈希原属测试集，但调参期间结果已被看过，不能再作为最终评测。",
+  "direction": "frontend",
+  "level": "mid",
+  "situation": "资料印证（设计文档）与资料冲突（技术选型不一致）各一处",
+  "truth": {
+    "knowledge": [
+      {
+        "node": "kp:vue.reactivity.principle",
+        "trajectory": [
+          {
+            "date": "2026-05-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:typescript.generics",
+        "trajectory": [
+          {
+            "date": "2026-05-01",
+            "level": "L3"
+          }
+        ]
+      }
+    ],
+    "experiences": [
+      {
+        "key": "editor",
+        "title": "可视化编辑器",
+        "kind": "work",
+        "role": "lead",
+        "weight": "W3",
+        "tech_depth": "L3",
+        "biz_depth": "L3",
+        "role_text": "主导",
+        "story": "在示例青禾科技主导可视化编辑器：定了组件协议、拖拽与撤销重做方案，带两名同事实现。面试时说状态管理用的是 Pinia。",
+        "facts": [
+          "撤销重做基于命令模式，保留最近 50 步",
+          "组件协议用 JSON Schema 描述属性面板"
+        ],
+        "facets": {
+          "background": "clear",
+          "task": "clear",
+          "action": "clear",
+          "tradeoff": "clear",
+          "result": "partial",
+          "boundary": "clear"
+        }
+      }
+    ],
+    "claims": [
+      {
+        "key": "editor_lead",
+        "text": "主导可视化编辑器",
+        "experience": "editor",
+        "truth": "accurate",
+        "dimension": "role"
+      }
+    ],
+    "materials": [
+      {
+        "key": "design_doc",
+        "type": "work_product",
+        "supports": "editor 角色“主导”",
+        "conflicts": "设计文档 v2（2025-11，对应当前线上版本）写状态管理用 Vuex；面试中说同一线上版本用的是 Pinia，没有提过迁移",
+        "note": "本人撰写的文档，只算有来源的作品证据，不算第三方验证"
+      }
+    ],
+    "baseline": 3,
+    "manner": "表达流畅，喜欢先讲整体架构。"
+  },
+  "timeline": [
+    {
+      "date": "2026-05-02",
+      "event": "resume_saved",
+      "ref": "resume_v1",
+      "note": "写“主导可视化编辑器”",
+      "resume": {
+        "title": "前端工程师",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例理工大学",
+                "major": "计算机科学与技术",
+                "degree": "本科",
+                "start": "2018.09",
+                "end": "2022.06"
+              }
+            ]
+          },
+          {
+            "kind": "work",
+            "title": "工作经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "experience": "editor",
+                "name": "可视化编辑器",
+                "organization": "示例青禾科技",
+                "role": "前端工程师",
+                "start": "2023.03",
+                "end": "2026.04",
+                "lines": [
+                  "主导可视化编辑器的架构设计与落地",
+                  "设计组件协议与撤销重做方案"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "熟悉 Vue 3、TypeScript",
+              "熟悉前端工程化"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-05-05",
+      "event": "material_uploaded",
+      "ref": "design_doc",
+      "note": "本人撰写的设计文档"
+    },
+    {
+      "date": "2026-05-12",
+      "event": "mock_interview",
+      "ref": "mock_1",
+      "note": "说状态管理用的是 Pinia",
+      "interview": {
+        "type": "project_deep_dive",
+        "difficulty": "intermediate",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "可视化编辑器",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "editor",
+            "question": "介绍一下可视化编辑器的架构，状态管理用的什么？你在里面的角色是？",
+            "signals": [
+              {
+                "text": "讲清架构分层",
+                "core": true
+              },
+              {
+                "text": "说清状态管理选型",
+                "core": false
+              },
+              {
+                "text": "本人的决策与分工",
+                "core": false
+              }
+            ],
+            "directions": [
+              "哪些决定是你做的",
+              "现在线上版本的状态管理为什么选这个方案"
+            ]
+          },
+          {
+            "topic": "Vue 响应式原理",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:vue.reactivity.principle"
+            ],
+            "skill": "Vue",
+            "question": "Vue 3 的响应式是怎么实现的？",
+            "signals": [
+              {
+                "text": "Proxy 拦截",
+                "core": true
+              },
+              {
+                "text": "依赖收集与触发",
+                "core": false
+              },
+              {
+                "text": "和 Vue 2 的区别",
+                "core": false
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "c1",
+      "at": "2026-05-13",
+      "assert": "issue_absent",
+      "kind": "overstated",
+      "about": "claim:editor_lead"
+    },
+    {
+      "id": "c2",
+      "at": "2026-05-13",
+      "assert": "issue_present",
+      "kind": "inconsistent",
+      "about": "exp:editor",
+      "requires": [
+        "m8"
+      ],
+      "note": "冲突来自设计文档，资料观察器 M8 在第 3 步上线"
+    },
+    {
+      "id": "c3",
+      "at": "2026-05-13",
+      "assert": "experience_assessment",
+      "experience": "exp:editor",
+      "weight": "W3"
+    },
+    {
+      "id": "c4",
+      "at": "2026-05-13",
+      "assert": "ability_level",
+      "node": "kp:vue.reactivity.principle",
+      "expected": "proficient"
+    },
+    {
+      "id": "c5",
+      "at": "2026-05-13",
+      "assert": "ability_level",
+      "node": "tech:typescript",
+      "expected": "insufficient"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "at": "2026-05-13",
+      "scenario": "chat.unrelated",
+      "task": "帮我给可视化编辑器这段经历起个更好听的标题",
+      "must_exclude": [
+        "提到用户在面试中的弱点、不足或没讲清的地方"
+      ]
+    }
+  ]
+}

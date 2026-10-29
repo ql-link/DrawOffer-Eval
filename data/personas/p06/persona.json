@@ -1,0 +1,530 @@
+{
+  "id": "p06",
+  "version": 3,
+  "status": "draft",
+  "direction": "frontend",
+  "level": "intern",
+  "situation": "低估（写“了解”，面试答到 L3）；可补充事实多",
+  "truth": {
+    "knowledge": [
+      {
+        "node": "kp:react.hooks.state_effect",
+        "trajectory": [
+          {
+            "date": "2026-04-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:react.render.vdom_diff",
+        "trajectory": [
+          {
+            "date": "2026-04-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:javascript.async.promise",
+        "trajectory": [
+          {
+            "date": "2026-04-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:react.render.keys",
+        "trajectory": [
+          {
+            "date": "2026-04-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:react.hooks.memo",
+        "trajectory": [
+          {
+            "date": "2026-04-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:react.render.batching",
+        "trajectory": [
+          {
+            "date": "2026-04-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:react.patterns.performance",
+        "trajectory": [
+          {
+            "date": "2026-04-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:react.hooks.custom",
+        "trajectory": [
+          {
+            "date": "2026-04-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:react.patterns.communication",
+        "trajectory": [
+          {
+            "date": "2026-04-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:react.hooks.rules",
+        "trajectory": [
+          {
+            "date": "2026-04-01",
+            "level": "L3"
+          }
+        ]
+      }
+    ],
+    "experiences": [
+      {
+        "key": "admin_console",
+        "title": "运营后台重构（实习）",
+        "kind": "internship",
+        "role": "own",
+        "weight": "W2",
+        "tech_depth": "L3",
+        "biz_depth": "L2",
+        "role_text": "负责",
+        "story": "在示例星火科技实习三个月，负责运营后台的列表页重构和首屏优化。",
+        "facts": [
+          "首屏加载从 4.2 秒降到 1.6 秒，用 Lighthouse 测的",
+          "把 30 多个页面的表格抽成一个通用组件"
+        ],
+        "facets": {
+          "background": "clear",
+          "task": "clear",
+          "action": "clear",
+          "tradeoff": "partial",
+          "result": "clear",
+          "boundary": "clear"
+        },
+        "notes": "简历上没写这两个数字和通用组件，面试被问到成果时会主动说出来。",
+        "behaviours": [
+          "被问到效果或成果时，说出首屏加载从 4.2 秒降到 1.6 秒（用 Lighthouse 测的）",
+          "被问到具体做了什么时，说出把 30 多个页面的表格抽成了一个通用组件"
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "key": "react_aware",
+        "text": "了解 React",
+        "node": "tech:react",
+        "truth": "understated",
+        "dimension": "proficiency"
+      }
+    ],
+    "supplement_facts": [
+      {
+        "experience": "admin_console",
+        "text": "首屏加载从 4.2 秒降到 1.6 秒"
+      },
+      {
+        "experience": "admin_console",
+        "text": "把 30 多个页面的表格抽成一个通用组件"
+      }
+    ],
+    "baseline": 2,
+    "manner": "说话谦虚，但讲起来逻辑清楚、有细节。"
+  },
+  "timeline": [
+    {
+      "date": "2026-04-02",
+      "event": "resume_saved",
+      "ref": "resume_v1",
+      "note": "写“了解 React”",
+      "resume": {
+        "title": "前端实习",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例理工大学",
+                "major": "软件工程",
+                "degree": "本科",
+                "start": "2023.09",
+                "end": "2027.06"
+              }
+            ]
+          },
+          {
+            "kind": "work",
+            "title": "实习经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "experience": "admin_console",
+                "name": "运营后台重构（实习）",
+                "organization": "示例星火科技",
+                "role": "前端开发实习生",
+                "start": "2025.12",
+                "end": "2026.03",
+                "lines": [
+                  "参与运营后台列表页重构",
+                  "负责部分页面的性能优化"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "了解 React",
+              "熟悉 JavaScript、CSS",
+              "了解 Webpack"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-04-10",
+      "event": "mock_interview",
+      "ref": "mock_1",
+      "note": "React Hooks、diff 答到 L3",
+      "interview": {
+        "type": "technical",
+        "difficulty": "junior",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "React Hooks",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:react.hooks.state_effect"
+            ],
+            "skill": "React",
+            "question": "useEffect 的依赖数组是怎么工作的？",
+            "signals": [
+              {
+                "text": "依赖变化才执行",
+                "core": true
+              },
+              {
+                "text": "清理函数的时机",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "React diff",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:react.render.vdom_diff"
+            ],
+            "skill": "React",
+            "question": "React 的 diff 算法做了哪些假设？",
+            "signals": [
+              {
+                "text": "同层比较",
+                "core": true
+              },
+              {
+                "text": "类型不同直接替换",
+                "core": false
+              },
+              {
+                "text": "key 的作用",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "列表 key",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:react.render.keys"
+            ],
+            "skill": "React",
+            "question": "列表渲染为什么不建议用 index 做 key？",
+            "signals": [
+              {
+                "text": "复用错位",
+                "core": true
+              },
+              {
+                "text": "状态错乱的例子",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "自定义 Hook",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:react.hooks.custom"
+            ],
+            "skill": "React",
+            "question": "你写过自定义 Hook 吗？抽取的原则是什么？",
+            "signals": [
+              {
+                "text": "以 use 开头复用状态逻辑",
+                "core": true
+              },
+              {
+                "text": "与组件解耦",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "运营后台重构",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "admin_console",
+            "question": "讲讲运营后台重构，你做了什么？效果怎么样？",
+            "signals": [
+              {
+                "text": "讲清重构动机",
+                "core": true
+              },
+              {
+                "text": "本人负责的部分",
+                "core": false
+              },
+              {
+                "text": "讲清优化效果与测量方法",
+                "core": false
+              }
+            ],
+            "directions": [
+              "效果怎么衡量的",
+              "哪些是你做的"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-04-24",
+      "event": "mock_interview",
+      "ref": "mock_2",
+      "note": "再次答到 L3，说出首屏数据",
+      "interview": {
+        "type": "technical",
+        "difficulty": "junior",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "useMemo 与 useCallback",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:react.hooks.memo"
+            ],
+            "skill": "React",
+            "question": "useMemo 和 useCallback 分别解决什么问题？",
+            "signals": [
+              {
+                "text": "缓存计算结果与函数引用",
+                "core": true
+              },
+              {
+                "text": "滥用的代价",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "批量更新",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:react.render.batching"
+            ],
+            "skill": "React",
+            "question": "React 18 的自动批处理是什么？",
+            "signals": [
+              {
+                "text": "多次 setState 合并",
+                "core": true
+              },
+              {
+                "text": "异步回调中也批处理",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "React 性能优化",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:react.patterns.performance"
+            ],
+            "skill": "React",
+            "question": "表格页面很卡，你会怎么排查和优化？",
+            "signals": [
+              {
+                "text": "Profiler 定位",
+                "core": true
+              },
+              {
+                "text": "memo 与虚拟列表",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "组件通信",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:react.patterns.communication"
+            ],
+            "skill": "React",
+            "question": "React 组件之间有哪些通信方式？",
+            "signals": [
+              {
+                "text": "props 与回调",
+                "core": true
+              },
+              {
+                "text": "Context 与状态库",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "Hooks 规则",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:react.hooks.rules"
+            ],
+            "skill": "React",
+            "question": "为什么 Hooks 不能写在条件语句里？",
+            "signals": [
+              {
+                "text": "按调用顺序存储",
+                "core": true
+              },
+              {
+                "text": "顺序变化导致错位",
+                "core": false
+              }
+            ]
+          },
+          {
+            "topic": "运营后台重构",
+            "start_depth": 2,
+            "style": "experience",
+            "nodes": [],
+            "experience": "admin_console",
+            "question": "讲讲运营后台重构，你做了什么？效果怎么样？",
+            "signals": [
+              {
+                "text": "讲清重构动机",
+                "core": true
+              },
+              {
+                "text": "本人负责的部分",
+                "core": false
+              },
+              {
+                "text": "讲清优化效果与测量方法",
+                "core": false
+              }
+            ],
+            "directions": [
+              "效果怎么衡量的",
+              "哪些是你做的"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "c1",
+      "at": "2026-04-25",
+      "assert": "ability_level",
+      "node": "tech:react",
+      "expected": "proficient"
+    },
+    {
+      "id": "c2",
+      "at": "2026-04-25",
+      "assert": "issue_present",
+      "kind": "understated",
+      "about": "claim:react_aware"
+    },
+    {
+      "id": "c3",
+      "at": "2026-04-25",
+      "assert": "supplement_fact",
+      "experience": "exp:admin_console",
+      "text": "首屏加载从 4.2 秒降到 1.6 秒"
+    },
+    {
+      "id": "c4",
+      "at": "2026-04-25",
+      "assert": "supplement_fact",
+      "experience": "exp:admin_console",
+      "text": "30 多个页面的表格抽成一个通用组件"
+    },
+    {
+      "id": "c5",
+      "at": "2026-04-03",
+      "assert": "issue_absent",
+      "kind": "understated"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "at": "2026-04-25",
+      "scenario": "resume.section_focus",
+      "task": "优化技能栏",
+      "target": "resume_v1:skills",
+      "must_include": [
+        "建议把“了解 React”上调为更高的措辞"
+      ]
+    },
+    {
+      "id": "s2",
+      "at": "2026-04-25",
+      "scenario": "resume.section_focus",
+      "task": "优化这段实习经历",
+      "target": "resume_v1:exp1",
+      "must_include": [
+        "建议写入首屏加载从 4.2 秒降到 1.6 秒",
+        "建议写入把 30 多个页面的表格抽成通用组件"
+      ]
+    }
+  ]
+}

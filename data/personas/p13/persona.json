@@ -1,0 +1,219 @@
+{
+  "id": "p13",
+  "version": 4,
+  "status": "draft",
+  "split": "dev",
+  "split_note": "2026-10-16 起转入开发集：按编号哈希原属测试集，但调参期间结果已被看过，不能再作为最终评测。",
+  "direction": "backend",
+  "level": "mid",
+  "situation": "真实面试复盘：一场区分了说话人，一场没有；有 declined 的题",
+  "truth": {
+    "knowledge": [
+      {
+        "node": "kp:java.jvm.collectors",
+        "trajectory": [
+          {
+            "date": "2026-05-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:java.concurrency.lock.reentrant",
+        "trajectory": [
+          {
+            "date": "2026-05-01",
+            "level": "L1"
+          }
+        ]
+      }
+    ],
+    "baseline": 3,
+    "manner": "实事求是，不会的直接说不会。"
+  },
+  "timeline": [
+    {
+      "date": "2026-05-02",
+      "event": "resume_saved",
+      "ref": "resume_v1",
+      "resume": {
+        "title": "Java 后端",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例理工大学",
+                "major": "计算机科学与技术",
+                "degree": "本科",
+                "start": "2018.09",
+                "end": "2022.06"
+              }
+            ]
+          },
+          {
+            "kind": "work",
+            "title": "工作经历",
+            "entries": [
+              {
+                "node": "exp1",
+                "name": "风控规则引擎",
+                "organization": "示例北辰金融",
+                "role": "后端工程师",
+                "start": "2022.07",
+                "end": "2026.04",
+                "lines": [
+                  "负责风控规则引擎开发与 JVM 调优",
+                  "Full GC 频率从每天数次降到每周一次"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "熟悉 Java、JVM 调优",
+              "熟悉并发编程"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-05-15",
+      "event": "real_interview_review",
+      "ref": "review_1",
+      "note": "已区分说话人；G1 答到 L3；ReentrantLock 先答对用法区别（L1），问到公平锁实现和 AQS（L3）时明确说不会（declined）",
+      "review": {
+        "company": "示例南山支付",
+        "job_title": "Java 高级工程师",
+        "stage": "一面",
+        "diarized": true,
+        "resume": "resume_v1",
+        "experience_requirement": "3-5年",
+        "questions": [
+          {
+            "question": "你们线上用的什么垃圾回收器？G1 是怎么工作的？",
+            "nodes": [
+              "kp:java.jvm.collectors"
+            ],
+            "follow_ups": [
+              "G1 的 Mixed GC 什么时候触发？",
+              "为什么不用 ZGC？"
+            ],
+            "depths": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "question": "ReentrantLock 和 synchronized 用起来有什么区别？",
+            "nodes": [
+              "kp:java.concurrency.lock.reentrant"
+            ],
+            "depths": [
+              1
+            ]
+          },
+          {
+            "question": "ReentrantLock 的公平锁和非公平锁在实现上有什么区别？AQS 是怎么排队的？",
+            "nodes": [
+              "kp:java.concurrency.lock.reentrant"
+            ],
+            "depths": [
+              3
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-05-22",
+      "event": "real_interview_review",
+      "ref": "review_2",
+      "note": "未区分说话人；内容显示 G1 只答到 L1",
+      "review": {
+        "company": "示例西岭证券",
+        "job_title": "Java 工程师",
+        "stage": "一面",
+        "diarized": false,
+        "resume": "resume_v1",
+        "experience_requirement": "3-5年",
+        "questions": [
+          {
+            "question": "你们线上用的什么垃圾回收器？G1 是怎么工作的？",
+            "nodes": [
+              "kp:java.jvm.collectors"
+            ],
+            "follow_ups": [
+              "G1 的 Mixed GC 什么时候触发？",
+              "为什么不用 ZGC？"
+            ],
+            "depths": [
+              2,
+              3,
+              4
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "c1",
+      "at": "2026-05-16",
+      "assert": "ability_level",
+      "node": "kp:java.jvm.collectors",
+      "expected": "proficient"
+    },
+    {
+      "id": "c2",
+      "at": "2026-05-16",
+      "assert": "issue_present",
+      "kind": "knowledge_gap",
+      "about": "kp:java.concurrency.lock.reentrant"
+    },
+    {
+      "id": "c3",
+      "at": "2026-05-23",
+      "assert": "ability_level",
+      "node": "kp:java.jvm.collectors",
+      "expected": "proficient",
+      "note": "未区分说话人的复盘不改变能力等级"
+    },
+    {
+      "id": "c4",
+      "at": "2026-05-16",
+      "assert": "ability_level",
+      "node": "kp:java.concurrency.lock.reentrant",
+      "expected": "aware"
+    },
+    {
+      "id": "c5",
+      "at": "2026-05-23",
+      "assert": "issue_absent",
+      "kind": "knowledge_gap",
+      "about": "kp:java.jvm.collectors"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1",
+      "at": "2026-05-23",
+      "scenario": "chat.opening",
+      "task": "下次面试前我该补哪块？",
+      "must_include": [
+        "提到 ReentrantLock 或锁的实现原理需要补"
+      ],
+      "must_exclude": [
+        "说 G1 垃圾回收器是薄弱点"
+      ]
+    }
+  ]
+}

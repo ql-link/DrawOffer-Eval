@@ -1,0 +1,305 @@
+{
+  "id": "p25",
+  "version": 1,
+  "status": "draft",
+  "direction": "frontend",
+  "level": "campus",
+  "situation": "岗位要求的事件循环缺口：4 月两次答不上，5 月练习，6 月两次答到 L3 后解决",
+  "truth": {
+    "knowledge": [
+      {
+        "node": "kp:browser.runtime.event_loop",
+        "trajectory": [
+          {
+            "date": "2026-04-01",
+            "level": "L1"
+          },
+          {
+            "date": "2026-06-01",
+            "level": "L3"
+          }
+        ]
+      },
+      {
+        "node": "kp:javascript.async.promise",
+        "trajectory": [
+          {
+            "date": "2026-04-01",
+            "level": "L2"
+          }
+        ]
+      }
+    ],
+    "baseline": 2,
+    "manner": "边说边在脑子里过代码，偶尔停顿。"
+  },
+  "timeline": [
+    {
+      "date": "2026-04-02",
+      "event": "resume_saved",
+      "ref": "resume_v1",
+      "note": "",
+      "resume": {
+        "title": "前端校招",
+        "sections": [
+          {
+            "kind": "education",
+            "title": "教育经历",
+            "entries": [
+              {
+                "node": "edu1",
+                "name": "示例农业大学",
+                "major": "数字媒体技术",
+                "degree": "本科",
+                "start": "2022.09",
+                "end": "2026.06"
+              }
+            ]
+          },
+          {
+            "kind": "skills",
+            "title": "专业技能",
+            "node": "skills",
+            "lines": [
+              "熟悉 JavaScript、React",
+              "了解浏览器原理"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-04-03",
+      "event": "job_saved",
+      "ref": "job_a",
+      "note": "要求理解事件循环与渲染时机",
+      "job": {
+        "company": "示例远帆网络",
+        "title": "前端开发工程师（校招）",
+        "employment_type": "校招",
+        "city": "南京",
+        "skills": [
+          "JavaScript",
+          "React"
+        ],
+        "description": "负责营销页面开发。要求：JavaScript 基础扎实，深入理解浏览器事件循环与渲染时机；熟悉 React。"
+      }
+    },
+    {
+      "date": "2026-04-12",
+      "event": "mock_interview",
+      "ref": "mock_1",
+      "note": "事件循环只说得出名字",
+      "interview": {
+        "type": "technical",
+        "difficulty": "junior",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "事件循环",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:browser.runtime.event_loop"
+            ],
+            "question": "说说浏览器事件循环里宏任务和微任务的执行顺序。",
+            "signals": [
+              {
+                "text": "一个宏任务后清空微任务",
+                "core": true
+              },
+              {
+                "text": "Promise.then 属于微任务",
+                "core": false
+              }
+            ],
+            "skill": "JavaScript"
+          },
+          {
+            "topic": "Promise",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:javascript.async.promise"
+            ],
+            "question": "Promise.all 和 Promise.allSettled 有什么区别？",
+            "signals": [
+              {
+                "text": "全部成功与全部结束",
+                "core": true
+              },
+              {
+                "text": "失败时的行为",
+                "core": false
+              }
+            ],
+            "skill": "JavaScript"
+          }
+        ],
+        "job": "job_a"
+      }
+    },
+    {
+      "date": "2026-04-26",
+      "event": "mock_interview",
+      "ref": "mock_2",
+      "note": "事件循环仍答不上",
+      "interview": {
+        "type": "technical",
+        "difficulty": "junior",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "事件循环与渲染",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:browser.runtime.event_loop"
+            ],
+            "question": "微任务里不停地再加微任务，页面会怎样？requestAnimationFrame 在什么时候执行？",
+            "signals": [
+              {
+                "text": "微任务清空前不会渲染",
+                "core": true
+              },
+              {
+                "text": "rAF 在渲染前",
+                "core": false
+              }
+            ],
+            "skill": "JavaScript"
+          }
+        ],
+        "job": "job_a"
+      }
+    },
+    {
+      "date": "2026-05-10",
+      "event": "prep_checked",
+      "ref": "prep_1",
+      "note": "勾选事件循环练习",
+      "prep": {
+        "job": "job_a",
+        "items": [
+          {
+            "title": "浏览器事件循环与渲染时机专项复习（宏任务、微任务、rAF）",
+            "category": "knowledge",
+            "reason": "两场模拟面试答不上"
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-06-08",
+      "event": "mock_interview",
+      "ref": "mock_3",
+      "note": "事件循环答到 L3",
+      "interview": {
+        "type": "technical",
+        "difficulty": "junior",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "事件循环",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:browser.runtime.event_loop"
+            ],
+            "question": "说说浏览器事件循环里宏任务和微任务的执行顺序。",
+            "signals": [
+              {
+                "text": "一个宏任务后清空微任务",
+                "core": true
+              },
+              {
+                "text": "Promise.then 属于微任务",
+                "core": false
+              }
+            ],
+            "skill": "JavaScript"
+          }
+        ],
+        "job": "job_a"
+      }
+    },
+    {
+      "date": "2026-06-15",
+      "event": "mock_interview",
+      "ref": "mock_4",
+      "note": "事件循环再次答到 L3",
+      "interview": {
+        "type": "technical",
+        "difficulty": "junior",
+        "resume": "resume_v1",
+        "topics": [
+          {
+            "topic": "事件循环与渲染",
+            "start_depth": 2,
+            "style": "principle",
+            "nodes": [
+              "kp:browser.runtime.event_loop"
+            ],
+            "question": "微任务里不停地再加微任务，页面会怎样？requestAnimationFrame 在什么时候执行？",
+            "signals": [
+              {
+                "text": "微任务清空前不会渲染",
+                "core": true
+              },
+              {
+                "text": "rAF 在渲染前",
+                "core": false
+              }
+            ],
+            "skill": "JavaScript"
+          }
+        ],
+        "job": "job_a"
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "c1",
+      "at": "2026-04-04",
+      "assert": "issue_absent",
+      "kind": "knowledge_gap",
+      "note": "只有简历和岗位，没有面试证据"
+    },
+    {
+      "id": "c2",
+      "at": "2026-04-27",
+      "assert": "issue_present",
+      "kind": "knowledge_gap",
+      "about": "kp:browser.runtime.event_loop",
+      "states": [
+        "appeared"
+      ]
+    },
+    {
+      "id": "c3",
+      "at": "2026-05-11",
+      "assert": "issue_state",
+      "kind": "knowledge_gap",
+      "about": "kp:browser.runtime.event_loop",
+      "state": "practicing"
+    },
+    {
+      "id": "c4",
+      "at": "2026-06-16",
+      "assert": "issue_state",
+      "kind": "knowledge_gap",
+      "about": "kp:browser.runtime.event_loop",
+      "state": "resolved",
+      "dated": true
+    },
+    {
+      "id": "c5",
+      "at": "2026-06-16",
+      "assert": "ability_level",
+      "node": "kp:browser.runtime.event_loop",
+      "expected": "proficient"
+    }
+  ],
+  "scenarios": []
+}
