@@ -105,7 +105,10 @@ def baseline_run(kind: str, item: engine.Case, cat, model: Codex, sample: int) -
             record = render(eps)
             for qid, a in answers.items():
                 ok, total = grounded(a.get("quotes") or [], record)
-                quote_rows.append({"persona": persona.id, "day": day, "id": qid, "quotes": total, "quotes_ok": ok})
+                # Where the model's quotes come from: for Mem0 its retrieved memories, which are rewritten text.
+                in_seen, _ = grounded(a.get("quotes") or [], seen)
+                quote_rows.append({"persona": persona.id, "day": day, "id": qid, "quotes": total, "quotes_ok": ok,
+                                   "quotes_in_context": in_seen})
     finally:
         if mem is not None:
             mem.close()
@@ -188,10 +191,25 @@ def consistency(runs: list[dict[str, dict]]) -> dict[str, Any]:
             "same_answer": _rate(same_answer, total)}
 
 
+# Conclusions computed from other conclusions or from a record's structure, not judgements read from what the person
+# said: readiness aggregates the skills under a goal, an asked question is the fact that it was asked. Reported apart.
+DERIVED = ("readiness", "readiness_insufficient", "asked_question", "requirement")
+
+
 def grounding_engine(rows) -> dict[str, Any]:
-    ok = sum(1 for r in rows if (r["quotes"] and r["quotes_ok"] == r["quotes"]) or (not r["quotes"] and r["sources"]))
+    def ok(r):
+        return (r["quotes"] and r["quotes_ok"] == r["quotes"]) or (not r["quotes"] and r["sources"])
+    judged = [r for r in rows if r["predicate"] not in DERIVED]
+    derived = [r for r in rows if r["predicate"] in DERIVED]
     quoted = [r for r in rows if r["quotes"]]
-    return {"conclusions": _rate(ok, len(rows)),
+    by = defaultdict(lambda: [0, 0])
+    for r in rows:
+        by[r["predicate"]][0] += bool(ok(r))
+        by[r["predicate"]][1] += 1
+    return {"conclusions": _rate(sum(map(ok, judged)), len(judged)),
+            "derived": _rate(sum(map(ok, derived)), len(derived)),
+            "all": _rate(sum(map(ok, rows)), len(rows)),
+            "by_predicate": {k: {"ok": v[0], "total": v[1]} for k, v in sorted(by.items())},
             "with_quotes": len(quoted), "quotes_all_found": sum(r["quotes_ok"] == r["quotes"] for r in quoted),
             "no_quote_but_source_cited": sum(1 for r in rows if not r["quotes"] and r["sources"]),
             "unsupported": sum(1 for r in rows if not r["supported"])}
@@ -199,7 +217,9 @@ def grounding_engine(rows) -> dict[str, Any]:
 
 def grounding_baseline(rows) -> dict[str, Any]:
     ok = sum(1 for r in rows if r["quotes"] and r["quotes_ok"] == r["quotes"])
-    return {"conclusions": _rate(ok, len(rows)), "no_quote": sum(1 for r in rows if not r["quotes"]),
+    seen = sum(1 for r in rows if r["quotes"] and r.get("quotes_in_context") == r["quotes"])
+    return {"conclusions": _rate(ok, len(rows)), "in_model_context": _rate(seen, len(rows)),
+            "no_quote": sum(1 for r in rows if not r["quotes"]),
             "quotes": sum(r["quotes"] for r in rows), "quotes_found": sum(r["quotes_ok"] for r in rows)}
 
 

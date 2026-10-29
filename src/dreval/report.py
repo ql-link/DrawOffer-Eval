@@ -41,7 +41,9 @@ def comparison(d: dict[str, Any]) -> str:
         f"{(pred.get(k) or {}).get('log_loss') or '—'}" for k in systems) + " |")
     rows.append("| 能力判断准确率 | " + " | ".join(pct(d["systems"][k]["accuracy"]["ability"]) for k in systems) + " |")
     rows.append("| 全部检查点通过率 | " + " | ".join(pct(d["systems"][k]["accuracy"]["all_checkpoints"]) for k in systems) + " |")
-    rows.append("| 结论有原话依据 | " + " | ".join(pct(d["systems"][k]["grounded"]["conclusions"]) for k in systems) + " |")
+    rows.append("| 对人的判断能追溯到原始记录里的原话 | " + " | ".join(pct(d["systems"][k]["grounded"]["conclusions"]) for k in systems) + " |")
+    rows.append("| 原话能在模型看到的上下文里找到 | " + " | ".join(
+        pct(d["systems"][k]["grounded"].get("in_model_context")) if k != "engine" else "（同上）" for k in systems) + " |")
     rows.append(f"| 同一输入 {d['runs']} 次结论一致 | " + " | ".join(
         pct(d["systems"][k]["consistency"].get("same_verdict")) for k in systems) + " |")
     rows.append(f"| 同一输入 {d['runs']} 次答案逐字相同 | " + " | ".join(
@@ -56,6 +58,11 @@ def comparison(d: dict[str, Any]) -> str:
     for t in types:
         trows.append(f"| {TYPES.get(t, t)} | " + " | ".join(pct(d["systems"][k]["accuracy"]["by_type"].get(t)) for k in systems) + " |")
     out.append("按检查点类型（第 1 次运行）：\n\n" + "\n".join(trows))
+    g = d["systems"].get("engine", {}).get("grounded", {})
+    if g.get("derived"):
+        out.append(f"引擎另有派生结论（准备度、被问过的题、岗位要求）{g['derived']['total']} 条，其中 {g['derived']['passed']} 条带来源；"
+                   "准备度与“被问过的题”在产品数据里没有挂接依据，这是待补的缺口。逐类：\n\n"
+                   + "\n".join(f"- `{k}`：{v['ok']}/{v['total']}" for k, v in g["by_predicate"].items()))
     return "\n\n".join(out)
 
 
