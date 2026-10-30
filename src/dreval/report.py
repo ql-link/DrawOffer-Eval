@@ -95,17 +95,50 @@ def performance(d: dict[str, Any]) -> str:
     return "\n".join(rows)
 
 
+KT_NAMES = {
+    "skill_mean": ("各知识点的平均通过率", "参照：不看学生自己的作答"),
+    "engine": ("DrawOffer 引擎", "产品参数，所有知识点 b = 0，不从训练集学任何东西"),
+    "engine_difficulty": ("DrawOffer 引擎 + 知识点难度", "从训练集只估 123 个知识点的难度"),
+    "engine_problem": ("DrawOffer 引擎 + 题目难度（对照）", "用 IRT 在训练集上估出的每道题难度，产品里没有这一步"),
+    "irt": ("IRT（Rasch）", "训练集估每道题难度，学生能力随作答在线更新"),
+    "pfa": ("PFA", "每个知识点的截距与成功、失败次数系数"),
+    "bkt": ("BKT（pyBKT 1.4.3）", "每个知识点一个隐马尔可夫模型，EM 拟合"),
+    "dkt": ("DKT", "LSTM，隐层 100，训练集留 10% 早停"),
+}
+
+
+def kt(d: dict[str, Any]) -> str:
+    ds = d["dataset"]
+    rows = ["| 模型 | 训练集用来做什么 | AUC | RMSE | log loss | 与引擎的 AUC 差（各折最小–最大） |",
+            "| --- | --- | --- | --- | --- | --- |"]
+    order = sorted(d["models"], key=lambda m: -d["summary"][m]["auc"]["mean"])
+    for m in order:
+        v = d["summary"][m]
+        name, what = KT_NAMES.get(m, (m, ""))
+        diff = v.get("auc_minus_engine")
+        tail = f"{diff['mean']:+.3f}（{diff['min']:+.3f}–{diff['max']:+.3f}）" if diff else "—"
+        rows.append(f"| {name} | {what} | {v['auc']['mean']:.4f} ± {v['auc']['sd']:.4f} | {v['rmse']['mean']:.4f} | "
+                    f"{v['log_loss']['mean']:.4f} | {tail} |")
+    head = (f"{ds['name']}：{ds['students']} 名学生、{ds['interactions']} 次作答（其中 {ds['multi_skill']} 次挂多个知识点）、"
+            f"{ds['skills']} 个知识点，答对率 {ds['correct_rate'] * 100:.1f}%。按学生 {d['folds']} 折交叉验证（种子 {d['seed']}），"
+            "每个模型只在其余 4 折的学生上拟合，对本折学生的每次作答只用他之前的作答预测。数值为各折的均值 ± 标准差。")
+    return head + "\n\n" + "\n".join(rows)
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="python -m dreval.report")
     parser.add_argument("--comparison", type=Path, action="append", default=[])
     parser.add_argument("--stability", type=Path, action="append", default=[])
     parser.add_argument("--performance", type=Path)
+    parser.add_argument("--kt", type=Path)
     parser.add_argument("--out", type=Path, default=Path("reports/RESULTS.md"))
     args = parser.parse_args(argv)
     parts = ["# 测评结果\n\n由 `python -m dreval.report` 从 `runs/` 下的结果生成，请勿手改。方法与限制见 [README](../README.md)。"]
     for path in args.comparison:
         d = json.loads(path.read_text(encoding="utf-8"))
         parts.append(f"## 1. 与通用记忆正面对比（{SPLITS.get(d['split'], d['split'])}，{len(d['personas'])} 份剧本）\n\n{comparison(d)}")
+    if args.kt:
+        parts.append(f"## 2. 公开知识追踪数据集\n\n{kt(json.loads(args.kt.read_text(encoding='utf-8')))}")
     for path in args.stability:
         d = json.loads(path.read_text(encoding="utf-8"))
         parts.append(f"## 3. 稳定性与可追溯性（{SPLITS.get(d['split'], d['split'])}，{d['determinism']['personas']} 份剧本）\n\n{stability(d)}")
