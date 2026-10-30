@@ -11,6 +11,7 @@ import json
 from pathlib import Path
 from typing import Any
 
+SPLITS = {"dev": "开发集", "test": "测试集（封存后一次开封）", "all": "全部"}
 NAMES = {"engine": "DrawOffer 引擎", "full_context": "整段记录交给大模型", "mem0": "Mem0 + 大模型"}
 TYPES = {"ability_level": "能力等级", "issue_present": "问题存在", "issue_absent": "不误报问题", "issue_state": "问题状态",
          "experience_assessment": "经历评估", "experience_merged": "经历合并", "readiness": "准备度", "supplement_fact": "可补充事实"}
@@ -104,10 +105,10 @@ def main(argv: list[str] | None = None) -> int:
     parts = ["# 测评结果\n\n由 `python -m dreval.report` 从 `runs/` 下的结果生成，请勿手改。方法与限制见 [README](../README.md)。"]
     for path in args.comparison:
         d = json.loads(path.read_text(encoding="utf-8"))
-        parts.append(f"## 1. 与通用记忆正面对比（{d['split']}，{len(d['personas'])} 份剧本）\n\n{comparison(d)}")
+        parts.append(f"## 1. 与通用记忆正面对比（{SPLITS.get(d['split'], d['split'])}，{len(d['personas'])} 份剧本）\n\n{comparison(d)}")
     for path in args.stability:
         d = json.loads(path.read_text(encoding="utf-8"))
-        parts.append(f"## 3. 稳定性与可追溯性（{d['split']}）\n\n{stability(d)}")
+        parts.append(f"## 3. 稳定性与可追溯性（{SPLITS.get(d['split'], d['split'])}，{d['determinism']['personas']} 份剧本）\n\n{stability(d)}")
     if args.performance:
         parts.append(f"## 6. 性能\n\n{performance(json.loads(args.performance.read_text(encoding='utf-8')))}")
     args.out.parent.mkdir(parents=True, exist_ok=True)

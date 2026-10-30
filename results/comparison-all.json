@@ -1,0 +1,669 @@
+{
+ "split": "all",
+ "personas": [
+  "p01",
+  "p02",
+  "p03",
+  "p04",
+  "p05",
+  "p06",
+  "p07",
+  "p08",
+  "p09",
+  "p10",
+  "p11",
+  "p12",
+  "p13",
+  "p14",
+  "p15",
+  "p16",
+  "p17",
+  "p18",
+  "p19",
+  "p20",
+  "p22",
+  "p25",
+  "p27",
+  "p29",
+  "p30"
+ ],
+ "runs": 5,
+ "systems": {
+  "engine": {
+   "accuracy": {
+    "ability": {
+     "passed": 42,
+     "total": 43,
+     "rate": 0.9767,
+     "ci95": [
+      0.879,
+      0.996
+     ]
+    },
+    "all_checkpoints": {
+     "passed": 105,
+     "total": 129,
+     "rate": 0.814,
+     "ci95": [
+      0.738,
+      0.872
+     ]
+    },
+    "by_type": {
+     "ability_level": {
+      "passed": 42,
+      "total": 43,
+      "rate": 0.9767,
+      "ci95": [
+       0.879,
+       0.996
+      ]
+     },
+     "experience_assessment": {
+      "passed": 8,
+      "total": 14,
+      "rate": 0.5714,
+      "ci95": [
+       0.326,
+       0.786
+      ]
+     },
+     "experience_merged": {
+      "passed": 3,
+      "total": 3,
+      "rate": 1.0,
+      "ci95": [
+       0.438,
+       1.0
+      ]
+     },
+     "issue_absent": {
+      "passed": 28,
+      "total": 28,
+      "rate": 1.0,
+      "ci95": [
+       0.879,
+       1.0
+      ]
+     },
+     "issue_present": {
+      "passed": 15,
+      "total": 26,
+      "rate": 0.5769,
+      "ci95": [
+       0.389,
+       0.745
+      ]
+     },
+     "issue_state": {
+      "passed": 2,
+      "total": 5,
+      "rate": 0.4,
+      "ci95": [
+       0.118,
+       0.769
+      ]
+     },
+     "readiness": {
+      "passed": 5,
+      "total": 6,
+      "rate": 0.8333,
+      "ci95": [
+       0.436,
+       0.97
+      ]
+     },
+     "supplement_fact": {
+      "passed": 2,
+      "total": 4,
+      "rate": 0.5,
+      "ci95": [
+       0.15,
+       0.85
+      ]
+     }
+    }
+   },
+   "consistency": {
+    "runs": 5,
+    "checkpoints": 129,
+    "same_verdict": {
+     "passed": 112,
+     "total": 129,
+     "rate": 0.8682,
+     "ci95": [
+      0.799,
+      0.916
+     ]
+    },
+    "same_answer": {
+     "passed": 98,
+     "total": 129,
+     "rate": 0.7597,
+     "ci95": [
+      0.679,
+      0.825
+     ]
+    }
+   },
+   "grounded": {
+    "conclusions": {
+     "passed": 520,
+     "total": 540,
+     "rate": 0.963,
+     "ci95": [
+      0.943,
+      0.976
+     ]
+    },
+    "derived": {
+     "passed": 153,
+     "total": 230,
+     "rate": 0.6652,
+     "ci95": [
+      0.602,
+      0.723
+     ]
+    },
+    "all": {
+     "passed": 673,
+     "total": 770,
+     "rate": 0.874,
+     "ci95": [
+      0.849,
+      0.896
+     ]
+    },
+    "by_predicate": {
+     "accuracy_risk": {
+      "ok": 2,
+      "total": 8
+     },
+     "asked_question": {
+      "ok": 0,
+      "total": 29
+     },
+     "claim_pending": {
+      "ok": 152,
+      "total": 152
+     },
+     "claim_verified": {
+      "ok": 3,
+      "total": 3
+     },
+     "experience": {
+      "ok": 46,
+      "total": 59
+     },
+     "inconsistent": {
+      "ok": 3,
+      "total": 3
+     },
+     "knowledge_gap": {
+      "ok": 15,
+      "total": 15
+     },
+     "overstated": {
+      "ok": 6,
+      "total": 7
+     },
+     "readiness": {
+      "ok": 0,
+      "total": 19
+     },
+     "readiness_insufficient": {
+      "ok": 0,
+      "total": 19
+     },
+     "requirement": {
+      "ok": 153,
+      "total": 163
+     },
+     "review_due": {
+      "ok": 10,
+      "total": 10
+     },
+     "skill": {
+      "ok": 14,
+      "total": 14
+     },
+     "skill_pending": {
+      "ok": 198,
+      "total": 198
+     },
+     "supplement_fact": {
+      "ok": 60,
+      "total": 60
+     },
+     "unclear_telling": {
+      "ok": 5,
+      "total": 5
+     },
+     "understated": {
+      "ok": 6,
+      "total": 6
+     }
+    },
+    "with_quotes": 661,
+    "quotes_all_found": 661,
+    "no_quote_but_source_cited": 12,
+    "unsupported": 73
+   },
+   "usage": {
+    "ResumeLine": {
+     "calls": 80,
+     "cached": 197,
+     "missed": 0,
+     "failed": {},
+     "input_tokens": 72370,
+     "cache_read_tokens": 67328,
+     "output_tokens": 3315,
+     "mean_seconds": 3.48
+    },
+    "QuestionMapping": {
+     "calls": 234,
+     "cached": 398,
+     "missed": 0,
+     "failed": {
+      "LLM_UNAVAILABLE": 2
+     },
+     "input_tokens": 6609000,
+     "cache_read_tokens": 6183424,
+     "output_tokens": 10939,
+     "mean_seconds": 4.49
+    },
+    "JobReading": {
+     "calls": 15,
+     "cached": 20,
+     "missed": 0,
+     "failed": {},
+     "input_tokens": 131425,
+     "cache_read_tokens": 106880,
+     "output_tokens": 1652,
+     "mean_seconds": 5.01
+    },
+    "RealAnnotation": {
+     "calls": 30,
+     "cached": 40,
+     "missed": 0,
+     "failed": {},
+     "input_tokens": 25795,
+     "cache_read_tokens": 19712,
+     "output_tokens": 947,
+     "mean_seconds": 2.85
+    },
+    "ExperienceAnswer": {
+     "calls": 164,
+     "cached": 360,
+     "missed": 0,
+     "failed": {
+      "LLM_UNAVAILABLE": 1,
+      "invalid_output": 55
+     },
+     "input_tokens": 370343,
+     "cache_read_tokens": 353664,
+     "output_tokens": 74199,
+     "mean_seconds": 6.78
+    },
+    "IdentityVerdict": {
+     "calls": 0,
+     "cached": 10,
+     "missed": 0,
+     "failed": {},
+     "input_tokens": 0,
+     "cache_read_tokens": 0,
+     "output_tokens": 0,
+     "mean_seconds": null
+    },
+    "Consistency": {
+     "calls": 7,
+     "cached": 16,
+     "missed": 0,
+     "failed": {
+      "invalid_output": 1
+     },
+     "input_tokens": 4883,
+     "cache_read_tokens": 2560,
+     "output_tokens": 786,
+     "mean_seconds": 3.33
+    }
+   }
+  },
+  "full_context": {
+   "accuracy": {
+    "ability": {
+     "passed": 35,
+     "total": 43,
+     "rate": 0.814,
+     "ci95": [
+      0.674,
+      0.903
+     ]
+    },
+    "all_checkpoints": {
+     "passed": 109,
+     "total": 129,
+     "rate": 0.845,
+     "ci95": [
+      0.773,
+      0.897
+     ]
+    },
+    "by_type": {
+     "ability_level": {
+      "passed": 35,
+      "total": 43,
+      "rate": 0.814,
+      "ci95": [
+       0.674,
+       0.903
+      ]
+     },
+     "experience_assessment": {
+      "passed": 13,
+      "total": 14,
+      "rate": 0.9286,
+      "ci95": [
+       0.685,
+       0.987
+      ]
+     },
+     "experience_merged": {
+      "passed": 3,
+      "total": 3,
+      "rate": 1.0,
+      "ci95": [
+       0.438,
+       1.0
+      ]
+     },
+     "issue_absent": {
+      "passed": 27,
+      "total": 28,
+      "rate": 0.9643,
+      "ci95": [
+       0.823,
+       0.994
+      ]
+     },
+     "issue_present": {
+      "passed": 21,
+      "total": 26,
+      "rate": 0.8077,
+      "ci95": [
+       0.621,
+       0.915
+      ]
+     },
+     "issue_state": {
+      "passed": 2,
+      "total": 5,
+      "rate": 0.4,
+      "ci95": [
+       0.118,
+       0.769
+      ]
+     },
+     "readiness": {
+      "passed": 5,
+      "total": 6,
+      "rate": 0.8333,
+      "ci95": [
+       0.436,
+       0.97
+      ]
+     },
+     "supplement_fact": {
+      "passed": 3,
+      "total": 4,
+      "rate": 0.75,
+      "ci95": [
+       0.301,
+       0.954
+      ]
+     }
+    }
+   },
+   "consistency": {
+    "runs": 5,
+    "checkpoints": 129,
+    "same_verdict": {
+     "passed": 112,
+     "total": 129,
+     "rate": 0.8682,
+     "ci95": [
+      0.799,
+      0.916
+     ]
+    },
+    "same_answer": {
+     "passed": 91,
+     "total": 129,
+     "rate": 0.7054,
+     "ci95": [
+      0.622,
+      0.777
+     ]
+    }
+   },
+   "grounded": {
+    "conclusions": {
+     "passed": 120,
+     "total": 128,
+     "rate": 0.9375,
+     "ci95": [
+      0.882,
+      0.968
+     ]
+    },
+    "in_model_context": {
+     "passed": 120,
+     "total": 128,
+     "rate": 0.9375,
+     "ci95": [
+      0.882,
+      0.968
+     ]
+    },
+    "no_quote": 7,
+    "quotes": 387,
+    "quotes_found": 386
+   }
+  },
+  "mem0": {
+   "accuracy": {
+    "ability": {
+     "passed": 35,
+     "total": 43,
+     "rate": 0.814,
+     "ci95": [
+      0.674,
+      0.903
+     ]
+    },
+    "all_checkpoints": {
+     "passed": 107,
+     "total": 129,
+     "rate": 0.8295,
+     "ci95": [
+      0.755,
+      0.885
+     ]
+    },
+    "by_type": {
+     "ability_level": {
+      "passed": 35,
+      "total": 43,
+      "rate": 0.814,
+      "ci95": [
+       0.674,
+       0.903
+      ]
+     },
+     "experience_assessment": {
+      "passed": 14,
+      "total": 14,
+      "rate": 1.0,
+      "ci95": [
+       0.785,
+       1.0
+      ]
+     },
+     "experience_merged": {
+      "passed": 2,
+      "total": 3,
+      "rate": 0.6667,
+      "ci95": [
+       0.208,
+       0.939
+      ]
+     },
+     "issue_absent": {
+      "passed": 28,
+      "total": 28,
+      "rate": 1.0,
+      "ci95": [
+       0.879,
+       1.0
+      ]
+     },
+     "issue_present": {
+      "passed": 20,
+      "total": 26,
+      "rate": 0.7692,
+      "ci95": [
+       0.579,
+       0.89
+      ]
+     },
+     "issue_state": {
+      "passed": 1,
+      "total": 5,
+      "rate": 0.2,
+      "ci95": [
+       0.036,
+       0.624
+      ]
+     },
+     "readiness": {
+      "passed": 5,
+      "total": 6,
+      "rate": 0.8333,
+      "ci95": [
+       0.436,
+       0.97
+      ]
+     },
+     "supplement_fact": {
+      "passed": 2,
+      "total": 4,
+      "rate": 0.5,
+      "ci95": [
+       0.15,
+       0.85
+      ]
+     }
+    }
+   },
+   "consistency": {
+    "runs": 5,
+    "checkpoints": 129,
+    "same_verdict": {
+     "passed": 108,
+     "total": 129,
+     "rate": 0.8372,
+     "ci95": [
+      0.764,
+      0.891
+     ]
+    },
+    "same_answer": {
+     "passed": 87,
+     "total": 129,
+     "rate": 0.6744,
+     "ci95": [
+      0.59,
+      0.749
+     ]
+    }
+   },
+   "grounded": {
+    "conclusions": {
+     "passed": 2,
+     "total": 128,
+     "rate": 0.0156,
+     "ci95": [
+      0.004,
+      0.055
+     ]
+    },
+    "in_model_context": {
+     "passed": 119,
+     "total": 128,
+     "rate": 0.9297,
+     "ci95": [
+      0.872,
+      0.963
+     ]
+    },
+    "no_quote": 8,
+    "quotes": 289,
+    "quotes_found": 6
+   }
+  }
+ },
+ "prediction": {
+  "engine": {
+   "steps": 180,
+   "missing": 0,
+   "auc": 0.843,
+   "log_loss": 0.5309
+  },
+  "full_context": {
+   "steps": 180,
+   "missing": 0,
+   "auc": 0.7813,
+   "log_loss": 0.8034
+  },
+  "mem0": {
+   "steps": 180,
+   "missing": 0,
+   "auc": 0.7358,
+   "log_loss": 0.828
+  },
+  "bootstrap": {
+   "questions": 94,
+   "resamples": 2000,
+   "engine": [
+    0.7885,
+    0.8941
+   ],
+   "full_context": [
+    0.7208,
+    0.845
+   ],
+   "mem0": [
+    0.6725,
+    0.7985
+   ],
+   "engine-full_context": [
+    -0.0052,
+    0.1292
+   ],
+   "engine-mem0": [
+    0.0347,
+    0.1777
+   ]
+  }
+ },
+ "baseline_usage": {
+  "model": "gpt-6.1-terra",
+  "effort": "medium",
+  "calls": 1696,
+  "cached": 396,
+  "failures": 0,
+  "seconds": 39145.0,
+  "tokens": 40577422
+ },
+ "seconds": 6764.5
+}

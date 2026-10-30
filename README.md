@@ -20,7 +20,7 @@ DrawOffer 长期求职记忆引擎的独立测评。引擎根据一位求职者�
 
 - **虚构求职者剧本**：DrawOffer 金标集的 25 份剧本，公开副本在 [data/personas](data/personas)，每份写明各知识点随时间的真实水平、经历的真实分量、简历说法的真伪，以及 5–10 个检查点（某天系统应该得出什么结论）。全部虚构，金标集的 `gold check` 会扫描联系方式等个人信息。
 - **模拟来源**（留在 DrawOffer 仓库，不公开）：每份剧本按产品的真实流程生成的记录（简历、岗位、模拟面试逐题问答与评分、真实面试复盘），面试官与评分使用产品自己的提示词，求职者由另一家厂商的模型按剧本当天的真实水平扮演。三种做法读到的是同一批记录。
-- **划分**：开发集 16 份（p01–p16，其中 p01、p02、p03、p05、p07、p08、p09、p12、p13 原属测试集，调参时看过结果，已转入开发集），测试集 9 份封存，只在最终评测时用 `--split test --final` 打开一次。
+- **划分**：开发集 16 份（p01–p16，其中 p01、p02、p03、p05、p07、p08、p09、p12、p13 原属测试集，调参时看过结果，已转入开发集），测试集 9 份（p17、p18、p19、p20、p22、p25、p27、p29、p30）在开发期间封存，2026-10-30 用 `--final` 打开一次，结果见报告；开封后没有再调整引擎、提示词或评测代码。
 
 ## 对比方法（第 1 项）
 
@@ -48,7 +48,7 @@ DrawOffer 长期求职记忆引擎的独立测评。引擎根据一位求职者�
 ### 其他限制
 
 - 剧本仍是开发方起草的初稿（`status=draft`），还没有经过两位标注人核对。
-- 样本量小：16 份开发集剧本、约 100 个检查点，区间较宽，所以每个数都附了区间。
+- 样本量小：全部 25 份剧本、129 个检查点，测试集只有 9 份、45 个检查点，区间较宽，所以每个数都附了区间。
 - AUC 只取第 1 次运行（每个基线每道题调用一次模型），一致性只在检查点上测。
 - Mem0 的实体链接依赖 spaCy 英文模型，对中文没有作用，未启用；它的记忆抽取与向量检索照常工作。Mem0 2.2.1 的写入流程只做新增，旧记忆不会被更新或合并，这是该版本的设计。
 - 预测标签来自产品评分器，不是人工判定；评分器本身的误差在 DrawOffer 主仓库另有测评。
@@ -99,7 +99,9 @@ set -a; . ./.env; set +a
 uv run python -m dreval.benchmarks.stability --split dev --repeats 5 --out runs/stability-dev.json
 uv run python -m dreval.benchmarks.performance --sessions 10,50,100,200,500 --learners 5 --out runs/performance.json
 uv run python -m dreval.benchmarks.comparison --split dev --runs 5 --jobs 6 --out runs/comparison-dev.json
-uv run python -m dreval.report --comparison runs/comparison-dev.json --stability runs/stability-dev.json --performance runs/performance.json
+uv run python -m dreval.benchmarks.comparison --split all --final --runs 5 --jobs 6 --out runs/comparison-all.json
+uv run python -m dreval.benchmarks.stability --split all --repeats 5 --out runs/stability-all.json
+uv run python -m dreval.report --comparison runs/comparison-test.json --comparison runs/comparison-all.json --comparison runs/comparison-dev.json --stability runs/stability-test.json --stability runs/stability-all.json --performance runs/performance.json
 ```
 
 模型输出缓存在 `cache/`（按请求哈希，JSON Lines），重跑同样的命令不再调用模型；`DREVAL_CACHE_ONLY=1` 时缺缓存直接报错，可证明一次重跑没有花钱。缓存含模拟记录原文，不提交。

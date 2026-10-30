@@ -1,0 +1,458 @@
+{
+ "split": "test",
+ "determinism": {
+  "personas": 9,
+  "moments": 24,
+  "repeats_in_process": 5,
+  "fresh_processes": 2,
+  "identical_in_process": 9,
+  "identical_across_processes": 9,
+  "rate": 1.0,
+  "rows": [
+   {
+    "persona": "p17",
+    "moments": 2,
+    "identical": true
+   },
+   {
+    "persona": "p18",
+    "moments": 2,
+    "identical": true
+   },
+   {
+    "persona": "p19",
+    "moments": 2,
+    "identical": true
+   },
+   {
+    "persona": "p20",
+    "moments": 3,
+    "identical": true
+   },
+   {
+    "persona": "p22",
+    "moments": 3,
+    "identical": true
+   },
+   {
+    "persona": "p25",
+    "moments": 4,
+    "identical": true
+   },
+   {
+    "persona": "p27",
+    "moments": 2,
+    "identical": true
+   },
+   {
+    "persona": "p29",
+    "moments": 2,
+    "identical": true
+   },
+   {
+    "persona": "p30",
+    "moments": 4,
+    "identical": true
+   }
+  ]
+ },
+ "deletion": {
+  "deletions": 34,
+  "dependent_conclusions": 57,
+  "dependent_survived": 0,
+  "residue_observations": 0,
+  "residue_conclusions": 0,
+  "rows": [
+   {
+    "persona": "p17",
+    "source": "job_a",
+    "episodes": 1,
+    "conclusions_before": 16,
+    "conclusions_after": 17,
+    "dependent": 2,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p17",
+    "source": "mock_1",
+    "episodes": 3,
+    "conclusions_before": 16,
+    "conclusions_after": 14,
+    "dependent": 1,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p17",
+    "source": "mock_2",
+    "episodes": 3,
+    "conclusions_before": 16,
+    "conclusions_after": 14,
+    "dependent": 0,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p17",
+    "source": "resume_v1",
+    "episodes": 3,
+    "conclusions_before": 16,
+    "conclusions_after": 7,
+    "dependent": 2,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p18",
+    "source": "mock_1",
+    "episodes": 4,
+    "conclusions_before": 21,
+    "conclusions_after": 16,
+    "dependent": 3,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p18",
+    "source": "mock_2",
+    "episodes": 5,
+    "conclusions_before": 21,
+    "conclusions_after": 13,
+    "dependent": 7,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p18",
+    "source": "resume_v1",
+    "episodes": 3,
+    "conclusions_before": 21,
+    "conclusions_after": 13,
+    "dependent": 4,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p19",
+    "source": "mock_1",
+    "episodes": 3,
+    "conclusions_before": 15,
+    "conclusions_after": 12,
+    "dependent": 3,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p19",
+    "source": "mock_2",
+    "episodes": 2,
+    "conclusions_before": 15,
+    "conclusions_after": 14,
+    "dependent": 0,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p19",
+    "source": "resume_v1",
+    "episodes": 3,
+    "conclusions_before": 15,
+    "conclusions_after": 5,
+    "dependent": 8,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p20",
+    "source": "mock_1",
+    "episodes": 1,
+    "conclusions_before": 5,
+    "conclusions_after": 3,
+    "dependent": 0,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p20",
+    "source": "mock_2",
+    "episodes": 1,
+    "conclusions_before": 5,
+    "conclusions_after": 3,
+    "dependent": 0,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p20",
+    "source": "resume_v1",
+    "episodes": 3,
+    "conclusions_before": 5,
+    "conclusions_after": 0,
+    "dependent": 0,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p22",
+    "source": "job_a",
+    "episodes": 1,
+    "conclusions_before": 21,
+    "conclusions_after": 18,
+    "dependent": 0,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p22",
+    "source": "resume_v1",
+    "episodes": 3,
+    "conclusions_before": 21,
+    "conclusions_after": 13,
+    "dependent": 1,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p22",
+    "source": "review_1",
+    "episodes": 4,
+    "conclusions_before": 21,
+    "conclusions_after": 15,
+    "dependent": 1,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p22",
+    "source": "review_2",
+    "episodes": 2,
+    "conclusions_before": 21,
+    "conclusions_after": 18,
+    "dependent": 0,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p25",
+    "source": "job_a",
+    "episodes": 1,
+    "conclusions_before": 12,
+    "conclusions_after": 9,
+    "dependent": 2,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p25",
+    "source": "mock_1",
+    "episodes": 2,
+    "conclusions_before": 12,
+    "conclusions_after": 12,
+    "dependent": 0,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p25",
+    "source": "mock_2",
+    "episodes": 1,
+    "conclusions_before": 12,
+    "conclusions_after": 12,
+    "dependent": 0,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p25",
+    "source": "mock_3",
+    "episodes": 1,
+    "conclusions_before": 12,
+    "conclusions_after": 13,
+    "dependent": 0,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p25",
+    "source": "mock_4",
+    "episodes": 1,
+    "conclusions_before": 12,
+    "conclusions_after": 13,
+    "dependent": 0,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p25",
+    "source": "prep_1",
+    "episodes": 1,
+    "conclusions_before": 12,
+    "conclusions_after": 12,
+    "dependent": 0,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p25",
+    "source": "resume_v1",
+    "episodes": 2,
+    "conclusions_before": 12,
+    "conclusions_after": 6,
+    "dependent": 2,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p27",
+    "source": "mock_1",
+    "episodes": 3,
+    "conclusions_before": 11,
+    "conclusions_after": 9,
+    "dependent": 2,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p27",
+    "source": "mock_2",
+    "episodes": 3,
+    "conclusions_before": 11,
+    "conclusions_after": 9,
+    "dependent": 2,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p27",
+    "source": "resume_v1",
+    "episodes": 2,
+    "conclusions_before": 11,
+    "conclusions_after": 7,
+    "dependent": 4,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p29",
+    "source": "mock_1",
+    "episodes": 2,
+    "conclusions_before": 20,
+    "conclusions_after": 20,
+    "dependent": 0,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p29",
+    "source": "mock_2",
+    "episodes": 2,
+    "conclusions_before": 20,
+    "conclusions_after": 16,
+    "dependent": 3,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p29",
+    "source": "resume_a",
+    "episodes": 3,
+    "conclusions_before": 20,
+    "conclusions_after": 14,
+    "dependent": 2,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p29",
+    "source": "resume_b",
+    "episodes": 3,
+    "conclusions_before": 20,
+    "conclusions_after": 15,
+    "dependent": 0,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p30",
+    "source": "mock_1",
+    "episodes": 2,
+    "conclusions_before": 13,
+    "conclusions_after": 12,
+    "dependent": 1,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p30",
+    "source": "mock_2",
+    "episodes": 2,
+    "conclusions_before": 13,
+    "conclusions_after": 13,
+    "dependent": 0,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   },
+   {
+    "persona": "p30",
+    "source": "resume_v1",
+    "episodes": 3,
+    "conclusions_before": 13,
+    "conclusions_after": 6,
+    "dependent": 7,
+    "dependent_survived": [],
+    "residue_observations": 0,
+    "residue_conclusions": []
+   }
+  ]
+ },
+ "quotes": {
+  "quotes": 150,
+  "found_in_source": 126,
+  "rate": 0.84,
+  "found_by_piece": 150,
+  "rate_by_piece": 1.0,
+  "by_proposition": {
+   "CLAIMS:ok": 26,
+   "REQUIRES:ok": 12,
+   "USES:ok": 33,
+   "practice:ok": 1,
+   "θ:miss": 24,
+   "θ:ok": 54
+  },
+  "misses": []
+ }
+}

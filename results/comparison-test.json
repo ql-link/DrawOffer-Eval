@@ -1,0 +1,626 @@
+{
+ "split": "test",
+ "personas": [
+  "p17",
+  "p18",
+  "p19",
+  "p20",
+  "p22",
+  "p25",
+  "p27",
+  "p29",
+  "p30"
+ ],
+ "runs": 5,
+ "systems": {
+  "engine": {
+   "accuracy": {
+    "ability": {
+     "passed": 15,
+     "total": 15,
+     "rate": 1.0,
+     "ci95": [
+      0.796,
+      1.0
+     ]
+    },
+    "all_checkpoints": {
+     "passed": 40,
+     "total": 45,
+     "rate": 0.8889,
+     "ci95": [
+      0.765,
+      0.952
+     ]
+    },
+    "by_type": {
+     "ability_level": {
+      "passed": 15,
+      "total": 15,
+      "rate": 1.0,
+      "ci95": [
+       0.796,
+       1.0
+      ]
+     },
+     "experience_assessment": {
+      "passed": 3,
+      "total": 3,
+      "rate": 1.0,
+      "ci95": [
+       0.438,
+       1.0
+      ]
+     },
+     "experience_merged": {
+      "passed": 1,
+      "total": 1,
+      "rate": 1.0,
+      "ci95": [
+       0.207,
+       1.0
+      ]
+     },
+     "issue_absent": {
+      "passed": 12,
+      "total": 12,
+      "rate": 1.0,
+      "ci95": [
+       0.757,
+       1.0
+      ]
+     },
+     "issue_present": {
+      "passed": 6,
+      "total": 8,
+      "rate": 0.75,
+      "ci95": [
+       0.409,
+       0.929
+      ]
+     },
+     "issue_state": {
+      "passed": 1,
+      "total": 2,
+      "rate": 0.5,
+      "ci95": [
+       0.095,
+       0.905
+      ]
+     },
+     "readiness": {
+      "passed": 2,
+      "total": 2,
+      "rate": 1.0,
+      "ci95": [
+       0.342,
+       1.0
+      ]
+     },
+     "supplement_fact": {
+      "passed": 0,
+      "total": 2,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.658
+      ]
+     }
+    }
+   },
+   "consistency": {
+    "runs": 5,
+    "checkpoints": 45,
+    "same_verdict": {
+     "passed": 40,
+     "total": 45,
+     "rate": 0.8889,
+     "ci95": [
+      0.765,
+      0.952
+     ]
+    },
+    "same_answer": {
+     "passed": 36,
+     "total": 45,
+     "rate": 0.8,
+     "ci95": [
+      0.662,
+      0.891
+     ]
+    }
+   },
+   "grounded": {
+    "conclusions": {
+     "passed": 177,
+     "total": 183,
+     "rate": 0.9672,
+     "ci95": [
+      0.93,
+      0.985
+     ]
+    },
+    "derived": {
+     "passed": 65,
+     "total": 92,
+     "rate": 0.7065,
+     "ci95": [
+      0.607,
+      0.79
+     ]
+    },
+    "all": {
+     "passed": 242,
+     "total": 275,
+     "rate": 0.88,
+     "ci95": [
+      0.836,
+      0.913
+     ]
+    },
+    "by_predicate": {
+     "asked_question": {
+      "ok": 0,
+      "total": 10
+     },
+     "claim_pending": {
+      "ok": 55,
+      "total": 55
+     },
+     "claim_verified": {
+      "ok": 2,
+      "total": 2
+     },
+     "experience": {
+      "ok": 12,
+      "total": 18
+     },
+     "knowledge_gap": {
+      "ok": 9,
+      "total": 9
+     },
+     "readiness": {
+      "ok": 0,
+      "total": 5
+     },
+     "readiness_insufficient": {
+      "ok": 0,
+      "total": 11
+     },
+     "requirement": {
+      "ok": 65,
+      "total": 66
+     },
+     "review_due": {
+      "ok": 5,
+      "total": 5
+     },
+     "skill": {
+      "ok": 5,
+      "total": 5
+     },
+     "skill_pending": {
+      "ok": 71,
+      "total": 71
+     },
+     "supplement_fact": {
+      "ok": 13,
+      "total": 13
+     },
+     "unclear_telling": {
+      "ok": 1,
+      "total": 1
+     },
+     "understated": {
+      "ok": 4,
+      "total": 4
+     }
+    },
+    "with_quotes": 237,
+    "quotes_all_found": 237,
+    "no_quote_but_source_cited": 5,
+    "unsupported": 26
+   },
+   "usage": {
+    "ResumeLine": {
+     "calls": 0,
+     "cached": 80,
+     "missed": 0,
+     "failed": {},
+     "input_tokens": 0,
+     "cache_read_tokens": 0,
+     "output_tokens": 0,
+     "mean_seconds": null
+    },
+    "JobReading": {
+     "calls": 0,
+     "cached": 15,
+     "missed": 0,
+     "failed": {},
+     "input_tokens": 0,
+     "cache_read_tokens": 0,
+     "output_tokens": 0,
+     "mean_seconds": null
+    },
+    "QuestionMapping": {
+     "calls": 0,
+     "cached": 235,
+     "missed": 0,
+     "failed": {},
+     "input_tokens": 0,
+     "cache_read_tokens": 0,
+     "output_tokens": 0,
+     "mean_seconds": null
+    },
+    "RealAnnotation": {
+     "calls": 0,
+     "cached": 30,
+     "missed": 0,
+     "failed": {},
+     "input_tokens": 0,
+     "cache_read_tokens": 0,
+     "output_tokens": 0,
+     "mean_seconds": null
+    },
+    "ExperienceAnswer": {
+     "calls": 40,
+     "cached": 108,
+     "missed": 0,
+     "failed": {
+      "invalid_output": 32
+     },
+     "input_tokens": 87521,
+     "cache_read_tokens": 83456,
+     "output_tokens": 17965,
+     "mean_seconds": 7.22
+    },
+    "Consistency": {
+     "calls": 0,
+     "cached": 6,
+     "missed": 0,
+     "failed": {},
+     "input_tokens": 0,
+     "cache_read_tokens": 0,
+     "output_tokens": 0,
+     "mean_seconds": null
+    }
+   }
+  },
+  "full_context": {
+   "accuracy": {
+    "ability": {
+     "passed": 14,
+     "total": 15,
+     "rate": 0.9333,
+     "ci95": [
+      0.702,
+      0.988
+     ]
+    },
+    "all_checkpoints": {
+     "passed": 40,
+     "total": 45,
+     "rate": 0.8889,
+     "ci95": [
+      0.765,
+      0.952
+     ]
+    },
+    "by_type": {
+     "ability_level": {
+      "passed": 14,
+      "total": 15,
+      "rate": 0.9333,
+      "ci95": [
+       0.702,
+       0.988
+      ]
+     },
+     "experience_assessment": {
+      "passed": 3,
+      "total": 3,
+      "rate": 1.0,
+      "ci95": [
+       0.438,
+       1.0
+      ]
+     },
+     "experience_merged": {
+      "passed": 1,
+      "total": 1,
+      "rate": 1.0,
+      "ci95": [
+       0.207,
+       1.0
+      ]
+     },
+     "issue_absent": {
+      "passed": 12,
+      "total": 12,
+      "rate": 1.0,
+      "ci95": [
+       0.757,
+       1.0
+      ]
+     },
+     "issue_present": {
+      "passed": 7,
+      "total": 8,
+      "rate": 0.875,
+      "ci95": [
+       0.529,
+       0.978
+      ]
+     },
+     "issue_state": {
+      "passed": 0,
+      "total": 2,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.658
+      ]
+     },
+     "readiness": {
+      "passed": 2,
+      "total": 2,
+      "rate": 1.0,
+      "ci95": [
+       0.342,
+       1.0
+      ]
+     },
+     "supplement_fact": {
+      "passed": 1,
+      "total": 2,
+      "rate": 0.5,
+      "ci95": [
+       0.095,
+       0.905
+      ]
+     }
+    }
+   },
+   "consistency": {
+    "runs": 5,
+    "checkpoints": 45,
+    "same_verdict": {
+     "passed": 42,
+     "total": 45,
+     "rate": 0.9333,
+     "ci95": [
+      0.821,
+      0.977
+     ]
+    },
+    "same_answer": {
+     "passed": 34,
+     "total": 45,
+     "rate": 0.7556,
+     "ci95": [
+      0.613,
+      0.858
+     ]
+    }
+   },
+   "grounded": {
+    "conclusions": {
+     "passed": 40,
+     "total": 45,
+     "rate": 0.8889,
+     "ci95": [
+      0.765,
+      0.952
+     ]
+    },
+    "in_model_context": {
+     "passed": 40,
+     "total": 45,
+     "rate": 0.8889,
+     "ci95": [
+      0.765,
+      0.952
+     ]
+    },
+    "no_quote": 5,
+    "quotes": 140,
+    "quotes_found": 140
+   }
+  },
+  "mem0": {
+   "accuracy": {
+    "ability": {
+     "passed": 13,
+     "total": 15,
+     "rate": 0.8667,
+     "ci95": [
+      0.621,
+      0.963
+     ]
+    },
+    "all_checkpoints": {
+     "passed": 38,
+     "total": 45,
+     "rate": 0.8444,
+     "ci95": [
+      0.712,
+      0.923
+     ]
+    },
+    "by_type": {
+     "ability_level": {
+      "passed": 13,
+      "total": 15,
+      "rate": 0.8667,
+      "ci95": [
+       0.621,
+       0.963
+      ]
+     },
+     "experience_assessment": {
+      "passed": 3,
+      "total": 3,
+      "rate": 1.0,
+      "ci95": [
+       0.438,
+       1.0
+      ]
+     },
+     "experience_merged": {
+      "passed": 1,
+      "total": 1,
+      "rate": 1.0,
+      "ci95": [
+       0.207,
+       1.0
+      ]
+     },
+     "issue_absent": {
+      "passed": 12,
+      "total": 12,
+      "rate": 1.0,
+      "ci95": [
+       0.757,
+       1.0
+      ]
+     },
+     "issue_present": {
+      "passed": 7,
+      "total": 8,
+      "rate": 0.875,
+      "ci95": [
+       0.529,
+       0.978
+      ]
+     },
+     "issue_state": {
+      "passed": 0,
+      "total": 2,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.658
+      ]
+     },
+     "readiness": {
+      "passed": 2,
+      "total": 2,
+      "rate": 1.0,
+      "ci95": [
+       0.342,
+       1.0
+      ]
+     },
+     "supplement_fact": {
+      "passed": 0,
+      "total": 2,
+      "rate": 0.0,
+      "ci95": [
+       0.0,
+       0.658
+      ]
+     }
+    }
+   },
+   "consistency": {
+    "runs": 5,
+    "checkpoints": 45,
+    "same_verdict": {
+     "passed": 39,
+     "total": 45,
+     "rate": 0.8667,
+     "ci95": [
+      0.738,
+      0.937
+     ]
+    },
+    "same_answer": {
+     "passed": 32,
+     "total": 45,
+     "rate": 0.7111,
+     "ci95": [
+      0.566,
+      0.823
+     ]
+    }
+   },
+   "grounded": {
+    "conclusions": {
+     "passed": 0,
+     "total": 45,
+     "rate": 0.0,
+     "ci95": [
+      0.0,
+      0.079
+     ]
+    },
+    "in_model_context": {
+     "passed": 41,
+     "total": 45,
+     "rate": 0.9111,
+     "ci95": [
+      0.793,
+      0.965
+     ]
+    },
+    "no_quote": 3,
+    "quotes": 110,
+    "quotes_found": 3
+   }
+  }
+ },
+ "prediction": {
+  "engine": {
+   "steps": 80,
+   "missing": 0,
+   "auc": 0.8093,
+   "log_loss": 0.529
+  },
+  "full_context": {
+   "steps": 80,
+   "missing": 0,
+   "auc": 0.7677,
+   "log_loss": 0.8307
+  },
+  "mem0": {
+   "steps": 80,
+   "missing": 0,
+   "auc": 0.7433,
+   "log_loss": 0.8402
+  },
+  "bootstrap": {
+   "questions": 42,
+   "resamples": 2000,
+   "engine": [
+    0.7233,
+    0.8915
+   ],
+   "full_context": [
+    0.6716,
+    0.8722
+   ],
+   "mem0": [
+    0.6488,
+    0.8373
+   ],
+   "engine-full_context": [
+    -0.0697,
+    0.146
+   ],
+   "engine-mem0": [
+    -0.0435,
+    0.1745
+   ]
+  }
+ },
+ "baseline_usage": {
+  "model": "gpt-6.1-terra",
+  "effort": "medium",
+  "calls": 0,
+  "cached": 783,
+  "failures": 0,
+  "seconds": 0.0,
+  "tokens": 0
+ },
+ "seconds": 140.7
+}
