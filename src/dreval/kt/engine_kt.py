@@ -4,14 +4,18 @@ The dataset's skills become knowledge points under one technology root, so the e
 the shared root factor (``root_share``) and nothing else: the dataset has no topic tree. Each interaction is one
 direct ``ability`` observation on its skills (equal shares when it has several), discrimination ``a`` = 1 and pass
 bar ``b``; ``on_evidence`` gives the probability of a correct answer just before the engine absorbs it, which is the
-prediction scored. Interactions are spaced one minute apart (the file has no times), so forgetting plays no part.
+prediction scored. An interaction's time is the dataset's own when it has one (EdNet, Junyi); ASSISTments 2009 has
+none, so its interactions are spaced one minute apart and forgetting plays no part there.
 
 Two variants:
 
 - ``engine``: the product's parameters and ``b`` = 0 for every skill. Nothing is learnt from the training students.
 - ``engine_difficulty``: each skill's ``b`` set so that the engine's prior prediction equals that skill's rate of
-  correct answers in the training students (smoothed toward the overall rate). Only these 123 numbers
-  come from the training data.
+  correct answers in the training students (smoothed toward the overall rate). Only these numbers (one per
+  skill) come from the training data.
+- ``engine_no_forgetting`` (an ablation): ``engine_difficulty`` with the state equation switched off (stability so
+  long that nothing drifts back to the prior between answers). The difference to ``engine_difficulty`` is what the
+  forgetting model adds on a dataset with real times.
 - ``engine_problem`` (a control): each problem's ``b`` from the Rasch fit of the training students, the same
   difficulties IRT uses, mapped so the engine's prior prediction on a problem equals Rasch's for an average student.
   It asks how much of the gap to IRT is the per-problem difficulty, which the product does not estimate.
@@ -22,6 +26,7 @@ from __future__ import annotations
 import math
 from collections import defaultdict
 from concurrent.futures import ProcessPoolExecutor
+from dataclasses import replace
 from datetime import datetime, timedelta, timezone
 
 import numpy as np
@@ -87,9 +92,25 @@ def problem_difficulties(train: list[Student], skills: list[str], a: float = 1.0
     return b, {s: float(np.mean(v)) for s, v in by_skill.items()}
 
 
+NO_FORGETTING = 1e12  # days
+
+
+def no_forgetting():
+    return replace(active(), stability_initial=NO_FORGETTING, stability_min=NO_FORGETTING,
+                   stability_max=NO_FORGETTING, stability_failure=1.0)
+
+
+def _moment(it, number: int) -> datetime:
+    if it.at is None:
+        return START + timedelta(minutes=number)
+    return datetime.fromtimestamp(it.at, tz=timezone.utc)
+
+
 def predict_student(args) -> np.ndarray:
     st, skills, b = args[:3]
     problems = args[3] if len(args) > 3 else None
+    forgetting = args[4] if len(args) > 4 else True
+    params = active() if forgetting else no_forgetting()
     cat = catalog(skills)
     observations, times = [], {}
     for number, it in enumerate(st.items):
@@ -103,16 +124,17 @@ def predict_student(args) -> np.ndarray:
         digest = f"{st.id}-{number}"
         observations.append(Observation("kt", 1, digest, (episode,), "real_interview",
                                         (Finding("θ", ability(u, 1.0, bar, float(it.correct))),)))
-        times[episode] = (START + timedelta(minutes=number)).isoformat()
+        times[episode] = _moment(it, number).isoformat()
     predictions: list[float] = []
-    infer(cat, observations, times, (START + timedelta(minutes=len(st.items))).isoformat(),
-          on_evidence=lambda _e, p: predictions.append(p), engine="1")
+    end = _moment(st.items[-1], len(st.items) - 1) + timedelta(minutes=1)
+    infer(cat, observations, times, end.isoformat(), params, on_evidence=lambda _e, p: predictions.append(p),
+          engine="1")
     if len(predictions) != len(st.items):
         raise RuntimeError(f"{st.id}: {len(predictions)} predictions for {len(st.items)} interactions")
     return np.array(predictions)
 
 
 def engine(test: list[Student], skills: list[str], b: dict[str, float] | None = None, jobs: int = 8,
-           problems: dict[str, float] | None = None) -> list[np.ndarray]:
+           problems: dict[str, float] | None = None, forgetting: bool = True) -> list[np.ndarray]:
     with ProcessPoolExecutor(jobs) as pool:
-        return list(pool.map(predict_student, [(st, skills, b, problems) for st in test], chunksize=8))
+        return list(pool.map(predict_student, [(st, skills, b, problems, forgetting) for st in test], chunksize=8))

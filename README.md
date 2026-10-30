@@ -11,11 +11,11 @@ DrawOffer 长期求职记忆引擎的独立测评。引擎根据一位求职者�
 | 编号 | 测评 | 命令 | 是否调用模型 |
 | --- | --- | --- | --- |
 | 1 | 与通用记忆正面对比：DrawOffer 引擎、Mem0 + 大模型、整段记录交给大模型 | `python -m dreval.benchmarks.comparison` | 是 |
-| 2 | 公开知识追踪数据集 ASSISTments 2009：引擎与 BKT、IRT、PFA、DKT 比预测下一题 | `scripts/kt-parallel.sh` | 否 |
+| 2 | 公开知识追踪数据集 ASSISTments 2009、EdNet-KT1、Junyi：引擎与 BKT、IRT、PFA、DKT 比预测下一题，后两个带时间戳，测遗忘模型 | `scripts/kt-parallel.sh` | 否 |
 | 3 | 稳定性与可追溯性：重复推断一致、删除来源后无残留、原话真在原文里 | `python -m dreval.benchmarks.stability` | 否（读取缓存的观察器输出） |
 | 6 | 性能：几百到几千次作答的长历史，全量推断与检查点续算的耗时 | `python -m dreval.benchmarks.performance` | 否 |
 
-第 2 项目前只做了 ASSISTments 2009（EdNet、Junyi 未做）；第 4 项（剧本扩到 100 份以上）、第 5 项（真实数据校准）尚未完成，见文末“后续”。
+第 4 项（剧本扩到 100 份以上）、第 5 项（真实数据校准）尚未完成，见文末“后续”。
 
 ## 数据
 
@@ -56,11 +56,17 @@ DrawOffer 长期求职记忆引擎的独立测评。引擎根据一位求职者�
 
 ## 公开知识追踪数据集（第 2 项）
 
-数据：ASSISTments 2009–2010 skill builder（corrected 版），从 USTC 镜像下载并校验 sha256（`src/dreval/kt/data.py`）；官方 Google Drive 链接需要登录。去掉没有知识点的行，同一 `order_id` 挂多个知识点的合成一次作答，至少 2 次作答的学生保留。数据不放进本仓库。
+数据（`src/dreval/kt/data.py`，都从 USTC 镜像下载并校验 sha256，不放进本仓库）：
+
+- **ASSISTments 2009–2010 skill builder**（corrected 版）：去掉没有知识点的行，同一 `order_id` 挂多个知识点的合成一次作答，至少 2 次作答的学生全部保留。没有时间戳。
+- **EdNet-KT1**：每道题的知识点取 `questions.csv` 的标签（可以有多个），`user_answer` 等于正确答案算答对，时间取 `timestamp`。
+- **Junyi Academy 数学练习日志**：按常用的做法，知识点与题目都取练习（`exercise`），首次作答且没看提示算答对，时间取 `time_done`。
+
+EdNet 与 Junyi 的学生太多，按种子 0 从至少 20 次作答的学生中随机抽 5000 名，每人只取最早的 500 次作答。
 
 按学生 5 折交叉验证，每个模型只在训练折的学生上拟合，对测试折学生的每次作答只用他之前的作答预测，报告 AUC、RMSE、log loss：
 
-- **引擎**：123 个知识点挂在一个虚构的技术节点下，每次作答是一条 `ability` 观察（区分度 1，多知识点平分），预测取引擎吸收这条作答之前给出的通过概率。三个版本：产品参数且所有难度为 0（不用训练集）；从训练集估每个知识点的难度；对照组用 IRT 估出的每道题难度。
+- **引擎**：知识点挂在一个虚构的技术节点下，每次作答是一条 `ability` 观察（区分度 1，多知识点平分），带上作答的真实时间，预测取引擎吸收这条作答之前给出的通过概率。四个版本：产品参数且所有难度为 0（不用训练集）；从训练集估每个知识点的难度；同上但关闭遗忘（稳定度设为无穷大）；对照组用 IRT 估出的每道题难度。
 - **IRT**：Rasch 模型，训练集上 L2 惩罚的极大似然估题目难度，测试学生的能力从总体先验开始、每答一题按拉普拉斯近似更新。训练集没见过的题用其知识点的平均难度。
 - **PFA**：每个知识点的截距与此前成功、失败次数的系数（次数取 log(1 + n)），scikit-learn 逻辑回归。
 - **BKT**：pyBKT 1.4.3 标准模型，每个知识点一个，5 次随机初始化的 EM。多知识点的作答取各知识点预测的平均。
@@ -68,10 +74,12 @@ DrawOffer 长期求职记忆引擎的独立测评。引擎根据一位求职者�
 
 限制与说明：
 
-- 数据没有时间戳，作答按 `order_id` 排序、每题间隔 1 分钟，引擎的遗忘、间隔与稳定度模型在这里不起作用。
+- ASSISTments 没有时间戳，作答按 `order_id` 排序、每题间隔 1 分钟，引擎的遗忘模型在这里不起作用；EdNet 与 Junyi 用真实时间。遗忘的作用看“隔天后”一列：所涉知识点距上次练习都已至少 1 天的作答，以及同一引擎打开与关闭遗忘的逐折配对差。
+- 遗忘与稳定度用的是产品参数，没有在这些数据上调。
 - 引擎在产品里不会从其他用户身上学题目难度，“题目难度”一行是对照，用来说明与 IRT、DKT 的差距主要来自每道题的难度，不是产品能力。
 - pyBKT 1.4.3 与 NumPy 2.x 不兼容（把 (1, 1) 数组写进标量元素），引擎依赖 NumPy 2.5，所以运行时把这个值转成标量（`baselines._patch_pybkt`），拟合本身不变；它的 `predict` 会重排数据框，预测按每行的键取回。
-- 需要可选依赖：`uv sync --extra kt`（pyBKT、scikit-learn 1.5、PyTorch、pandas）。
+- pyBKT 在没有 C++ 扩展时用纯 Python 做 EM 的 E 步，EdNet 一折要几个小时。`src/dreval/kt/fast_bkt.py` 是同一段前向后向计算的 numba 版本，逐句对应、运算顺序不变，运行时替换 pyBKT 的 `inner`。`tests/test_kt.py` 检查两者的预测逐位相同；ASSISTments 第 4 折用两种版本各跑一次，AUC、RMSE、log loss 逐位相同（1226 秒对 28 秒）。
+- 需要可选依赖：`uv sync --extra kt`（pyBKT、numba、scikit-learn 1.5、PyTorch、pandas）。
 
 ## 稳定性与可追溯性（第 3 项）
 
@@ -121,8 +129,10 @@ uv run python -m dreval.benchmarks.performance --sessions 10,50,100,200,500 --le
 uv run python -m dreval.benchmarks.comparison --split dev --runs 5 --jobs 6 --out runs/comparison-dev.json
 uv run python -m dreval.benchmarks.comparison --split all --final --runs 5 --jobs 6 --out runs/comparison-all.json
 uv run python -m dreval.benchmarks.stability --split all --repeats 5 --out runs/stability-all.json
-JOBS=6 scripts/kt-parallel.sh   # 第 2 项：每个（折, 模型）一个进程，结果写 runs/kt-cells/，再合并为 runs/kt-assist09.json
-uv run python -m dreval.report --kt runs/kt-assist09.json --comparison runs/comparison-test.json --comparison runs/comparison-all.json --comparison runs/comparison-dev.json --stability runs/stability-test.json --stability runs/stability-all.json --performance runs/performance.json
+JOBS=6 scripts/kt-parallel.sh   # 第 2 项：每个（折, 模型）一个进程，结果写 runs/kt-cells-assist09/，再合并为 runs/kt-assist09.json
+DATASET=ednet JOBS=4 scripts/kt-parallel.sh
+DATASET=junyi JOBS=4 scripts/kt-parallel.sh
+uv run python -m dreval.report --kt runs/kt-assist09.json --kt runs/kt-ednet.json --kt runs/kt-junyi.json --comparison runs/comparison-test.json --comparison runs/comparison-all.json --comparison runs/comparison-dev.json --stability runs/stability-test.json --stability runs/stability-all.json --performance runs/performance.json
 ```
 
 模型输出缓存在 `cache/`（按请求哈希，JSON Lines），重跑同样的命令不再调用模型；`DREVAL_CACHE_ONLY=1` 时缺缓存直接报错，可证明一次重跑没有花钱。缓存含模拟记录原文，不提交。
@@ -131,6 +141,5 @@ uv run python -m dreval.report --kt runs/kt-assist09.json --comparison runs/comp
 
 ## 后续
 
-- **第 2 项**：再加 EdNet-KT1 与 Junyi；它们有时间戳，能测到引擎的遗忘与间隔模型，ASSISTments 2009 测不到。
 - **第 4 项**：剧本扩到 100 份以上，按专业方向与水平分层报告。新剧本要先写真实情况与检查点，再按产品流程模拟来源（每份剧本数十次模型调用）。
 - **第 5 项**：DrawOffer 已实现面试前预测存档、面试后勾选与校准报表（`MEMORY_CHECK_ENABLED`，默认关闭），打开线上开关后即可开始积累；本仓库届时读取匿名化的汇总指标。

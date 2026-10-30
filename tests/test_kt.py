@@ -26,3 +26,21 @@ def test_folds_cover_every_student_once():
     students = [_student(str(i), [1, 0]) for i in range(23)]
     folds = data.folds(students, 5)
     assert sorted(i for f in folds for i in f) == list(range(23))
+
+
+def test_compiled_bkt_matches_pybkt_bit_for_bit():
+    from dreval.kt import baselines
+
+    rng = np.random.default_rng(0)
+    students = [data.Student(str(i), tuple(
+        data.Interaction(n, f"p{n}", (str(rng.integers(3)),) if n % 4 else ("0", "1"), int(rng.random() < 0.6))
+        for n in range(int(rng.integers(3, 12))))) for i in range(40)]
+    out = []
+    for compiled in (False, True):
+        original = baselines._patch_pybkt
+        baselines._patch_pybkt = lambda c=compiled: original(c)
+        try:
+            out.append(np.concatenate(baselines.bkt(students[:30], students[30:], seed=0)))
+        finally:
+            baselines._patch_pybkt = original
+    assert np.array_equal(out[0], out[1])

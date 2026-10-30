@@ -12,6 +12,7 @@ dependencies = [
 [project.optional-dependencies]
 kt = [
     "pandas>=2.2",
+    "numba>=0.68",
     "pybkt==1.4.3",
     "scikit-learn>=1.5,<1.6",
     "torch>=2.5",

@@ -34,11 +34,20 @@ def skill_mean(train: list[Student], test: list[Student]) -> list[np.ndarray]:
 # -- BKT ---------------------------------------------------------------------
 
 
-def _patch_pybkt() -> None:
+def _patch_pybkt(compiled: bool = True) -> None:
     """pyBKT 1.4.3 stores a (1, 1) array into one element of its log-likelihood array, which NumPy 2.5 refuses;
-    hand it the scalar instead. Nothing else of the fit changes."""
+    hand it the scalar instead. With ``compiled`` its E-step runs as the numba copy in ``fast_bkt`` (same
+    arithmetic, hours faster on EdNet). Nothing else of the fit changes."""
     from pyBKT.fit import EM_fit
 
+    if not hasattr(EM_fit, "_python_inner"):
+        EM_fit._python_inner = EM_fit.inner
+    if compiled:
+        from dreval.kt import fast_bkt
+
+        EM_fit.inner = fast_bkt.inner
+    else:
+        EM_fit.inner = EM_fit._python_inner
     if getattr(EM_fit.run, "_scalar", False):
         return
     original = EM_fit.run

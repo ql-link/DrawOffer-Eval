@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import statistics
 from pathlib import Path
 from typing import Any
 
@@ -98,7 +99,8 @@ def performance(d: dict[str, Any]) -> str:
 KT_NAMES = {
     "skill_mean": ("各知识点的平均通过率", "参照：不看学生自己的作答"),
     "engine": ("DrawOffer 引擎", "产品参数，所有知识点 b = 0，不从训练集学任何东西"),
-    "engine_difficulty": ("DrawOffer 引擎 + 知识点难度", "从训练集只估 123 个知识点的难度"),
+    "engine_difficulty": ("DrawOffer 引擎 + 知识点难度", "从训练集只估每个知识点的难度"),
+    "engine_no_forgetting": ("DrawOffer 引擎 + 知识点难度，关闭遗忘", "同上，但能力不随时间回落（对照）"),
     "engine_problem": ("DrawOffer 引擎 + 题目难度（对照）", "用 IRT 在训练集上估出的每道题难度，产品里没有这一步"),
     "irt": ("IRT（Rasch）", "训练集估每道题难度，学生能力随作答在线更新"),
     "pfa": ("PFA", "每个知识点的截距与成功、失败次数系数"),
@@ -109,20 +111,46 @@ KT_NAMES = {
 
 def kt(d: dict[str, Any]) -> str:
     ds = d["dataset"]
-    rows = ["| 模型 | 训练集用来做什么 | AUC | RMSE | log loss | 与引擎的 AUC 差（各折最小–最大） |",
-            "| --- | --- | --- | --- | --- | --- |"]
+    timed = "after_gap" in d["summary"][d["models"][0]]
+    head_cols = "| 模型 | 训练集用来做什么 | AUC | RMSE | log loss | 与引擎的 AUC 差（各折最小–最大） |"
+    rule = "| --- | --- | --- | --- | --- | --- |"
+    if timed:
+        head_cols += " 隔天后 AUC |"
+        rule += " --- |"
+    rows = [head_cols, rule]
     order = sorted(d["models"], key=lambda m: -d["summary"][m]["auc"]["mean"])
     for m in order:
         v = d["summary"][m]
         name, what = KT_NAMES.get(m, (m, ""))
         diff = v.get("auc_minus_engine")
         tail = f"{diff['mean']:+.3f}（{diff['min']:+.3f}–{diff['max']:+.3f}）" if diff else "—"
-        rows.append(f"| {name} | {what} | {v['auc']['mean']:.4f} ± {v['auc']['sd']:.4f} | {v['rmse']['mean']:.4f} | "
-                    f"{v['log_loss']['mean']:.4f} | {tail} |")
-    head = (f"{ds['name']}：{ds['students']} 名学生、{ds['interactions']} 次作答（其中 {ds['multi_skill']} 次挂多个知识点）、"
-            f"{ds['skills']} 个知识点，答对率 {ds['correct_rate'] * 100:.1f}%。按学生 {d['folds']} 折交叉验证（种子 {d['seed']}），"
-            "每个模型只在其余 4 折的学生上拟合，对本折学生的每次作答只用他之前的作答预测。数值为各折的均值 ± 标准差。")
-    return head + "\n\n" + "\n".join(rows)
+        row = (f"| {name} | {what} | {v['auc']['mean']:.4f} ± {v['auc']['sd']:.4f} | {v['rmse']['mean']:.4f} | "
+               f"{v['log_loss']['mean']:.4f} | {tail} |")
+        if timed:
+            row += f" {v['after_gap']['auc']:.4f} |"
+        rows.append(row)
+    head = f"{ds['name']}：{ds['students']} 名学生、{ds['interactions']} 次作答"
+    if ds.get("multi_skill"):
+        head += f"（其中 {ds['multi_skill']} 次挂多个知识点）"
+    head += f"、{ds['skills']} 个知识点，答对率 {ds['correct_rate'] * 100:.1f}%。"
+    if ds.get("sample"):
+        sm = ds["sample"]
+        head += (f"从至少 {sm['min_items']} 次作答的学生中按种子随机抽 {sm['students']} 名，"
+                 f"每人只取最早的 {sm['max_items']} 次。")
+    head += (f"按学生 {d['folds']} 折交叉验证（种子 {d['seed']}），每个模型只在其余折的学生上拟合，"
+             "对本折学生的每次作答只用他之前的作答预测。数值为各折的均值 ± 标准差。")
+    if timed:
+        head += (f"“隔天后”只统计所涉知识点距上次练习都已至少 {ds['gap_days']:g} 天的作答（共 {ds['after_gap']} 次），"
+                 "遗忘模型主要在这些作答上起作用。")
+    out = head + "\n\n" + "\n".join(rows)
+    pf = d["per_fold"]
+    if timed and all("engine_difficulty" in f and "engine_no_forgetting" in f for f in pf):
+        gain = [f["engine_difficulty"]["after_gap"]["auc"] - f["engine_no_forgetting"]["after_gap"]["auc"] for f in pf]
+        whole = [f["engine_difficulty"]["auc"] - f["engine_no_forgetting"]["auc"] for f in pf]
+        out += (f"\n\n遗忘模型（同一引擎打开与关闭遗忘，逐折配对）：隔天后 AUC {statistics.mean(gain):+.4f}"
+                f"（各折 {min(gain):+.4f}–{max(gain):+.4f}，{sum(g > 0 for g in gain)}/{len(gain)} 折为正），"
+                f"全部作答 {statistics.mean(whole):+.4f}（各折 {min(whole):+.4f}–{max(whole):+.4f}）。")
+    return out
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -130,7 +158,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--comparison", type=Path, action="append", default=[])
     parser.add_argument("--stability", type=Path, action="append", default=[])
     parser.add_argument("--performance", type=Path)
-    parser.add_argument("--kt", type=Path)
+    parser.add_argument("--kt", type=Path, action="append", default=[])
     parser.add_argument("--out", type=Path, default=Path("reports/RESULTS.md"))
     args = parser.parse_args(argv)
     parts = ["# 测评结果\n\n由 `python -m dreval.report` 从 `runs/` 下的结果生成，请勿手改。方法与限制见 [README](../README.md)。"]
@@ -138,7 +166,8 @@ def main(argv: list[str] | None = None) -> int:
         d = json.loads(path.read_text(encoding="utf-8"))
         parts.append(f"## 1. 与通用记忆正面对比（{SPLITS.get(d['split'], d['split'])}，{len(d['personas'])} 份剧本）\n\n{comparison(d)}")
     if args.kt:
-        parts.append(f"## 2. 公开知识追踪数据集\n\n{kt(json.loads(args.kt.read_text(encoding='utf-8')))}")
+        sections = [kt(json.loads(path.read_text(encoding="utf-8"))) for path in args.kt]
+        parts.append("## 2. 公开知识追踪数据集\n\n" + "\n\n".join(sections))
     for path in args.stability:
         d = json.loads(path.read_text(encoding="utf-8"))
         parts.append(f"## 3. 稳定性与可追溯性（{SPLITS.get(d['split'], d['split'])}，{d['determinism']['personas']} 份剧本）\n\n{stability(d)}")
